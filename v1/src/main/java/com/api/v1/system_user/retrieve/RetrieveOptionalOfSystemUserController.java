@@ -1,6 +1,7 @@
-package com.api.v1.system_user;
+package com.api.v1.system_user.retrieve;
 
 import com.api.v1.generics.Retrieve;
+import com.api.v1.system_user.SystemUser;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

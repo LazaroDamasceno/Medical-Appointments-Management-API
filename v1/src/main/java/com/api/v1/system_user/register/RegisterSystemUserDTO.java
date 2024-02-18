@@ -1,4 +1,4 @@
-package com.api.v1.system_user;
+package com.api.v1.system_user.register;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
