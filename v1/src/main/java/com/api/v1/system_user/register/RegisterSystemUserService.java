@@ -1,6 +1,7 @@
 package com.api.v1.system_user.register;
 
 import com.api.v1.generics.Register;
+import com.api.v1.system_user.CreateInstanceOfSystemUser;
 import com.api.v1.system_user.SystemUser;
 import com.api.v1.system_user.SystemUserRepository;
 import lombok.AllArgsConstructor;
@@ -16,7 +17,7 @@ public class RegisterSystemUserService implements Register<ResponseEntity<Void>,
 
     @Override
     public ResponseEntity<Void> register(RegisterSystemUserDTO parameter) {
-        SystemUser systemUser = new SystemUser(parameter);
+        SystemUser systemUser = CreateInstanceOfSystemUser.create(parameter);
         repository.save(systemUser);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
