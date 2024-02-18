@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class GetOptionalOfSystemUserService implements Retrieve<Optional<SystemUser>, Long> {
+public class RetrieveOptionalOfSystemUserService implements Retrieve<Optional<SystemUser>, Long> {
 
     private final SystemUserRepository repository;
 
