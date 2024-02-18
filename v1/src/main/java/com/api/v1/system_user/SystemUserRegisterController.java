@@ -1,6 +1,6 @@
 package com.api.v1.system_user;
 
-import com.api.v1.interfaces.Register;
+import com.api.v1.generics.Register;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

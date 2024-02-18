@@ -1,6 +1,6 @@
 package com.api.v1.system_user;
 
-import com.api.v1.interfaces.Retrieve;
+import com.api.v1.generics.Retrieve;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
