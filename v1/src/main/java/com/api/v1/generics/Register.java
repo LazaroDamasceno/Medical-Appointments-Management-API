@@ -2,8 +2,8 @@ package com.api.v1.generics;
 
 import org.springframework.http.ResponseEntity;
 
-public interface Register<ParameterType> {
+public interface Register<DtoType> {
 
-    ResponseEntity<Void> register(ParameterType dto);
+    ResponseEntity<Void> register(DtoType dto);
 
 }
