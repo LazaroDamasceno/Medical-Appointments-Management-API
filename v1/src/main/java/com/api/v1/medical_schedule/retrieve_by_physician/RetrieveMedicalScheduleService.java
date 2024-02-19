@@ -1,4 +1,4 @@
-package com.api.v1.medical_schedule.retrieve;
+package com.api.v1.medical_schedule.retrieve_by_physician;
 
 import com.api.v1.generics.Retrieve;
 import com.api.v1.medical_schedule.MedicalSchedule;
