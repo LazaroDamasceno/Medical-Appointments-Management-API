@@ -1,7 +1,6 @@
-package com.api.v1.system_user.register;
+package com.api.v1.patient.register;
 
 import com.api.v1.generics.Register;
-import com.api.v1.system_user.register.RegisterSystemUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,15 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/v1/system-user")
+@RequestMapping("api/patient")
 @AllArgsConstructor
-public class SystemUserRegisterController  implements Register<RegisterSystemUserDTO> {
+public class RegisterPatientController implements Register<RegisterPatientDTO> {
 
-    private final RegisterSystemUserService service;
+    private final RegisterPatientService service;
 
     @Override
     @PostMapping
-    public ResponseEntity<Void> register(@RequestBody RegisterSystemUserDTO parameter) {
-        return service.register(parameter);
+    public ResponseEntity<Void> register(@RequestBody RegisterPatientDTO dto) {
+        return service.register(dto);
     }
+
 }

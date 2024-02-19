@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class RegisterSystemUserService implements Register<ResponseEntity<Void>, RegisterSystemUserDTO> {
+public class RegisterSystemUserService implements Register<RegisterSystemUserDTO> {
 
     private final SystemUserRepository repository;
 
