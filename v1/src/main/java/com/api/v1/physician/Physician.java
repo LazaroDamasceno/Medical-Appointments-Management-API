@@ -27,6 +27,7 @@ public class Physician {
     @JsonFormat(pattern = "dd/MM/yyyy")
     private final LocalDate inductionDate = LocalDate.now();
 
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate terminationDate;
 
     @OneToOne(cascade = CascadeType.ALL)
