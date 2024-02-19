@@ -24,14 +24,14 @@ public class SystemUser {
     @Column(nullable = false)
     private String fullName;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private BigInteger ssn;
 
     @Column(nullable = false)
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate birthDay;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @Column(nullable = false)
