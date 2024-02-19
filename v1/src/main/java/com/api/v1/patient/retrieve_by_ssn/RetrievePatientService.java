@@ -1,16 +1,14 @@
-package com.api.v1.patient.retrieve;
+package com.api.v1.patient.retrieve_by_ssn;
 
-import com.api.v1.facade.Facade;
 import com.api.v1.generics.Retrieve;
 import com.api.v1.patient.Patient;
 import com.api.v1.patient.PatientRepository;
 import com.api.v1.system_user.SystemUser;
-import com.api.v1.system_user.retrieve.RetrieveOptionalOfSystemUserService;
+import com.api.v1.system_user.retrieve_by_ssn.RetrieveOptionalOfSystemUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.math.BigInteger;
 import java.util.Optional;
 
 @Service

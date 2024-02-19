@@ -1,4 +1,4 @@
-package com.api.v1.system_user.retrieve;
+package com.api.v1.system_user.retrieve_by_ssn;
 
 import com.api.v1.generics.Retrieve;
 import com.api.v1.system_user.SystemUser;
