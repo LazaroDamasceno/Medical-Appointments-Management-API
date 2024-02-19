@@ -1,6 +1,6 @@
 package com.api.v1.medical_schedule.retrieve_all;
 
-import com.api.v1.generics.RetrieveAll;
+import com.api.v1.generics.RetrieveAllWithoutParameters;
 import com.api.v1.medical_schedule.MedicalSchedule;
 import com.api.v1.medical_schedule.MedicalScheduleRepository;
 import lombok.AllArgsConstructor;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class RetrieveAllMedicalSchedulesService implements RetrieveAll<MedicalSchedule> {
+public class RetrieveAllWithoutParametersMedicalSchedulesService implements RetrieveAllWithoutParameters<MedicalSchedule> {
 
     private final MedicalScheduleRepository repository;
 

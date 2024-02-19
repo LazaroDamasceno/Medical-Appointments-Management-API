@@ -4,8 +4,8 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
-public interface RetrieveAll<Type> {
+public interface RetrieveAllWithTwoArguments<T, U, Z> {
 
-    ResponseEntity<List<Type>> retriveAll();
+    ResponseEntity<List<T>> retrieveAll(U u, Z z);
 
 }

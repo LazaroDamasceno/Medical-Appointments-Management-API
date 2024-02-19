@@ -1,7 +1,7 @@
 package com.api.v1.physician.retrieve_by_mln;
 
 import com.api.v1.facade.Facade;
-import com.api.v1.generics.Retrieve;
+import com.api.v1.generics.RetrieveWithOneParameter;
 import com.api.v1.physician.Physician;
 import com.api.v1.physician.PhysicianRepository;
 import lombok.AllArgsConstructor;
@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class RetrievePhysicianService implements Retrieve<ResponseEntity<Physician>, String> {
+public class RetrievePhysicianService implements RetrieveWithOneParameter<ResponseEntity<Physician>, String> {
 
     private final PhysicianRepository repository;
 

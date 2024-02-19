@@ -1,6 +1,6 @@
 package com.api.v1.medical_schedule.retrieve_all;
 
-import com.api.v1.generics.RetrieveAll;
+import com.api.v1.generics.RetrieveAllWithoutParameters;
 import com.api.v1.medical_schedule.MedicalSchedule;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +13,9 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/medical-schedules")
 @AllArgsConstructor
-public class RetrieveAllMedicalSchedulesController implements RetrieveAll<MedicalSchedule> {
+public class RetrieveAllWithoutParametersMedicalSchedulesController implements RetrieveAllWithoutParameters<MedicalSchedule> {
 
-    private final RetrieveAllMedicalSchedulesService service;
+    private final RetrieveAllWithoutParametersMedicalSchedulesService service;
 
     @Override
     @GetMapping

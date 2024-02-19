@@ -1,6 +1,6 @@
 package com.api.v1.system_user.retrieve_by_ssn;
 
-import com.api.v1.generics.Retrieve;
+import com.api.v1.generics.RetrieveWithOneParameter;
 import com.api.v1.system_user.SystemUser;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +13,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("ai/v1/system-user")
 @AllArgsConstructor
-public class RetrieveOptionalOfSystemUserController implements Retrieve<Optional<SystemUser>, String> {
+public class RetrieveOptionalOfSystemUserController implements RetrieveWithOneParameter<Optional<SystemUser>, String> {
 
     private final RetrieveOptionalOfSystemUserService service;
 

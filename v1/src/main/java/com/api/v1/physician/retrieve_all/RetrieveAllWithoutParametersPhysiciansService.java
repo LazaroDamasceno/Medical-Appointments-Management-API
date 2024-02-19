@@ -1,6 +1,6 @@
 package com.api.v1.physician.retrieve_all;
 
-import com.api.v1.generics.RetrieveAll;
+import com.api.v1.generics.RetrieveAllWithoutParameters;
 import com.api.v1.physician.Physician;
 import com.api.v1.physician.PhysicianRepository;
 import lombok.AllArgsConstructor;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class RetrieveAllPhysiciansService implements RetrieveAll<Physician> {
+public class RetrieveAllWithoutParametersPhysiciansService implements RetrieveAllWithoutParameters<Physician> {
 
     private final PhysicianRepository repository;
 

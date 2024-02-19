@@ -1,6 +1,6 @@
 package com.api.v1.system_user.retrieve_all;
 
-import com.api.v1.generics.RetrieveAll;
+import com.api.v1.generics.RetrieveAllWithoutParameters;
 import com.api.v1.system_user.SystemUser;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +13,9 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/system-users")
 @AllArgsConstructor
-public class RetrieveAllSystemUsersController implements RetrieveAll<SystemUser> {
+public class RetrieveAllWithoutParametersSystemUsersController implements RetrieveAllWithoutParameters<SystemUser> {
 
-    private final RetrieveAllSystemUsersService service;
+    private final RetrieveAllWithoutParametersSystemUsersService service;
 
     @Override
     @GetMapping

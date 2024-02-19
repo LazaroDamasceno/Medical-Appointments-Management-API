@@ -1,7 +1,7 @@
 package com.api.v1.physician.register;
 
-import com.api.v1.generics.Register;
-import com.api.v1.medical_schedule.register.RegisterMedicalScheduleService;
+import com.api.v1.generics.RegisterWithOneParameter;
+import com.api.v1.medical_schedule.register.RegisterWithOneParameterMedicalScheduleService;
 import com.api.v1.physician.CreateInstanceOfPhysician;
 import com.api.v1.physician.Physician;
 import com.api.v1.physician.PhysicianRepository;
@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class RegisterPhysicianService implements Register<RegisterPhysicianDTO> {
+public class RegisterWithOneParameterPhysicianService implements RegisterWithOneParameter<RegisterPhysicianDTO> {
 
     private final PhysicianRepository repository;
-    private final RegisterMedicalScheduleService registerMedicalSchedule;
+    private final RegisterWithOneParameterMedicalScheduleService registerMedicalSchedule;
 
     @Override
     public ResponseEntity<Void> register(RegisterPhysicianDTO dto) {

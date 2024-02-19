@@ -1,6 +1,6 @@
 package com.api.v1.system_user.register;
 
-import com.api.v1.generics.Register;
+import com.api.v1.generics.RegisterWithOneParameter;
 import com.api.v1.system_user.CreateInstanceOfSystemUser;
 import com.api.v1.system_user.SystemUser;
 import com.api.v1.system_user.SystemUserRepository;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class RegisterSystemUserService implements Register<RegisterSystemUserDTO> {
+public class RegisterWithOneParameterSystemUserService implements RegisterWithOneParameter<RegisterSystemUserDTO> {
 
     private final SystemUserRepository repository;
 

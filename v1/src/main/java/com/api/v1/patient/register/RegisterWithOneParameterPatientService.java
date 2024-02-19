@@ -1,6 +1,6 @@
 package com.api.v1.patient.register;
 
-import com.api.v1.generics.Register;
+import com.api.v1.generics.RegisterWithOneParameter;
 import com.api.v1.patient.CreateInstanceOfPatient;
 import com.api.v1.patient.Patient;
 import com.api.v1.patient.PatientRepository;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class RegisterPatientService implements Register<RegisterPatientDTO> {
+public class RegisterWithOneParameterPatientService implements RegisterWithOneParameter<RegisterPatientDTO> {
 
     private final PatientRepository repository;
 

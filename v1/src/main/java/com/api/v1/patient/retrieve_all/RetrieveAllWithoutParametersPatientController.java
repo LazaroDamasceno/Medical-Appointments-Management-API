@@ -1,7 +1,7 @@
-package com.api.v1.physician.retrieve_all;
+package com.api.v1.patient.retrieve_all;
 
-import com.api.v1.generics.RetrieveAll;
-import com.api.v1.physician.Physician;
+import com.api.v1.generics.RetrieveAllWithoutParameters;
+import com.api.v1.patient.Patient;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,15 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/physicians")
+@RequestMapping("api/v1/patients")
 @AllArgsConstructor
-public class RetrieveAllPhysiciansController implements RetrieveAll<Physician> {
+public class RetrieveAllWithoutParametersPatientController implements RetrieveAllWithoutParameters<Patient> {
 
-    private final RetrieveAllPhysiciansService service;
+    private final RetrieveAllWithoutParametersPatientsService service;
 
     @Override
     @GetMapping
-    public ResponseEntity<List<Physician>> retriveAll() {
+    public ResponseEntity<List<Patient>> retriveAll() {
         return service.retriveAll();
     }
+
 }

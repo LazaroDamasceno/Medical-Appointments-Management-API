@@ -1,6 +1,6 @@
 package com.api.v1.patient.retrieve_by_ssn;
 
-import com.api.v1.generics.Retrieve;
+import com.api.v1.generics.RetrieveWithOneParameter;
 import com.api.v1.patient.Patient;
 import com.api.v1.patient.PatientRepository;
 import com.api.v1.system_user.SystemUser;
@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class RetrievePatientService implements Retrieve<ResponseEntity<Patient>, String> {
+public class RetrievePatientService implements RetrieveWithOneParameter<ResponseEntity<Patient>, String> {
 
     private final PatientRepository repository;
     private final RetrieveOptionalOfSystemUserService retrieveOptionalOfSystemUser;
