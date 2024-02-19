@@ -1,6 +1,6 @@
 package com.api.v1.physician.retrieve_by_mln;
 
-import com.api.v1.generics.RetrieveWithOneParameter;
+import com.api.v1.generic_interfaces.RetrieveWithOneParameter;
 import com.api.v1.physician.Physician;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

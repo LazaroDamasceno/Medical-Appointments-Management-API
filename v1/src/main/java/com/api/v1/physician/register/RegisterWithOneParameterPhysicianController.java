@@ -1,6 +1,6 @@
 package com.api.v1.physician.register;
 
-import com.api.v1.generics.RegisterWithOneParameter;
+import com.api.v1.generic_interfaces.RegisterWithOneParameter;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -1,4 +1,4 @@
-package com.api.v1.generics;
+package com.api.v1.generic_interfaces;
 
 public interface RetrieveWithOneParameter<Type, ParameterType> {
 
