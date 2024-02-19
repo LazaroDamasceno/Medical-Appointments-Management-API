@@ -13,13 +13,13 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class RetrievePatientService implements Retrieve<ResponseEntity<Patient>, Long> {
+public class RetrievePatientService implements Retrieve<ResponseEntity<Patient>, String> {
 
     private final PatientRepository repository;
     private final RetrieveOptionalOfSystemUserService retrieveOptionalOfSystemUser;
 
     @Override
-    public ResponseEntity<Patient> retrieve(Long ssn) {
+    public ResponseEntity<Patient> retrieve(String ssn) {
         Optional<SystemUser> systemUserOptional = retrieveOptionalOfSystemUser.retrieve(ssn);
         if (systemUserOptional.isEmpty()) return ResponseEntity.badRequest().build();
         SystemUser systemUser = systemUserOptional.get();

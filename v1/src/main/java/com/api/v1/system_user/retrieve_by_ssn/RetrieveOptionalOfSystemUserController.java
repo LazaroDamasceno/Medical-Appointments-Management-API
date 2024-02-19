@@ -13,13 +13,13 @@ import java.util.Optional;
 @RestController
 @RequestMapping("ai/v1/system-user")
 @AllArgsConstructor
-public class RetrieveOptionalOfSystemUserController implements Retrieve<Optional<SystemUser>, Long> {
+public class RetrieveOptionalOfSystemUserController implements Retrieve<Optional<SystemUser>, String> {
 
     private final RetrieveOptionalOfSystemUserService service;
 
     @Override
     @GetMapping("{ssn}")
-    public Optional<SystemUser> retrieve(@PathVariable Long ssn) {
+    public Optional<SystemUser> retrieve(@PathVariable String ssn) {
         return service.retrieve(ssn);
     }
 

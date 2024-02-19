@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/v1/patient")
-public class RetrievePatientController implements Retrieve<ResponseEntity<Patient>, Long> {
+public class RetrievePatientController implements Retrieve<ResponseEntity<Patient>, String> {
 
     private final RetrievePatientService service;
 
     @Override
     @GetMapping("{ssn}")
-    public ResponseEntity<Patient> retrieve(@PathVariable Long ssn) {
+    public ResponseEntity<Patient> retrieve(@PathVariable String ssn) {
         return service.retrieve(ssn);
     }
 

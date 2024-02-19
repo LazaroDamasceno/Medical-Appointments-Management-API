@@ -1,5 +1,6 @@
 package com.api.v1.system_user.retrieve_by_ssn;
 
+import com.api.v1.facade.Facade;
 import com.api.v1.generics.Retrieve;
 import com.api.v1.system_user.SystemUser;
 import com.api.v1.system_user.SystemUserRepository;
@@ -11,12 +12,12 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class RetrieveOptionalOfSystemUserService implements Retrieve<Optional<SystemUser>, Long> {
+public class RetrieveOptionalOfSystemUserService implements Retrieve<Optional<SystemUser>, String> {
 
     private final SystemUserRepository repository;
 
-    public Optional<SystemUser> retrieve(Long parameter) {
-        BigInteger bigInteger = BigInteger.valueOf(parameter);
+    public Optional<SystemUser> retrieve(String ssn) {
+        BigInteger bigInteger = Facade.turnToBigInteger(ssn);
         return repository.findBySsn(bigInteger);
     }
 
