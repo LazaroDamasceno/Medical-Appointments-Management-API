@@ -1,7 +1,7 @@
-package com.api.v1.physician.retrieve_mln;
+package com.api.v1.medical_schedule.retrieve;
 
 import com.api.v1.generics.Retrieve;
-import com.api.v1.physician.Physician;
+import com.api.v1.medical_schedule.MedicalSchedule;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/v1/physicin")
+@RequestMapping("api/v1/medical-schedule")
 @AllArgsConstructor
-public class RetrievePhysicianController implements Retrieve<ResponseEntity<Physician>, Long> {
+public class RetrieveMedicalScheduleController implements Retrieve<ResponseEntity<MedicalSchedule>, Long> {
 
-    private final RetrievePhysicianService service;
+    private final RetrieveMedicalScheduleService service;
 
     @Override
     @GetMapping("{mln}")
-    public ResponseEntity<Physician> retrieve(@PathVariable Long mln) {
+    public ResponseEntity<MedicalSchedule> retrieve(@PathVariable Long mln) {
         return service.retrieve(mln);
     }
 }

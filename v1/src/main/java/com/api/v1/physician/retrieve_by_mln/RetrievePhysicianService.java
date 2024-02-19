@@ -1,4 +1,4 @@
-package com.api.v1.physician.retrieve_mln;
+package com.api.v1.physician.retrieve_by_mln;
 
 import com.api.v1.generics.Retrieve;
 import com.api.v1.physician.Physician;
