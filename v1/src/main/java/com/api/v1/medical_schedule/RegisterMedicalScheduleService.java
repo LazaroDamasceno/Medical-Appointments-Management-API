@@ -12,7 +12,7 @@ public class RegisterMedicalScheduleService {
     private final PhysicianRepository physicianRepository;
 
     public void register(Physician physician) {
-        MedicalSchedule medicalSchedule = CreateInstanceOfMedicalSchedule.create(physician);
+        MedicalSchedule medicalSchedule = new MedicalSchedule(physician);
         physician.setMedicalSchedule(medicalSchedule);
         physicianRepository.save(physician);
     }
