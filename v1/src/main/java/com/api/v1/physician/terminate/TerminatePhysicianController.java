@@ -16,8 +16,8 @@ public class TerminatePhysicianController implements Terminate {
     private final TerminatePhysicianService service;
 
     @Override
-    @PatchMapping("{registrationNumber}")
-    public ResponseEntity<Void> terminate(@PathVariable String registrationNumber) {
-        return service.terminate(registrationNumber);
+    @PatchMapping("{mln}")
+    public ResponseEntity<Void> terminate(@PathVariable String mln) {
+        return service.terminate(mln);
     }
 }

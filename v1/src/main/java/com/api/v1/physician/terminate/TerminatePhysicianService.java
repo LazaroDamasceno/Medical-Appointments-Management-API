@@ -1,5 +1,6 @@
 package com.api.v1.physician.terminate;
 
+import com.api.v1.facade.Facade;
 import com.api.v1.generic_interfaces.terminate.Terminate;
 import com.api.v1.physician.Physician;
 import com.api.v1.physician.PhysicianRepository;
@@ -18,9 +19,8 @@ public class TerminatePhysicianService implements Terminate {
     private final PhysicianRepository repository;
 
     @Override
-    public ResponseEntity<Void> terminate(String registrationNumber) {
-        BigInteger mln = new BigInteger(registrationNumber);
-        Optional<Physician> optional = repository.findByMln(mln);
+    public ResponseEntity<Void> terminate(String mln) {
+        Optional<Physician> optional = repository.findByMln(Facade.turnToBigInteger(mln));
         if (optional.isEmpty()) return ResponseEntity.badRequest().build();
         Physician physician = optional.get();
         physician.setTerminationDate(LocalDate.now());
