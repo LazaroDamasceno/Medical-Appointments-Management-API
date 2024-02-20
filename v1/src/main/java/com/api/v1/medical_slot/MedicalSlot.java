@@ -1,7 +1,7 @@
 package com.api.v1.medical_slot;
 
+import com.api.v1.convert_to_datetime.ConvertoToDateTime;
 import com.api.v1.date_time_dto.DateTimeDTO;
-import com.api.v1.facade.Facade;
 import com.api.v1.physician.Physician;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
@@ -28,7 +28,7 @@ public class MedicalSlot {
 
     MedicalSlot(Physician physician, DateTimeDTO dto) {
         this.physician = physician;
-        this.availableDateTime = Facade.convertStringToDateTime(dto.dateTime());
+        this.availableDateTime = ConvertoToDateTime.convertStringToDateTime(dto.dateTime());
     }
 
     protected MedicalSlot() {
