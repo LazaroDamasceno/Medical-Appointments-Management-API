@@ -5,7 +5,7 @@ import com.api.v1.medical_schedule.CreateInstanceOfMedicalSchedule;
 import com.api.v1.medical_schedule.MedicalSchedule;
 import com.api.v1.medical_schedule.MedicalScheduleRepository;
 import com.api.v1.physician.Physician;
-Fixeimport com.api.v1.physician.PhysicianRepository;
+import com.api.v1.physician.PhysicianRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
