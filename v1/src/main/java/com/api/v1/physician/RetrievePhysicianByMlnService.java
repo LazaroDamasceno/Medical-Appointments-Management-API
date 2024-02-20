@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class RetrievePhysicianService {
+public class RetrievePhysicianByMlnService {
 
     private final PhysicianRepository repository;
 
