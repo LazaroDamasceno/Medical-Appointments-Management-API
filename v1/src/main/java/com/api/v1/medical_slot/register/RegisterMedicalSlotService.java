@@ -1,6 +1,7 @@
 package com.api.v1.medical_slot.register;
 
 import com.api.v1.generic_interfaces.register.with_response_entity.RegisterWithTwoParameters;
+import com.api.v1.medical_schedule.insert_medical_slot_in_medical_schedule.InsertMedicalSlotInMedicalScheduleService;
 import com.api.v1.medical_slot.CreateInstanceOfMedicalSlot;
 import com.api.v1.date_time_dto.DateTimeDTO;
 import com.api.v1.medical_slot.MedicalSlot;
@@ -21,6 +22,7 @@ public class RegisterMedicalSlotService implements RegisterWithTwoParameters<Str
 
     private final MedicalSlotRepository medicalSlotRepository;
     private final PhysicianRepository physicianRepository;
+    private final InsertMedicalSlotInMedicalScheduleService insertMedicalSlotInMedicalSchedule;
 
     @Override
     public ResponseEntity<Void> register(String mln, DateTimeDTO dateTimeDTO) {
@@ -28,6 +30,7 @@ public class RegisterMedicalSlotService implements RegisterWithTwoParameters<Str
         if (physician.isEmpty()) return ResponseEntity.badRequest().build();
         MedicalSlot medicalSlot = CreateInstanceOfMedicalSlot.create(physician.get(), dateTimeDTO);
         medicalSlotRepository.save(medicalSlot);
+        insertMedicalSlotInMedicalSchedule.register(mln, dateTimeDTO);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

@@ -1,4 +1,4 @@
-package com.api.v1.medical_slot.retrieve_by_date_and_mln;
+package com.api.v1.medical_slot.retrieve_by_date_and_physician;
 
 import com.api.v1.facade.Facade;
 import com.api.v1.generic_interfaces.retrieve.RetrieveWithTwoParameters;
