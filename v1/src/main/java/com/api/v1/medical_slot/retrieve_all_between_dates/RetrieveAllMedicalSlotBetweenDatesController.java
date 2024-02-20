@@ -20,8 +20,7 @@ public class RetrieveAllMedicalSlotBetweenDatesController implements RetrieveAll
     private final RetrieveAllMedicalSlotBetweenDatesService service;
 
     @Override
-    public ResponseEntity<List<MedicalSlot>> retrieveAll(@PathVariable String mln,
-                                                         @RequestBody BetweenDatesDTO dto) {
+    public ResponseEntity<List<MedicalSlot>> retrieveAll(@PathVariable String mln, @RequestBody BetweenDatesDTO dto) {
         return service.retrieveAll(mln, dto);
     }
 }

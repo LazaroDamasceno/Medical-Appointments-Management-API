@@ -12,14 +12,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class RegisterWithOneParameterMedicalScheduleService implements RegisterWithOneParameter<Physician> {
+public class RegisterWithOneParameterMedicalScheduleService {
 
     private final MedicalScheduleRepository repository;
 
-    @Override
-    public ResponseEntity<Void> register(Physician physician) {
+    public void register(Physician physician) {
         MedicalSchedule medicalSchedule = CreateInstanceOfMedicalSchedule.create(physician);
         repository.save(medicalSchedule);
-        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
