@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class RegisterWithOneParameterMedicalScheduleService implements RegisterWithVoid<Physician> {
+public class RegisterMedicalScheduleService implements RegisterWithVoid<Physician> {
 
     private final MedicalScheduleRepository repository;
     private final PhysicianRepository physicianRepository;

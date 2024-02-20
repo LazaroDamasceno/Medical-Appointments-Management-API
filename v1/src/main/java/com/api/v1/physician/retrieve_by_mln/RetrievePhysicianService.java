@@ -21,8 +21,6 @@ public class RetrievePhysicianService implements RetrieveWithOneParameter<Respon
     public ResponseEntity<Physician> retrieve(String mln) {
         BigInteger bi_mln = Facade.turnToBigInteger(mln);
         Optional<Physician> optional = repository.findByMln(bi_mln);
-        return optional
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.badRequest().build());
+        return optional.isPresent() ? ResponseEntity.ok(optional.get()) : ResponseEntity.badRequest().build();
     }
 }

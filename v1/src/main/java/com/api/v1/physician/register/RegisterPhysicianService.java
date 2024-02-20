@@ -1,7 +1,7 @@
 package com.api.v1.physician.register;
 
 import com.api.v1.generic_interfaces.register.with_response_entity.RegisterWithOneParameter;
-import com.api.v1.medical_schedule.register.RegisterWithOneParameterMedicalScheduleService;
+import com.api.v1.medical_schedule.register.RegisterMedicalScheduleService;
 import com.api.v1.physician.CreateInstanceOfPhysician;
 import com.api.v1.physician.Physician;
 import com.api.v1.physician.PhysicianRepository;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class RegisterPhysicianService implements RegisterWithOneParameter<RegisterPhysicianDTO> {
 
     private final PhysicianRepository repository;
-    private final RegisterWithOneParameterMedicalScheduleService registerMedicalSchedule;
+    private final RegisterMedicalScheduleService registerMedicalSchedule;
 
     @Override
     public ResponseEntity<Void> register(RegisterPhysicianDTO dto) {
