@@ -12,8 +12,7 @@ public class RegisterPatientService {
     private final PatientRepository repository;
 
     public ResponseEntity<Void> register(RegisterPatientDTO dto) {
-        Patient patient = CreateInstanceOfPatient.create(dto);
-        if (patient == null) return ResponseEntity.badRequest().build();
+        Patient patient = new Patient(dto);
         repository.save(patient);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
