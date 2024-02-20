@@ -1,6 +1,6 @@
 package com.api.v1.medical_slot.register;
 
-import com.api.v1.generic_interfaces.register.RegisterWithTwoParameters;
+import com.api.v1.generic_interfaces.register.with_response_entity.RegisterWithTwoParameters;
 import com.api.v1.date_time_dto.DateTimeDTO;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

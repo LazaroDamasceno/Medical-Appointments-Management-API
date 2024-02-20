@@ -1,18 +1,16 @@
 package com.api.v1.medical_schedule.register;
 
-import com.api.v1.generic_interfaces.register.RegisterWithOneParameter;
+import com.api.v1.generic_interfaces.register.with_void.RegisterWithVoid;
 import com.api.v1.medical_schedule.CreateInstanceOfMedicalSchedule;
 import com.api.v1.medical_schedule.MedicalSchedule;
 import com.api.v1.medical_schedule.MedicalScheduleRepository;
 import com.api.v1.physician.Physician;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class RegisterWithOneParameterMedicalScheduleService {
+public class RegisterWithOneParameterMedicalScheduleService implements RegisterWithVoid<Physician> {
 
     private final MedicalScheduleRepository repository;
 

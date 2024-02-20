@@ -1,6 +1,6 @@
 package com.api.v1.patient.register;
 
-import com.api.v1.generic_interfaces.register.RegisterWithOneParameter;
+import com.api.v1.generic_interfaces.register.with_response_entity.RegisterWithOneParameter;
 import com.api.v1.patient.CreateInstanceOfPatient;
 import com.api.v1.patient.Patient;
 import com.api.v1.patient.PatientRepository;
