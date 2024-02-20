@@ -1,6 +1,5 @@
 package com.api.v1.medical_schedule.retrieve_by_physician;
 
-import com.api.v1.generic_interfaces.retrieve.RetrieveWithOneParameter;
 import com.api.v1.medical_schedule.MedicalSchedule;
 import com.api.v1.medical_schedule.MedicalScheduleRepository;
 import com.api.v1.physician.Physician;
@@ -14,12 +13,11 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class RetrieveMedicalScheduleService implements RetrieveWithOneParameter<ResponseEntity<MedicalSchedule>, Long> {
+public class RetrieveMedicalScheduleService {
 
     private final MedicalScheduleRepository medicalScheduleRepository;
     private final PhysicianRepository physicianRepository;
 
-    @Override
     public ResponseEntity<MedicalSchedule> retrieve(Long mln) {
         Optional<Physician> physician = physicianRepository.findByMln(BigInteger.valueOf(mln));
         if (physician.isEmpty()) return ResponseEntity.badRequest().build();

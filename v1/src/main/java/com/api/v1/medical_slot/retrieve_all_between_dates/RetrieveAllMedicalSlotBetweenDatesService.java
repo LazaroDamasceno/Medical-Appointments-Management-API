@@ -2,7 +2,6 @@ package com.api.v1.medical_slot.retrieve_all_between_dates;
 
 import com.api.v1.date_time_dto.BetweenDatesDTO;
 import com.api.v1.facade.Facade;
-import com.api.v1.generic_interfaces.retrieve_all.RetrieveAllWithTwoParameters;
 import com.api.v1.medical_slot.MedicalSlot;
 import com.api.v1.medical_slot.MedicalSlotRepository;
 import com.api.v1.physician.Physician;
@@ -18,17 +17,15 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class RetrieveAllMedicalSlotBetweenDatesService implements RetrieveAllWithTwoParameters<MedicalSlot, String, BetweenDatesDTO> {
+public class RetrieveAllMedicalSlotBetweenDatesService {
 
     private final MedicalSlotRepository repository;
     private final PhysicianRepository physicianRepository;
 
-    @Override
     public ResponseEntity<List<MedicalSlot>> retrieveAll(String mln, BetweenDatesDTO dto) {
-        BigInteger bi_mln = Facade.turnToBigInteger(mln);
         LocalDateTime fdt = Facade.convertStringToDateTime(dto.firstDateTime());
         LocalDateTime ldt = Facade.convertStringToDateTime(dto.lastDateTime());
-        Optional<Physician> physicianOptional = physicianRepository.findByMln(bi_mln);
+        Optional<Physician> physicianOptional = physicianRepository.findByMln(new BigInteger(mln));
         if (physicianOptional.isEmpty()) return ResponseEntity.badRequest().build();
         Physician physician = physicianOptional.get();
         return ResponseEntity.ok(

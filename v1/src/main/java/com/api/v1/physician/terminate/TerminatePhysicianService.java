@@ -1,7 +1,5 @@
 package com.api.v1.physician.terminate;
 
-import com.api.v1.facade.Facade;
-import com.api.v1.generic_interfaces.terminate.Terminate;
 import com.api.v1.physician.Physician;
 import com.api.v1.physician.PhysicianRepository;
 import lombok.AllArgsConstructor;
@@ -14,13 +12,12 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class TerminatePhysicianService implements Terminate {
+public class TerminatePhysicianService {
 
     private final PhysicianRepository repository;
 
-    @Override
     public ResponseEntity<Void> terminate(String mln) {
-        Optional<Physician> optional = repository.findByMln(Facade.turnToBigInteger(mln));
+        Optional<Physician> optional = repository.findByMln(new BigInteger(mln));
         if (optional.isEmpty()) return ResponseEntity.badRequest().build();
         Physician physician = optional.get();
         physician.setTerminationDate(LocalDate.now());

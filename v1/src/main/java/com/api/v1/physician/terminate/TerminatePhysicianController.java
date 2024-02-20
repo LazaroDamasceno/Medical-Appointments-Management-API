@@ -1,6 +1,5 @@
 package com.api.v1.physician.terminate;
 
-import com.api.v1.generic_interfaces.terminate.Terminate;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -11,11 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("api/v1/physician")
 @AllArgsConstructor
-public class TerminatePhysicianController implements Terminate {
+public class TerminatePhysicianController {
 
     private final TerminatePhysicianService service;
 
-    @Override
     @PatchMapping("{mln}")
     public ResponseEntity<Void> terminate(@PathVariable String mln) {
         return service.terminate(mln);

@@ -1,7 +1,6 @@
 package com.api.v1.medical_slot.retrieve_by_date_and_physician;
 
 import com.api.v1.facade.Facade;
-import com.api.v1.generic_interfaces.retrieve.RetrieveWithTwoParameters;
 import com.api.v1.date_time_dto.DateTimeDTO;
 import com.api.v1.medical_slot.MedicalSlot;
 import com.api.v1.medical_slot.MedicalSlotRepository;
@@ -17,12 +16,11 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class RetrieveMedicalSlotByDateAndPhysicianService implements RetrieveWithTwoParameters<MedicalSlot, String, DateTimeDTO> {
+public class RetrieveMedicalSlotByDateAndPhysicianService {
 
     private final MedicalSlotRepository medicalSlotRepository;
     private final PhysicianRepository physicianRepository;
 
-    @Override
     public ResponseEntity<MedicalSlot> retrieve(String mln, DateTimeDTO dateTimeDTO) {
         Optional<Physician> physicianOptional = physicianRepository.findByMln(new BigInteger(mln));
         if (physicianOptional.isEmpty()) return ResponseEntity.badRequest().build();

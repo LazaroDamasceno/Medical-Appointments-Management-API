@@ -1,6 +1,5 @@
 package com.api.v1.medical_slot.retrieve_all;
 
-import com.api.v1.generic_interfaces.retrieve_all.RetrieveAllWithoutParameters;
 import com.api.v1.medical_slot.MedicalSlot;
 import com.api.v1.medical_slot.MedicalSlotRepository;
 import lombok.AllArgsConstructor;
@@ -11,11 +10,10 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class RetrieveAllMedicalShotsService implements RetrieveAllWithoutParameters<MedicalSlot> {
+public class RetrieveAllMedicalShotsService {
 
     private final MedicalSlotRepository repository;
 
-    @Override
     public ResponseEntity<List<MedicalSlot>> retriveAll() {
         return ResponseEntity.ok(repository.findAll());
     }

@@ -38,10 +38,10 @@ public class SystemUser {
 
     SystemUser(RegisterSystemUserDTO dto) {
         this.fullName = dto.fullName();
-        this.ssn = Facade.turnToBigInteger(dto.ssn());
+        this.ssn = new BigInteger(dto.ssn());
         this.birthDay = Facade.convertStringToDate(dto.birthDay());
         this.email = dto.email();
-        this.phoneNumber = Facade.turnToBigInteger(dto.phoneNumber());
+        this.phoneNumber = new BigInteger(dto.phoneNumber());
     }
 
     protected SystemUser() {

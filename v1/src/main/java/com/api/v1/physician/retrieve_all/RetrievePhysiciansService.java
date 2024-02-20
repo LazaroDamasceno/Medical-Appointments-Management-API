@@ -1,6 +1,5 @@
 package com.api.v1.physician.retrieve_all;
 
-import com.api.v1.generic_interfaces.retrieve_all.RetrieveAllWithoutParameters;
 import com.api.v1.physician.Physician;
 import com.api.v1.physician.PhysicianRepository;
 import lombok.AllArgsConstructor;
@@ -11,11 +10,10 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class RetrievePhysiciansService implements RetrieveAllWithoutParameters<Physician> {
+public class RetrievePhysiciansService {
 
     private final PhysicianRepository repository;
 
-    @Override
     public ResponseEntity<List<Physician>> retriveAll() {
         return ResponseEntity.ok(repository.findAll());
     }

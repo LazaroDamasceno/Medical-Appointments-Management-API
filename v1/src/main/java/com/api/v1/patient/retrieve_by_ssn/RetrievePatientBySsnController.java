@@ -1,6 +1,5 @@
 package com.api.v1.patient.retrieve_by_ssn;
 
-import com.api.v1.generic_interfaces.retrieve.RetrieveWithOneParameter;
 import com.api.v1.patient.Patient;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -12,11 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/v1/patient")
-public class RetrievePatientBySsnController implements RetrieveWithOneParameter<ResponseEntity<Patient>, String> {
+public class RetrievePatientBySsnController {
 
     private final RetrievePatientBySsnService service;
 
-    @Override
     @GetMapping("{ssn}")
     public ResponseEntity<Patient> retrieve(@PathVariable String ssn) {
         return service.retrieve(ssn);

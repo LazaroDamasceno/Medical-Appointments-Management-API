@@ -1,7 +1,6 @@
 package com.api.v1.medical_schedule;
 
 import com.api.v1.medical_slot.MedicalSlot;
-import com.api.v1.patient.Patient;
 import com.api.v1.physician.Physician;
 import jakarta.persistence.*;
 import lombok.Data;

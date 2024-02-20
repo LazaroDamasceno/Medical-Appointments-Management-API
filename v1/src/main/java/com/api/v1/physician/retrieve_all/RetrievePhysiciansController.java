@@ -1,6 +1,5 @@
 package com.api.v1.physician.retrieve_all;
 
-import com.api.v1.generic_interfaces.retrieve_all.RetrieveAllWithoutParameters;
 import com.api.v1.physician.Physician;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -13,11 +12,10 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/physicians")
 @AllArgsConstructor
-public class RetrievePhysiciansController implements RetrieveAllWithoutParameters<Physician> {
+public class RetrievePhysiciansController {
 
     private final RetrievePhysiciansService service;
 
-    @Override
     @GetMapping
     public ResponseEntity<List<Physician>> retriveAll() {
         return service.retriveAll();
