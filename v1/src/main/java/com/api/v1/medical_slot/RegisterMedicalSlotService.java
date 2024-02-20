@@ -24,6 +24,7 @@ public class RegisterMedicalSlotService {
         Optional<Physician> physician = physicianRepository.findByMln(new BigInteger(mln));
         if (physician.isEmpty()) return ResponseEntity.badRequest().build();
         MedicalSlot medicalSlot = CreateInstanceOfMedicalSlot.create(physician.get(), dateTimeDTO);
+        if (medicalSlot == null) return ResponseEntity.badRequest().build();
         medicalSlotRepository.save(medicalSlot);
         insertMedicalSlotInMedicalSchedule.register(mln, dateTimeDTO);
         return new ResponseEntity<>(HttpStatus.CREATED);

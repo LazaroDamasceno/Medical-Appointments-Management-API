@@ -1,7 +1,5 @@
 package com.api.v1.patient;
 
-import com.api.v1.patient.Patient;
-import com.api.v1.patient.PatientRepository;
 import com.api.v1.system_user.SystemUser;
 import com.api.v1.system_user.SystemUserRepository;
 import lombok.AllArgsConstructor;
@@ -19,9 +17,7 @@ public class RetrievePatientBySsnService {
     private final SystemUserRepository systemUserRepository;
 
     public ResponseEntity<Patient> retrieve(String ssn) {
-        Optional<SystemUser> systemUserOptional = systemUserRepository.findBySsn(new BigInteger(ssn));
-        if (systemUserOptional.isEmpty()) return ResponseEntity.badRequest().build();
-        SystemUser systemUser = systemUserOptional.get();
+        SystemUser systemUser = systemUserRepository.getBySsn(new BigInteger(ssn));
         Optional<Patient> patient = repository.findBySystemUser(systemUser);
         return patient
                 .map(ResponseEntity::ok)

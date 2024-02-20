@@ -15,6 +15,7 @@ public class RegisterPhysicianService {
 
     public ResponseEntity<Void> register(RegisterPhysicianDTO dto) {
         Physician physician = CreateInstanceOfPhysician.create(dto);
+        if (physician == null) return ResponseEntity.badRequest().build();
         repository.save(physician);
         registerMedicalSchedule.register(physician);
         return new ResponseEntity<>(HttpStatus.CREATED);

@@ -13,6 +13,7 @@ public class RegisterPatientService {
 
     public ResponseEntity<Void> register(RegisterPatientDTO dto) {
         Patient patient = CreateInstanceOfPatient.create(dto);
+        if (patient == null) return ResponseEntity.badRequest().build();
         repository.save(patient);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

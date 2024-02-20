@@ -1,7 +1,5 @@
 package com.api.v1.medical_slot;
 
-import com.api.v1.medical_slot.MedicalSlot;
-import com.api.v1.medical_slot.MedicalSlotRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

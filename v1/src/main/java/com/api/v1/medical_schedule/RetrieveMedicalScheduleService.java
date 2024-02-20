@@ -1,7 +1,5 @@
 package com.api.v1.medical_schedule;
 
-import com.api.v1.medical_schedule.MedicalSchedule;
-import com.api.v1.medical_schedule.MedicalScheduleRepository;
 import com.api.v1.physician.Physician;
 import com.api.v1.physician.PhysicianRepository;
 import lombok.AllArgsConstructor;

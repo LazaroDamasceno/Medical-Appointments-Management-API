@@ -1,7 +1,5 @@
 package com.api.v1.medical_slot;
 
-import com.api.v1.medical_slot.MedicalSlot;
-import com.api.v1.medical_slot.MedicalSlotRepository;
 import com.api.v1.physician.Physician;
 import com.api.v1.physician.PhysicianRepository;
 import lombok.AllArgsConstructor;
