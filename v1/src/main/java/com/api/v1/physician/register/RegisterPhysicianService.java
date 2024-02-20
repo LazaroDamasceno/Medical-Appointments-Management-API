@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class RegisterWithOneParameterPhysicianService implements RegisterWithOneParameter<RegisterPhysicianDTO> {
+public class RegisterPhysicianService implements RegisterWithOneParameter<RegisterPhysicianDTO> {
 
     private final PhysicianRepository repository;
     private final RegisterWithOneParameterMedicalScheduleService registerMedicalSchedule;

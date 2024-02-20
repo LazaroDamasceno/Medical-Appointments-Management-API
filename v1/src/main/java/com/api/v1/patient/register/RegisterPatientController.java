@@ -1,4 +1,4 @@
-package com.api.v1.physician.register;
+package com.api.v1.patient.register;
 
 import com.api.v1.generic_interfaces.register.with_response_entity.RegisterWithOneParameter;
 import lombok.AllArgsConstructor;
@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/v1/physician")
+@RequestMapping("api/patient")
 @AllArgsConstructor
-public class RegisterWithOneParameterPhysicianController implements RegisterWithOneParameter<RegisterPhysicianDTO> {
+public class RegisterPatientController implements RegisterWithOneParameter<RegisterPatientDTO> {
 
-    private final RegisterWithOneParameterPhysicianService service;
+    private final RegisterPatientService service;
 
     @Override
     @PostMapping
-    public ResponseEntity<Void> register(@RequestBody RegisterPhysicianDTO dto) {
+    public ResponseEntity<Void> register(@RequestBody RegisterPatientDTO dto) {
         return service.register(dto);
     }
 

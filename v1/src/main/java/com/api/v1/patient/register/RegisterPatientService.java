@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class RegisterWithOneParameterPatientService implements RegisterWithOneParameter<RegisterPatientDTO> {
+public class RegisterPatientService implements RegisterWithOneParameter<RegisterPatientDTO> {
 
     private final PatientRepository repository;
 
