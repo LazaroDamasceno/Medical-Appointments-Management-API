@@ -1,6 +1,6 @@
 package com.api.v1.patient.retrieve_all;
 
-import com.api.v1.generic_interfaces.RetrieveAllWithoutParameters;
+import com.api.v1.generic_interfaces.retrieve_all.RetrieveAllWithoutParameters;
 import com.api.v1.patient.Patient;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

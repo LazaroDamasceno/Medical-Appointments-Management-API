@@ -1,6 +1,6 @@
 package com.api.v1.patient.retrieve_by_ssn;
 
-import com.api.v1.generic_interfaces.RetrieveWithOneParameter;
+import com.api.v1.generic_interfaces.retrieve.RetrieveWithOneParameter;
 import com.api.v1.patient.Patient;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

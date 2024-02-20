@@ -1,6 +1,6 @@
 package com.api.v1.medical_schedule.register;
 
-import com.api.v1.generic_interfaces.RegisterWithOneParameter;
+import com.api.v1.generic_interfaces.register.RegisterWithOneParameter;
 import com.api.v1.medical_schedule.CreateInstanceOfMedicalSchedule;
 import com.api.v1.medical_schedule.MedicalSchedule;
 import com.api.v1.medical_schedule.MedicalScheduleRepository;

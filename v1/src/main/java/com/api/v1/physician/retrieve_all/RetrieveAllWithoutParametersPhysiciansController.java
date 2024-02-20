@@ -1,6 +1,6 @@
 package com.api.v1.physician.retrieve_all;
 
-import com.api.v1.generic_interfaces.RetrieveAllWithoutParameters;
+import com.api.v1.generic_interfaces.retrieve_all.RetrieveAllWithoutParameters;
 import com.api.v1.physician.Physician;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;

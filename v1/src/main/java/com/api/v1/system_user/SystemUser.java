@@ -1,7 +1,6 @@
 package com.api.v1.system_user;
 
 import com.api.v1.facade.Facade;
-import com.api.v1.system_user.register.RegisterSystemUserDTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

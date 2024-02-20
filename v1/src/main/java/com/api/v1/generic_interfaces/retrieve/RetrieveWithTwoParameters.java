@@ -1,4 +1,4 @@
-package com.api.v1.generic_interfaces;
+package com.api.v1.generic_interfaces.retrieve;
 
 import org.springframework.http.ResponseEntity;
 

@@ -1,6 +1,6 @@
 package com.api.v1.physician.terminate;
 
-import com.api.v1.generic_interfaces.Terminate;
+import com.api.v1.generic_interfaces.terminate.Terminate;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PatchMapping;

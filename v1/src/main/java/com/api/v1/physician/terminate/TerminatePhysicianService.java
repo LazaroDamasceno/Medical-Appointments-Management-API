@@ -1,6 +1,6 @@
 package com.api.v1.physician.terminate;
 
-import com.api.v1.generic_interfaces.Terminate;
+import com.api.v1.generic_interfaces.terminate.Terminate;
 import com.api.v1.physician.Physician;
 import com.api.v1.physician.PhysicianRepository;
 import lombok.AllArgsConstructor;

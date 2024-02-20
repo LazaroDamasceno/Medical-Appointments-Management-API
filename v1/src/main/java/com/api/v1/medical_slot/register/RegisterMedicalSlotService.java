@@ -1,6 +1,6 @@
 package com.api.v1.medical_slot.register;
 
-import com.api.v1.generic_interfaces.RegisterWithTwoParameters;
+import com.api.v1.generic_interfaces.register.RegisterWithTwoParameters;
 import com.api.v1.medical_slot.CreateInstanceOfMedicalSlot;
 import com.api.v1.date_time_dto.DateTimeDTO;
 import com.api.v1.medical_slot.MedicalSlot;
