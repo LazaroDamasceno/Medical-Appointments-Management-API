@@ -17,7 +17,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class RetrieveMedicalSlotService implements RetrieveWithTwoParameters<MedicalSlot, String, DateTimeDTO> {
+public class RetrieveMedicalSlotByDateAndPhysicianService implements RetrieveWithTwoParameters<MedicalSlot, String, DateTimeDTO> {
 
     private final MedicalSlotRepository medicalSlotRepository;
     private final PhysicianRepository physicianRepository;

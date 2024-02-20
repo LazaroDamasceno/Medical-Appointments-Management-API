@@ -4,8 +4,8 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
-public interface RetrieveAllWithoutParameters<Type> {
+public interface RetrieveAllWithoutParameters<T> {
 
-    ResponseEntity<List<Type>> retriveAll();
+    ResponseEntity<List<T>> retriveAll();
 
 }

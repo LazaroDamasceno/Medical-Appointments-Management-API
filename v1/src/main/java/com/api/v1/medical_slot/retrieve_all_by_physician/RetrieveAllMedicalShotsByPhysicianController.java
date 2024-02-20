@@ -1,8 +1,6 @@
 package com.api.v1.medical_slot.retrieve_all_by_physician;
 
-import com.api.v1.date_time_dto.DateTimeDTO;
 import com.api.v1.generic_interfaces.retrieve_all.RetrieveAllWithOneParameter;
-import com.api.v1.generic_interfaces.retrieve_all.RetrieveAllWithTwoParameters;
 import com.api.v1.medical_slot.MedicalSlot;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +11,9 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/v1/medical-slots")
-public class RetrieveAllMedicalShotsController implements RetrieveAllWithOneParameter<MedicalSlot, String> {
+public class RetrieveAllMedicalShotsByPhysicianController implements RetrieveAllWithOneParameter<MedicalSlot, String> {
 
-    private final RetrieveAllMedicalShotsService service;
+    private final RetrieveAllMedicalShotsByPhysicianService service;
 
     @Override
     @GetMapping("{mln}")

@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class RetrieveAllMedicalShotsService implements RetrieveAllWithOneParameter<MedicalSlot, String> {
+public class RetrieveAllMedicalShotsByPhysicianService implements RetrieveAllWithOneParameter<MedicalSlot, String> {
 
     private final MedicalSlotRepository repository;
     private final PhysicianRepository physicianRepository;

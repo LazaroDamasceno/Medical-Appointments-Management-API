@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("api/v1/medical-slot")
 @AllArgsConstructor
-public class RetrieveMedicalSlotController implements RetrieveWithTwoParameters<MedicalSlot, String, DateTimeDTO> {
+public class RetrieveMedicalSlotByDateAndPhysicianController implements RetrieveWithTwoParameters<MedicalSlot, String, DateTimeDTO> {
 
-    private final RetrieveMedicalSlotService service;
+    private final RetrieveMedicalSlotByDateAndPhysicianService service;
 
     @Override
     @GetMapping("{mln}")
