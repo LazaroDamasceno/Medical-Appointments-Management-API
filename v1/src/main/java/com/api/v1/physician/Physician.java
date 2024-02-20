@@ -1,7 +1,6 @@
 package com.api.v1.physician;
 
 import com.api.v1.medical_schedule.MedicalSchedule;
-import com.api.v1.physician.register.RegisterPhysicianDTO;
 import com.api.v1.system_user.CreateInstanceOfSystemUser;
 import com.api.v1.system_user.SystemUser;
 import com.fasterxml.jackson.annotation.JsonFormat;
