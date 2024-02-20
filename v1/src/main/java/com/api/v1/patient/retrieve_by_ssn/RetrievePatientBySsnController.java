@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/v1/patient")
-public class RetrievePatientController implements RetrieveWithOneParameter<ResponseEntity<Patient>, String> {
+public class RetrievePatientBySsnController implements RetrieveWithOneParameter<ResponseEntity<Patient>, String> {
 
-    private final RetrievePatientService service;
+    private final RetrievePatientBySsnService service;
 
     @Override
     @GetMapping("{ssn}")

@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class RetrievePatientService implements RetrieveWithOneParameter<ResponseEntity<Patient>, String> {
+public class RetrievePatientBySsnService implements RetrieveWithOneParameter<ResponseEntity<Patient>, String> {
 
     private final PatientRepository repository;
     private final SystemUserRepository systemUserRepository;
