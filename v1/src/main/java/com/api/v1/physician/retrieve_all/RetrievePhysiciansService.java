@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class RetrieveAllWithoutParametersPhysiciansService implements RetrieveAllWithoutParameters<Physician> {
+public class RetrievePhysiciansService implements RetrieveAllWithoutParameters<Physician> {
 
     private final PhysicianRepository repository;
 

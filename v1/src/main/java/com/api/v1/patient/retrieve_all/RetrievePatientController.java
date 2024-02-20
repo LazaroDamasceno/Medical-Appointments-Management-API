@@ -13,9 +13,9 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/patients")
 @AllArgsConstructor
-public class RetrieveAllWithoutParametersPatientController implements RetrieveAllWithoutParameters<Patient> {
+public class RetrievePatientController implements RetrieveAllWithoutParameters<Patient> {
 
-    private final RetrieveAllWithoutParametersPatientsService service;
+    private final RetrievePatientsService service;
 
     @Override
     @GetMapping
