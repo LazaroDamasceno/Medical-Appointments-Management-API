@@ -8,7 +8,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
-import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -24,7 +23,7 @@ public class SystemUser {
     private String fullName;
 
     @Column(nullable = false, unique = true)
-    private BigInteger ssn;
+    private String ssn;
 
     @Column(nullable = false)
     @JsonFormat(pattern = "dd/MM/yyyy")
@@ -34,14 +33,14 @@ public class SystemUser {
     private String email;
 
     @Column(nullable = false)
-    private BigInteger phoneNumber;
+    private String phoneNumber;
 
     SystemUser(RegisterSystemUserDTO dto) {
         this.fullName = dto.fullName();
-        this.ssn = new BigInteger(dto.ssn());
+        this.ssn = dto.ssn();
         this.birthDay = ConvertToDate.convertStringToDate(dto.birthDay());
         this.email = dto.email();
-        this.phoneNumber = new BigInteger(dto.phoneNumber());
+        this.phoneNumber = dto.phoneNumber();
     }
 
     protected SystemUser() {

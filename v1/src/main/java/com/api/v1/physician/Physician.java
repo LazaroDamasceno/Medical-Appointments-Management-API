@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -21,7 +20,7 @@ public class Physician {
     private final UUID id = UUID.randomUUID();
 
     @Column(nullable = false, unique = true)
-    private BigInteger mln;
+    private String mln;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
     private final LocalDate inductionDate = LocalDate.now();
@@ -38,7 +37,7 @@ public class Physician {
     private MedicalSchedule medicalSchedule;
 
     Physician(RegisterPhysicianDTO dto) {
-        this.mln = new BigInteger(dto.mln());
+        this.mln =dto.mln();
         this.systemUser = CreateInstanceOfSystemUser.create(dto.systemUserDTO());
     }
 
