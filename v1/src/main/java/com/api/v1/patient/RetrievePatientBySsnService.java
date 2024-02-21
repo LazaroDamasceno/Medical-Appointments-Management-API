@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.math.BigInteger;
 import java.util.Optional;
 
 @Service
@@ -17,7 +16,7 @@ public class RetrievePatientBySsnService {
     private final SystemUserRepository systemUserRepository;
 
     public ResponseEntity<Patient> retrieve(String ssn) {
-        SystemUser systemUser = systemUserRepository.getBySsn(new BigInteger(ssn));
+        SystemUser systemUser = systemUserRepository.getBySsn(ssn);
         Optional<Patient> patient = repository.findBySystemUser(systemUser);
         return patient
                 .map(ResponseEntity::ok)
