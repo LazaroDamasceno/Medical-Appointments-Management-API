@@ -23,9 +23,9 @@ public class RetrieveMedicalAppointmentByPatientAndDateService {
     private final SystemUserRepository systemUserRepository;
 
     public Optional<MedicalAppointment> retrieve(String ssn, DateTimeDTO dto) {
-        SystemUser systemUser = systemUserRepository.getBySsn(ssn);
-        Optional<Patient> patient = patientRepository.findBySystemUser(systemUser);
-        if (patient.isEmpty()) return Optional.empty();
+        Optional<SystemUser> systemUser = systemUserRepository.findBySsn(ssn);
+        if (systemUser.isEmpty()) return Optional.empty();
+        Optional<Patient> patient = patientRepository.findBySystemUser(systemUser.get());
         LocalDateTime localDateTime = ConvertToDateTime.convert(dto.dateTime());
         return repository
             .findAll()

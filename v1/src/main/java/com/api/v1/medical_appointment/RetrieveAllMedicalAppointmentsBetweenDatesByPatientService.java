@@ -27,9 +27,9 @@ public class RetrieveAllMedicalAppointmentsBetweenDatesByPatientService {
     ResponseEntity<List<MedicalAppointment>> retrieve(String ssn, BetweenDatesDTO dto) {
         LocalDateTime firstDate = ConvertToDateTime.convert(dto.firstDate());
         LocalDateTime lastDate = ConvertToDateTime.convert(dto.lastDate());
-        SystemUser systemUser = systemUserRepository.getBySsn(ssn);
-        Optional<Patient> patient = patientRepository.findBySystemUser(systemUser);
-        if (patient.isEmpty()) return ResponseEntity.badRequest().build();
+        Optional<SystemUser> systemUser = systemUserRepository.findBySsn(ssn);
+        if (systemUser.isEmpty()) return ResponseEntity.badRequest().build();
+        Optional<Patient> patient = patientRepository.findBySystemUser(systemUser.get());
         return ResponseEntity.ok(
             repository
                 .findAll()

@@ -22,9 +22,9 @@ public class RetrieveAllMedicalAppointmentsByPatientService {
     private final SystemUserRepository systemUserRepository;
 
     public ResponseEntity<List<MedicalAppointment>> retrieve(String ssn) {
-        SystemUser systemUser = systemUserRepository.getBySsn(ssn);
-        Optional<Patient> patient = patientRepository.findBySystemUser(systemUser);
-        if (patient.isEmpty()) return ResponseEntity.badRequest().build();
+        Optional<SystemUser> systemUser = systemUserRepository.findBySsn(ssn);
+        if (systemUser.isEmpty()) return ResponseEntity.badRequest().build();
+        Optional<Patient> patient = patientRepository.findBySystemUser(systemUser.get());
         return ResponseEntity.ok(
             repository
                 .findAll()
