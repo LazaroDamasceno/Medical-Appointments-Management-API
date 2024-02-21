@@ -20,7 +20,7 @@ public class RetrieveAllMedicalAppointmentsBetweenDatesByPatientController {
 
     private final RetrieveAllMedicalAppointmentsBetweenDatesByPatientService service;
 
-    @GetMapping("{ssn}")
+    @GetMapping("between-dates/{ssn}")
     ResponseEntity<List<MedicalAppointment>> retrieve(@PathVariable String ssn, @RequestBody BetweenDatesDTO dto) {
         return service.retrieve(ssn, dto);
     }
