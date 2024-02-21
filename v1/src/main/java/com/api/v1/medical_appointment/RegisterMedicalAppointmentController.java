@@ -19,7 +19,10 @@ public class RegisterMedicalAppointmentController {
     private final RegisterMedicalAppointmentService service;
 
     @PostMapping("{mln}/{ssn}")
-    public ResponseEntity<Void> register(@PathVariable String mln, @PathVariable String ssn, @RequestBody DateTimeDTO dto) {
+    public ResponseEntity<Void> register(@PathVariable String mln, 
+                                         @PathVariable String ssn, 
+                                         @RequestBody DateTimeDTO dto) 
+    {
         return service.register(mln, ssn, dto);
     }
     
