@@ -4,8 +4,8 @@ import jakarta.validation.constraints.NotBlank;
 
 public record BetweenDatesDTO(
         @NotBlank
-        String firstDateTime,
+        String firstDate,
         @NotBlank
-        String lastDateTime
+        String lastDate
 ) {
 }

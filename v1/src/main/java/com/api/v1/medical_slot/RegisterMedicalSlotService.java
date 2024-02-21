@@ -19,12 +19,10 @@ public class RegisterMedicalSlotService {
     private final RetrieveMedicalSlotByDateAndPhysicianService retrieveMedicalSlotByDateAndPhysician;
 
     public ResponseEntity<Void> register(String mln, DateTimeDTO dateTimeDTO) {
-        MedicalSlot medicalSlot = retrieveMedicalSlotByDateAndPhysician.retrieve(mln, dateTimeDTO).getBody();
-        if (medicalSlot != null) return ResponseEntity.badRequest().build();
+        Optional<MedicalSlot> medicalSlotOptional = retrieveMedicalSlotByDateAndPhysician.retrieve(mln, dateTimeDTO);
         Optional<Physician> physician = physicianRepository.findByMln(mln);
-        if (physician.isEmpty()) return ResponseEntity.badRequest().build();
-        medicalSlot = new MedicalSlot(physician.get(), dateTimeDTO);
-        medicalSlotRepository.save(medicalSlot);
+        if (medicalSlotOptional.isEmpty() || physician.isEmpty()) return ResponseEntity.badRequest().build();
+        medicalSlotRepository.save(new MedicalSlot(physician.get(), dateTimeDTO));
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

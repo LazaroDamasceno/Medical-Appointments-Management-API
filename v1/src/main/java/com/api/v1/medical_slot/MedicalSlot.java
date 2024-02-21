@@ -28,7 +28,7 @@ public class MedicalSlot {
 
     MedicalSlot(Physician physician, DateTimeDTO dto) {
         this.physician = physician;
-        this.availableDateTime = ConvertToDateTime.convertStringToDateTime(dto.dateTime());
+        this.availableDateTime = ConvertToDateTime.convert(dto.dateTime());
     }
 
     protected MedicalSlot() {

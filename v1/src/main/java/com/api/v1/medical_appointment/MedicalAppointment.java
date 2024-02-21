@@ -39,7 +39,7 @@ public class MedicalAppointment {
     private Patient patient;
 
     MedicalAppointment(Physician physician, Patient patient, DateTimeDTO dto) {
-        this.availableDateTime = ConvertToDateTime.convertStringToDateTime(dto.dateTime());
+        this.availableDateTime = ConvertToDateTime.convert(dto.dateTime());
         this.physician = physician;
         this.patient = patient;
     }

@@ -1,22 +1,25 @@
-package com.api.v1.patient;
+package com.api.v1.medical_appointment;
 
-import lombok.AllArgsConstructor;
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@AllArgsConstructor
-@RequestMapping("api/v1/patient")
-public class RetrievePatientBySsnController {
+import lombok.AllArgsConstructor;
 
-    private final RetrievePatientBySsnService service;
+@RestController
+@RequestMapping("api/v1/medical-appointments")
+@AllArgsConstructor
+public class RetrieveAllMedicalAppointmentsByPatientController {
+
+    private final RetrieveAllMedicalAppointmentsByPatientService service;
 
     @GetMapping("{ssn}")
-    public ResponseEntity<Patient> retrieve(@PathVariable String ssn) {
+    public ResponseEntity<List<MedicalAppointment>> retrieve(@PathVariable String ssn) {
         return service.retrieve(ssn);
     }
-
+    
 }

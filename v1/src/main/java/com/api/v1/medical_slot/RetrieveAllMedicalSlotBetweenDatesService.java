@@ -20,8 +20,8 @@ public class RetrieveAllMedicalSlotBetweenDatesService {
     private final PhysicianRepository physicianRepository;
 
     public ResponseEntity<List<MedicalSlot>> retrieveAll(String mln, BetweenDatesDTO dto) {
-        LocalDateTime fdt = ConvertToDateTime.convertStringToDateTime(dto.firstDateTime());
-        LocalDateTime ldt = ConvertToDateTime.convertStringToDateTime(dto.lastDateTime());
+        LocalDateTime fdt = ConvertToDateTime.convert(dto.firstDate());
+        LocalDateTime ldt = ConvertToDateTime.convert(dto.lastDate());
         Optional<Physician> physicianOptional = physicianRepository.findByMln(mln);
         if (physicianOptional.isEmpty()) return ResponseEntity.badRequest().build();
         Physician physician = physicianOptional.get();

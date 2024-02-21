@@ -38,7 +38,7 @@ public class SystemUser {
     public SystemUser(RegisterSystemUserDTO dto) {
         this.fullName = dto.fullName();
         this.ssn = dto.ssn();
-        this.birthDay = ConvertToDate.convertStringToDate(dto.birthDay());
+        this.birthDay = ConvertToDate.convert(dto.birthDay());
         this.email = dto.email();
         this.phoneNumber = dto.phoneNumber();
     }
