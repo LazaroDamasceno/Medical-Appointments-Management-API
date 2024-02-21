@@ -1,7 +1,7 @@
 package com.api.v1.medical_slot;
 
-import com.api.v1.convert_to_datetime.ConvertoToDateTime;
-import com.api.v1.date_time_dto.DateTimeDTO;
+import com.api.v1.auxiliary.ConvertToDateTime;
+import com.api.v1.auxiliary.DateTimeDTO;
 import com.api.v1.physician.Physician;
 import com.api.v1.physician.PhysicianRepository;
 import lombok.AllArgsConstructor;
@@ -22,7 +22,7 @@ public class RetrieveMedicalSlotByDateAndPhysicianService {
         Optional<Physician> physicianOptional = physicianRepository.findByMln(mln);
         if (physicianOptional.isEmpty()) return ResponseEntity.badRequest().build();
         Physician physician = physicianOptional.get();
-        LocalDateTime dateTime = ConvertoToDateTime.convertStringToDateTime(dateTimeDTO.dateTime());
+        LocalDateTime dateTime = ConvertToDateTime.convertStringToDateTime(dateTimeDTO.dateTime());
         return medicalSlotRepository
                 .findAll()
                 .stream()

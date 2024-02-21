@@ -1,7 +1,7 @@
 package com.api.v1.medical_slot;
 
-import com.api.v1.convert_to_datetime.ConvertoToDateTime;
-import com.api.v1.date_time_dto.BetweenDatesDTO;
+import com.api.v1.auxiliary.BetweenDatesDTO;
+import com.api.v1.auxiliary.ConvertToDateTime;
 import com.api.v1.physician.Physician;
 import com.api.v1.physician.PhysicianRepository;
 import lombok.AllArgsConstructor;
@@ -20,8 +20,8 @@ public class RetrieveAllMedicalSlotBetweenDatesService {
     private final PhysicianRepository physicianRepository;
 
     public ResponseEntity<List<MedicalSlot>> retrieveAll(String mln, BetweenDatesDTO dto) {
-        LocalDateTime fdt = ConvertoToDateTime.convertStringToDateTime(dto.firstDateTime());
-        LocalDateTime ldt = ConvertoToDateTime.convertStringToDateTime(dto.lastDateTime());
+        LocalDateTime fdt = ConvertToDateTime.convertStringToDateTime(dto.firstDateTime());
+        LocalDateTime ldt = ConvertToDateTime.convertStringToDateTime(dto.lastDateTime());
         Optional<Physician> physicianOptional = physicianRepository.findByMln(mln);
         if (physicianOptional.isEmpty()) return ResponseEntity.badRequest().build();
         Physician physician = physicianOptional.get();

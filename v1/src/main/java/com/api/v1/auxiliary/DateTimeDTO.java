@@ -1,4 +1,4 @@
-package com.api.v1.date_time_dto;
+package com.api.v1.auxiliary;
 
 import jakarta.validation.constraints.NotBlank;
 
