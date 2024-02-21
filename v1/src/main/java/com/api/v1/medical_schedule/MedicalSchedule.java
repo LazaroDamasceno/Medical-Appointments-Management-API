@@ -25,7 +25,7 @@ public class MedicalSchedule {
     @JoinColumn(name = "medical_slots_id")
     private List<MedicalSlot> medicalSlots = new ArrayList<>();
 
-    MedicalSchedule(Physician physician) {
+    public MedicalSchedule(Physician physician) {
         this.physician = physician;
     }
 
