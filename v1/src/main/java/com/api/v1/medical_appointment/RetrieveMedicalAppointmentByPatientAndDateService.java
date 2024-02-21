@@ -32,7 +32,7 @@ public class RetrieveMedicalAppointmentByPatientAndDateService {
             .stream()
             .filter(e -> e.getAvailableDateTime().equals(localDateTime)
                 && e.getPatient().equals(patient.get())
-            ).findFirst();
+            ).findAny();
     }
     
 }

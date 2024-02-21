@@ -38,17 +38,15 @@ public class RegisterMedicalAppointmentService {
         Optional<MedicalSlot> medicalSlotOptional = retrieveMedicalSlotByDateAndPhysician.retrieve(mln, dto);
         if (medicalSlotOptional.isEmpty()) return ResponseEntity.badRequest().build();
 
-        Optional<Physician> physicianOptional = physicianRepository.findByMln(mln);
-        if (physicianOptional.isEmpty()) return ResponseEntity.badRequest().build();
-        Physician physician = physicianOptional.get();
+        Optional<Physician> physician = physicianRepository.findByMln(mln);
+        if (physician.isEmpty()) return ResponseEntity.badRequest().build();
 
         Optional<SystemUser> systemUser = systemUserRepository.findBySsn(ssn);
         if (systemUser.isEmpty()) return ResponseEntity.badRequest().build();
         Optional<Patient> patientOptional = patientRepository.findBySystemUser(systemUser.get());
         if (patientOptional.isEmpty()) return ResponseEntity.badRequest().build();
-        Patient patient = patientOptional.get();
 
-        MedicalAppointment medicalAppointment = new MedicalAppointment(physician, patient, dto);
+        MedicalAppointment medicalAppointment = new MedicalAppointment(physician.get(), patientOptional.get(), dto);
         medicalAppointmentRepository.save(medicalAppointment);  
 
         MedicalSlot medicalSlot = medicalSlotOptional.get();
