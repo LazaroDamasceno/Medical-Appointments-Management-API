@@ -2,6 +2,7 @@ package com.api.v1.medical_slot;
 
 import com.api.v1.auxiliary.ConvertToDateTime;
 import com.api.v1.auxiliary.DateTimeDTO;
+import com.api.v1.medical_appointment.MedicalAppointment;
 import com.api.v1.physician.Physician;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
@@ -25,6 +26,10 @@ public class MedicalSlot {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "physicin_id")
     private Physician physician;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "medical_appointment_id")
+    private MedicalAppointment medicalAppointment;
 
     MedicalSlot(Physician physician, DateTimeDTO dto) {
         this.physician = physician;

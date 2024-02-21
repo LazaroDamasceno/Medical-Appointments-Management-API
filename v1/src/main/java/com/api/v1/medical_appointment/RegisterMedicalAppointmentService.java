@@ -7,6 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.api.v1.auxiliary.DateTimeDTO;
+import com.api.v1.medical_slot.MedicalSlot;
+import com.api.v1.medical_slot.MedicalSlotRepository;
+import com.api.v1.medical_slot.RetrieveMedicalSlotByDateAndPhysicianService;
 import com.api.v1.patient.Patient;
 import com.api.v1.patient.PatientRepository;
 import com.api.v1.physician.Physician;
@@ -24,6 +27,8 @@ public class RegisterMedicalAppointmentService {
     private final SystemUserRepository systemUserRepository;
     private final PatientRepository patientRepository;
     private final PhysicianRepository physicianRepository;
+    private final RetrieveMedicalSlotByDateAndPhysicianService retrieveMedicalSlotByDateAndPhysician;
+    private final MedicalSlotRepository medicalSlotRepository;
 
     public ResponseEntity<Void> register(String mln, String ssn, DateTimeDTO dto) {
         SystemUser systemUser = systemUserRepository.getBySsn(ssn);
@@ -33,6 +38,11 @@ public class RegisterMedicalAppointmentService {
         if (physician.isEmpty()) return ResponseEntity.badRequest().build();
         MedicalAppointment medicalAppointment = new MedicalAppointment(physician.get(), patient.get(), dto);
         medicalAppointmentRepository.save(medicalAppointment);
+        Optional<MedicalSlot> medicalSlotOptional = retrieveMedicalSlotByDateAndPhysician.retrieve(mln, dto);
+        if (medicalSlotOptional.isEmpty()) return ResponseEntity.badRequest().build();
+        MedicalSlot medicalSlot = medicalSlotOptional.get();
+        medicalSlot.setMedicalAppointment(medicalAppointment);
+        medicalSlotRepository.save(medicalSlot);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
     
