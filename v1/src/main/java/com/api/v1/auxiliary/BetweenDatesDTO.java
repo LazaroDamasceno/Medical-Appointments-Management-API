@@ -1,11 +1,13 @@
 package com.api.v1.auxiliary;
 
+import java.time.LocalDateTime;
+
 import jakarta.validation.constraints.NotBlank;
 
 public record BetweenDatesDTO(
         @NotBlank
-        String firstDate,
+        LocalDateTime firstDate,
         @NotBlank
-        String lastDate
+        LocalDateTime lastDate
 ) {
 }

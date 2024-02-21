@@ -1,6 +1,5 @@
 package com.api.v1.medical_slot;
 
-import com.api.v1.auxiliary.ConvertToDateTime;
 import com.api.v1.auxiliary.DateTimeDTO;
 import com.api.v1.medical_appointment.MedicalAppointment;
 import com.api.v1.physician.Physician;
@@ -33,7 +32,7 @@ public class MedicalSlot {
 
     MedicalSlot(Physician physician, DateTimeDTO dto) {
         this.physician = physician;
-        this.availableDateTime = ConvertToDateTime.convert(dto.dateTime());
+        this.availableDateTime = dto.dateTime();
     }
 
     protected MedicalSlot() {

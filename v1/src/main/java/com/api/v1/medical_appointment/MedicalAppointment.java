@@ -3,7 +3,6 @@ package com.api.v1.medical_appointment;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import com.api.v1.auxiliary.ConvertToDateTime;
 import com.api.v1.auxiliary.DateTimeDTO;
 import com.api.v1.patient.Patient;
 import com.api.v1.physician.Physician;
@@ -45,7 +44,7 @@ public class MedicalAppointment {
     private Patient patient;
 
     MedicalAppointment(Physician physician, Patient patient, DateTimeDTO dto) {
-        this.availableDateTime = ConvertToDateTime.convert(dto.dateTime());
+        this.availableDateTime = dto.dateTime();
         this.physician = physician;
         this.patient = patient;
     }
