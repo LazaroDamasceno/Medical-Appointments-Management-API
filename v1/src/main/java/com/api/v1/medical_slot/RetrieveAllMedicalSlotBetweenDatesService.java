@@ -8,7 +8,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -23,7 +22,7 @@ public class RetrieveAllMedicalSlotBetweenDatesService {
     public ResponseEntity<List<MedicalSlot>> retrieveAll(String mln, BetweenDatesDTO dto) {
         LocalDateTime fdt = ConvertoToDateTime.convertStringToDateTime(dto.firstDateTime());
         LocalDateTime ldt = ConvertoToDateTime.convertStringToDateTime(dto.lastDateTime());
-        Optional<Physician> physicianOptional = physicianRepository.findByMln(new BigInteger(mln));
+        Optional<Physician> physicianOptional = physicianRepository.findByMln(mln);
         if (physicianOptional.isEmpty()) return ResponseEntity.badRequest().build();
         Physician physician = physicianOptional.get();
         return ResponseEntity.ok(

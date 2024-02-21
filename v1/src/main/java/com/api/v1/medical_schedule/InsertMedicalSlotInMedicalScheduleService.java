@@ -9,7 +9,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.math.BigInteger;
 import java.util.Optional;
 
 @Service
@@ -21,7 +20,7 @@ public class InsertMedicalSlotInMedicalScheduleService {
     private final RetrieveMedicalSlotByDateAndPhysicianService retrieveMedicalSlotByDateAndPhysician;
 
     public void register(String mln, DateTimeDTO dto) {
-        Optional<Physician> physicianOptional = physicianRepository.findByMln(new BigInteger(mln));
+        Optional<Physician> physicianOptional = physicianRepository.findByMln(mln);
         if (physicianOptional.isPresent()) {
             Physician physician = physicianOptional.get();
             ResponseEntity<MedicalSlot> medicalSlotResponseEntity = retrieveMedicalSlotByDateAndPhysician.retrieve(mln, dto);

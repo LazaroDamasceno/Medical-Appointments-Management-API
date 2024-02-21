@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.math.BigInteger;
 import java.util.Optional;
 
 @Service
@@ -21,7 +20,7 @@ public class RegisterMedicalSlotService {
     private final InsertMedicalSlotInMedicalScheduleService insertMedicalSlotInMedicalSchedule;
 
     public ResponseEntity<Void> register(String mln, DateTimeDTO dateTimeDTO) {
-        Optional<Physician> physician = physicianRepository.findByMln(new BigInteger(mln));
+        Optional<Physician> physician = physicianRepository.findByMln(mln);
         if (physician.isEmpty()) return ResponseEntity.badRequest().build();
         MedicalSlot medicalSlot = new MedicalSlot(physician.get(), dateTimeDTO);
         medicalSlotRepository.save(medicalSlot);

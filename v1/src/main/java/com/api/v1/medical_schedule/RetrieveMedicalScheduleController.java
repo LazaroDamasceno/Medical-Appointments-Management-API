@@ -15,7 +15,7 @@ public class RetrieveMedicalScheduleController {
     private final RetrieveMedicalScheduleService service;
 
     @GetMapping("{mln}")
-    public ResponseEntity<MedicalSchedule> retrieve(@PathVariable Long mln) {
+    public ResponseEntity<MedicalSchedule> retrieve(@PathVariable String mln) {
         return service.retrieve(mln);
     }
 }

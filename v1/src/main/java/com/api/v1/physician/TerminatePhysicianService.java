@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -15,7 +14,7 @@ public class TerminatePhysicianService {
     private final PhysicianRepository repository;
 
     public ResponseEntity<Void> terminate(String mln) {
-        Optional<Physician> optional = repository.findByMln(new BigInteger(mln));
+        Optional<Physician> optional = repository.findByMln(mln);
         if (optional.isEmpty()) return ResponseEntity.badRequest().build();
         Physician physician = optional.get();
         physician.setTerminationDate(LocalDate.now());
