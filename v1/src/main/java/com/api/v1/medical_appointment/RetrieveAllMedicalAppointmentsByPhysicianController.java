@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping("api/v1/medical-ap")
+@RequestMapping("api/v1/medical-appointments")
 @AllArgsConstructor
 public class RetrieveAllMedicalAppointmentsByPhysicianController {
 
