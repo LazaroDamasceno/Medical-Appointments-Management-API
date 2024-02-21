@@ -10,9 +10,9 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/medical-slots")
 @AllArgsConstructor
-public class RetrieveAllMedicalShotsController {
+public class RetrieveAllMedicalSlotsController {
 
-    private final RetrieveAllMedicalShotsService service;
+    private final RetrieveAllMedicalSlotsService service;
 
     public ResponseEntity<List<MedicalSlot>> retriveAll() {
         return service.retriveAll();
