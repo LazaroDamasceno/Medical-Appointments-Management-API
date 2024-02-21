@@ -35,7 +35,7 @@ public class SystemUser {
     @Column(nullable = false)
     private String phoneNumber;
 
-    SystemUser(RegisterSystemUserDTO dto) {
+    public SystemUser(RegisterSystemUserDTO dto) {
         this.fullName = dto.fullName();
         this.ssn = dto.ssn();
         this.birthDay = ConvertToDate.convertStringToDate(dto.birthDay());

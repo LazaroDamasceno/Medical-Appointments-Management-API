@@ -1,6 +1,5 @@
 package com.api.v1.patient;
 
-import com.api.v1.system_user.CreateInstanceOfSystemUser;
 import com.api.v1.system_user.SystemUser;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -24,7 +23,7 @@ public class Patient {
 
     Patient(RegisterPatientDTO dto) {
         this.fullAddress = dto.fullAddress();
-        this.systemUser = CreateInstanceOfSystemUser.create(dto.systemUserDTO());
+        this.systemUser = new SystemUser(dto.systemUserDTO());
     }
 
     protected  Patient() {
