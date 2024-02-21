@@ -21,7 +21,7 @@ public class RegisterMedicalSlotService {
     public ResponseEntity<Void> register(String mln, DateTimeDTO dateTimeDTO) {
         Optional<MedicalSlot> medicalSlotOptional = retrieveMedicalSlotByDateAndPhysician.retrieve(mln, dateTimeDTO);
         Optional<Physician> physician = physicianRepository.findByMln(mln);
-        if (medicalSlotOptional.isEmpty() || physician.isEmpty()) return ResponseEntity.badRequest().build();
+        if (medicalSlotOptional.isPresent() || physician.isEmpty()) return ResponseEntity.badRequest().build();
         medicalSlotRepository.save(new MedicalSlot(physician.get(), dateTimeDTO));
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

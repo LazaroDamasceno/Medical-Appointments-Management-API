@@ -27,6 +27,6 @@ public class RetrieveMedicalSlotByDateAndPhysicianService {
                 .stream()
                 .filter(e -> e.getPhysician().equals(physician) 
                     && e.getAvailableDateTime().equals(dateTime)
-                ).findFirst();
+                ).findAny();
     }
 }
