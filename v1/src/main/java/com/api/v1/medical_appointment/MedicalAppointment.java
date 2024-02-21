@@ -7,6 +7,7 @@ import com.api.v1.auxiliary.ConvertToDateTime;
 import com.api.v1.auxiliary.DateTimeDTO;
 import com.api.v1.patient.Patient;
 import com.api.v1.physician.Physician;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -26,7 +27,12 @@ public class MedicalAppointment {
     private final UUID id = UUID.randomUUID();
 
     @Column(nullable = false)
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime availableDateTime;
+
+    @Column(nullable = false)
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    private LocalDateTime cancelationDateTime;
 
     private String notes;
 
