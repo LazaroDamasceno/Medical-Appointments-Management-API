@@ -17,7 +17,11 @@ public class RetrievePatientBySsnService {
     public Optional<Patient> retrieve(String ssn) {
         Optional<SystemUser> systemUser = systemUserRepository.findBySsn(ssn);
         if (systemUser.isEmpty()) return Optional.empty();
-        return repository.findBySystemUser(systemUser.get());
+        return repository
+            .findAll()
+            .stream()
+            .filter(e -> e.getSystemUser().equals(systemUser.get()))
+            .findAny();
     }
 
 }

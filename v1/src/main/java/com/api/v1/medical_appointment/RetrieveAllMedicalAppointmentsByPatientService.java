@@ -7,9 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.api.v1.patient.Patient;
-import com.api.v1.patient.PatientRepository;
-import com.api.v1.system_user.SystemUser;
-import com.api.v1.system_user.SystemUserRepository;
+import com.api.v1.patient.RetrievePatientBySsnService;
 
 import lombok.AllArgsConstructor;
 
@@ -18,13 +16,10 @@ import lombok.AllArgsConstructor;
 public class RetrieveAllMedicalAppointmentsByPatientService {
 
     private final MedicalAppointmentRepository repository;
-    private final PatientRepository patientRepository;
-    private final SystemUserRepository systemUserRepository;
+    private final RetrievePatientBySsnService retrievePatientBySsn;
 
     public ResponseEntity<List<MedicalAppointment>> retrieve(String ssn) {
-        Optional<SystemUser> systemUser = systemUserRepository.findBySsn(ssn);
-        if (systemUser.isEmpty()) return ResponseEntity.badRequest().build();
-        Optional<Patient> patient = patientRepository.findBySystemUser(systemUser.get());
+        Optional<Patient> patient = retrievePatientBySsn.retrieve(ssn);
         return ResponseEntity.ok(
             repository
                 .findAll()
