@@ -3,7 +3,6 @@ package com.api.v1.medical_appointment;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -37,7 +36,7 @@ class CancelMedicalAppointmentService {
         medicalSlot.setMedicalAppointment(null);
         medicalSlotRepository.save(medicalSlot);
         
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return ResponseEntity.noContent().build();
     }
     
 }
