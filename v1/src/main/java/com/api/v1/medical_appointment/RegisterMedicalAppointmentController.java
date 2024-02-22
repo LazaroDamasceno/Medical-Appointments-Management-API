@@ -17,7 +17,7 @@ public class RegisterMedicalAppointmentController {
 
     private final RegisterMedicalAppointmentService service;
 
-    @PostMapping("mln/{mln}/ssn/{ssn}")
+    @PostMapping("{mln}/{ssn}/{dateTime}")
     public ResponseEntity<Void> register(@PathVariable String mln, 
                                          @PathVariable String ssn, 
                                          @PathVariable LocalDateTime dateTime) 

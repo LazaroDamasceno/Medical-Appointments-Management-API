@@ -3,7 +3,7 @@
   "systemUserDTO": {
     "fullName": "G Braga",
     "ssn": "987654321",
-    "birthDay": "12/12/2000",
+    "birthDay": "2000-12-12",
     "email": "braga@braga.net",
     "phoneNumber": "12345678900"
   }

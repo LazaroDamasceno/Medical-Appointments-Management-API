@@ -17,7 +17,7 @@ public class RegisterMedicalSlotController {
 
     private final RegisterMedicalSlotService service;
 
-    @PostMapping("{mln}")
+    @PostMapping("{mln}/{dateTime}")
     public ResponseEntity<Void> register(@PathVariable String mln, @PathVariable LocalDateTime dateTime) {
         return service.register(mln, dateTime);
     }
