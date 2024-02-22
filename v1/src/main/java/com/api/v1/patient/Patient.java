@@ -1,5 +1,6 @@
 package com.api.v1.patient;
 
+import com.api.v1.patient.register.RegisterPatientDTO;
 import com.api.v1.system_user.SystemUser;
 import jakarta.persistence.*;
 import lombok.Data;
