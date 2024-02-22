@@ -1,5 +1,6 @@
 package com.api.v1.medical_appointment;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -7,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.api.v1.auxiliary.BetweenDatesDTO;
+import com.api.v1.auxiliary.ConvertToDateTime;
 import com.api.v1.patient.Patient;
 import com.api.v1.patient.RetrievePatientBySsnService;
 import com.api.v1.system_user.SystemUser;
@@ -23,6 +25,8 @@ public class RetrieveAllMedicalAppointmentsBetweenDatesByPatientService {
     private final RetrievePatientBySsnService retrievePatientBySsn;
 
     ResponseEntity<List<MedicalAppointment>> retrieve(String ssn, BetweenDatesDTO dto) {
+        LocalDateTime firstDate = ConvertToDateTime.convert(dto.firstDate());
+        LocalDateTime lastDate = ConvertToDateTime.convert(dto.lastDate());
         Optional<SystemUser> systemUser = systemUserRepository.findBySsn(ssn);
         if (systemUser.isEmpty()) return ResponseEntity.badRequest().build();
         Optional<Patient> patient = retrievePatientBySsn.retrieve(ssn);
@@ -30,8 +34,8 @@ public class RetrieveAllMedicalAppointmentsBetweenDatesByPatientService {
             repository
                 .findAll()
                 .stream()
-                .filter(e -> e.getAvailableDateTime().isAfter(dto.firstDate())
-                    && e.getAvailableDateTime().isBefore(dto.lastDate())
+                .filter(e -> e.getAvailableDateTime().isAfter(firstDate)
+                    && e.getAvailableDateTime().isBefore(lastDate)
                     && e.getPatient().equals(patient.get())
                 ).toList()
         );

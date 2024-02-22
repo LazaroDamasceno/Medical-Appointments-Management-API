@@ -1,9 +1,11 @@
 package com.api.v1.medical_appointment;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.api.v1.auxiliary.ConvertToDateTime;
 import com.api.v1.auxiliary.DateTimeDTO;
 import com.api.v1.patient.Patient;
 import com.api.v1.patient.RetrievePatientBySsnService;
@@ -24,10 +26,11 @@ public class RetrieveMedicalAppointmentByPatientAndDateService {
         Optional<SystemUser> systemUser = systemUserRepository.findBySsn(ssn);
         if (systemUser.isEmpty()) return Optional.empty();
         Optional<Patient> patient = retrievePatientBySsn.retrieve(ssn);
+        LocalDateTime localDateTime = ConvertToDateTime.convert(dto.dateTime());
         return repository
             .findAll()
             .stream()
-            .filter(e -> e.getAvailableDateTime().equals(dto.dateTime())
+            .filter(e -> e.getAvailableDateTime().equals(localDateTime)
                 && e.getPatient().equals(patient.get())
             ).findAny();
     }
