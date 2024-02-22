@@ -2,13 +2,12 @@ package com.api.v1.medical_slot;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.v1.auxiliary.BetweenDatesDTO;
-
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -18,7 +17,10 @@ public class RetrieveAllMedicalSlotBetweenDatesController {
 
     private final RetrieveAllMedicalSlotBetweenDatesService service;
 
-    public ResponseEntity<List<MedicalSlot>> retrieveAll(@PathVariable String mln, @RequestBody BetweenDatesDTO dto) {
-        return service.retrieveAll(mln, dto);
+    @GetMapping("{mln}/{firstDate}/{lastDate}")
+    public ResponseEntity<List<MedicalSlot>> retrieveAll(@PathVariable String mln, 
+                                                        @PathVariable LocalDateTime firstDate, 
+                                                        @PathVariable LocalDateTime lastDate) {
+        return service.retrieveAll(mln, firstDate, lastDate);
     }
 }

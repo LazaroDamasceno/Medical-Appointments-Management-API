@@ -1,14 +1,13 @@
 package com.api.v1.medical_appointment;
 
+import java.time.LocalDateTime;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.v1.auxiliary.DateTimeDTO;
-
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -21,9 +20,9 @@ public class RegisterMedicalAppointmentController {
     @PostMapping("mln/{mln}/ssn/{ssn}")
     public ResponseEntity<Void> register(@PathVariable String mln, 
                                          @PathVariable String ssn, 
-                                         @RequestBody DateTimeDTO dto) 
+                                         @PathVariable LocalDateTime dateTime) 
     {
-        return service.register(mln, ssn, dto);
+        return service.register(mln, ssn, dateTime);
     }
     
 }

@@ -1,12 +1,12 @@
 package com.api.v1.medical_appointment;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.api.v1.auxiliary.DateTimeDTO;
 import com.api.v1.patient.Patient;
 import com.api.v1.patient.RetrievePatientBySsnService;
 import com.api.v1.physician.Physician;
@@ -23,15 +23,15 @@ public class RegisterMedicalAppointmentService {
     private final MedicalAppointmentRepository repository;
     private final RetrieveMedicalAppointmentByPatientAndDateService retrieveMedicalAppointmentByPatientAndDate;
 
-    public ResponseEntity<Void> register(String mln, String ssn, DateTimeDTO dto) {
-        Optional<MedicalAppointment> medicalAppointmentOptional = retrieveMedicalAppointmentByPatientAndDate.retrieve(ssn, dto);
+    public ResponseEntity<Void> register(String mln, String ssn, LocalDateTime dateTime) {
+        Optional<MedicalAppointment> medicalAppointmentOptional = retrieveMedicalAppointmentByPatientAndDate.retrieve(ssn, dateTime);
         if (medicalAppointmentOptional.isPresent()) return ResponseEntity.badRequest().build();
 
         Optional<Physician> physician = retrievePhysicianByMln.retrieve(mln);
         Optional<Patient> patient = retrievePatientBySsn.retrieve(ssn);
         if (physician.isEmpty() || patient.isEmpty()) return ResponseEntity.badRequest().build();
 
-        MedicalAppointment medicalAppointment = new MedicalAppointment(physician.get(), patient.get(), dto);
+        MedicalAppointment medicalAppointment = new MedicalAppointment(physician.get(), patient.get(), dateTime);
         repository.save(medicalAppointment);
         
         return new ResponseEntity<>(HttpStatus.CREATED);

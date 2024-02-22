@@ -1,6 +1,5 @@
 package com.api.v1.medical_slot;
 
-import com.api.v1.auxiliary.DateTimeDTO;
 import com.api.v1.medical_appointment.MedicalAppointment;
 import com.api.v1.physician.Physician;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -30,9 +29,9 @@ public class MedicalSlot {
     @JoinColumn(name = "medical_appointment_id")
     private MedicalAppointment medicalAppointment;
 
-    MedicalSlot(Physician physician, DateTimeDTO dto) {
+    MedicalSlot(Physician physician, LocalDateTime availableDateTime) {
         this.physician = physician;
-        this.availableDateTime = dto.dateTime();
+        this.availableDateTime = availableDateTime;
     }
 
     protected MedicalSlot() {

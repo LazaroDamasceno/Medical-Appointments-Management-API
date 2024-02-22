@@ -1,5 +1,6 @@
 package com.api.v1.medical_appointment;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -8,9 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.v1.auxiliary.BetweenDatesDTO;
-
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -20,9 +18,11 @@ public class RetrieveAllMedicalAppointmentsBetweenDatesByPhysicianController {
     
     private final RetrieveAllMedicalAppointmentsBetweenDatesByPhysicianService service;
 
-    @GetMapping("between-dates/{mln}")
-    ResponseEntity<List<MedicalAppointment>> retrive(@PathVariable String mln, @RequestBody BetweenDatesDTO dto) {
-        return service.retrive(mln, dto);
+    @GetMapping("between-dates/{mln}/{firstDate}/{lastDate}")
+    ResponseEntity<List<MedicalAppointment>> retrive(@PathVariable String mln, 
+                                                    @PathVariable LocalDateTime firstDate,
+                                                    @PathVariable LocalDateTime lastDate) {
+        return service.retrive(mln, firstDate, lastDate);
     }
 
 }

@@ -3,7 +3,6 @@ package com.api.v1.medical_appointment;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import com.api.v1.auxiliary.DateTimeDTO;
 import com.api.v1.patient.Patient;
 import com.api.v1.physician.Physician;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -43,10 +42,13 @@ public class MedicalAppointment {
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
-    MedicalAppointment(Physician physician, Patient patient, DateTimeDTO dto) {
-        this.availableDateTime = dto.dateTime();
+    MedicalAppointment(Physician physician, Patient patient, LocalDateTime availableDateTime) {
+        this.availableDateTime = availableDateTime;
         this.physician = physician;
         this.patient = patient;
+    }
+
+    protected MedicalAppointment() {
     }
     
 }
