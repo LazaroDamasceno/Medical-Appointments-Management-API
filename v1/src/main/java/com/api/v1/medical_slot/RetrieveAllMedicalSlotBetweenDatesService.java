@@ -1,12 +1,12 @@
 package com.api.v1.medical_slot;
 
+import com.api.v1.auxiliary.BetweenDatesDTO;
 import com.api.v1.physician.Physician;
 import com.api.v1.physician.PhysicianRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,9 +17,7 @@ public class RetrieveAllMedicalSlotBetweenDatesService {
     private final MedicalSlotRepository repository;
     private final PhysicianRepository physicianRepository;
 
-    public ResponseEntity<List<MedicalSlot>> retrieveAll(String mln, 
-                                                        LocalDateTime firstDate, 
-                                                        LocalDateTime lastDate) {
+    public ResponseEntity<List<MedicalSlot>> retrieveAll(String mln, BetweenDatesDTO dto) {
         Optional<Physician> physicianOptional = physicianRepository.findByMln(mln);
         if (physicianOptional.isEmpty()) return ResponseEntity.badRequest().build();
         Physician physician = physicianOptional.get();
@@ -28,8 +26,8 @@ public class RetrieveAllMedicalSlotBetweenDatesService {
                         .findAll()
                         .stream()
                         .filter(e -> e.getPhysician().equals(physician)
-                            && e.getAvailableDateTime().isAfter(firstDate)
-                            && e.getAvailableDateTime().isBefore(lastDate))
+                        && e.getAvailableDateTime().isAfter(dto.firstDate())
+                        && e.getAvailableDateTime().isBefore(dto.lastDate()))
                         .toList()
         );
     }
