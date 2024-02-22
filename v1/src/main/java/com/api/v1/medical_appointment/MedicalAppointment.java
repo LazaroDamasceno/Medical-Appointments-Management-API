@@ -42,9 +42,12 @@ public class MedicalAppointment {
     private Patient patient;
 
     MedicalAppointment(Physician physician, Patient patient, DateTimeDTO dto) {
-        this.availableDateTime = ConvertToDateTime.convert(dto.dateTime());
+        setAvailableDateTime(ConvertToDateTime.convert(dto.dateTime()));
         this.physician = physician;
         this.patient = patient;
+    }
+
+    protected MedicalAppointment() {
     }
     
 }
