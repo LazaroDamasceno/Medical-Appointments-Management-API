@@ -1,4 +1,4 @@
-package com.api.v1.medical_appointment.retrieve;
+package com.api.v1.medical_appointment;
 
 import java.util.List;
 
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.api.v1.auxiliary.BetweenDatesDTO;
-import com.api.v1.medical_appointment.MedicalAppointment;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.AllArgsConstructor;
