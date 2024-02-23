@@ -17,7 +17,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 class CancelMedicalAppointmentService {
 
-    private final RetrieveMedicalAppointmentByPatientAndDateService service;
+    private final RetrieveMedicalAppointmentsByPatientAndDateService service;
     private final MedicalAppointmentRepository repository;
     private final MedicalSlotRepository medicalSlotRepository;
     private final RetrieveMedicalSlotByDateAndPhysicianService retrieveMedicalSlotByDateAndPhysician;

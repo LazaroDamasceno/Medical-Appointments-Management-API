@@ -13,7 +13,7 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class RetrieveFinishedMedicalAppointmentByPhysicianService {
+public class RetrieveCancelledMedicalAppointmentsByPhysicianService {
 
     private final RetrievePhysicianByMlnService retrievePhysicianByMln;
     private final MedicalAppointmentRepository repository;
@@ -26,8 +26,10 @@ public class RetrieveFinishedMedicalAppointmentByPhysicianService {
                 .findAll()
                 .stream()
                 .filter(e -> e.getPhysician().equals(physician.get())
-                    && e.getMedicalNotes() != null
+                    && e.getCancelationDateTime() != null
                 )
-                .toList());
+                .toList()
+        );
     }
+    
 }

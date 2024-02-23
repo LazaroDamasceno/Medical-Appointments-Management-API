@@ -5,21 +5,24 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.api.v1.auxiliary.BetweenDatesDTO;
 
 import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("api/v1/medical-appointments/finished")
 @AllArgsConstructor
-public class RetrieveFinishedMedicalAppointmentByPhysicianController {
+public class RetrieveFinishedMedicalAppointmentsBetweenDatesByPhysicianController {
 
-    private final RetrieveFinishedMedicalAppointmentByPhysicianService service;
+    private final RetrieveFinishedMedicalAppointmentsBetweenDatesByPhysicianService service;
 
-    @GetMapping("by-physician/{mln}")
-    public ResponseEntity<List<MedicalAppointment>> retrieve(@PathVariable String mln) {
-        return service.retrieve(mln);
+    @GetMapping("between-dates/by-physican/{mln}")
+    public ResponseEntity<List<MedicalAppointment>> retrieve(@PathVariable String mln, @RequestBody BetweenDatesDTO dto) {
+        return service.retrieve(mln, dto);
     }
     
 }

@@ -13,9 +13,9 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("api/v1/medical-appointments/cancelled")
 @AllArgsConstructor
-public class RetrieveCancelledMedicalAppointmentByPhysicianController {
+public class RetrieveCancelledMedicalAppointmentsByPhysicianController {
 
-    private final RetrieveCancelledMedicalAppointmentByPhysicianService service;
+    private final RetrieveCancelledMedicalAppointmentsByPhysicianService service;
 
     @GetMapping("by-physician/{mln}")
     public ResponseEntity<List<MedicalAppointment>> retrieve(@PathVariable String mln) {

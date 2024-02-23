@@ -26,7 +26,7 @@ public class RegisterMedicalAppointmentService {
     private final PhysicianRepository physicianRepository;
     private final RetrieveMedicalSlotByDateAndPhysicianService retrieveMedicalSlotByDateAndPhysician;
     private final MedicalSlotRepository medicalSlotRepository;
-    private final RetrieveMedicalAppointmentByPatientAndDateService retrieveMedicalAppointmentByPatientAndDate;
+    private final RetrieveMedicalAppointmentsByPatientAndDateService retrieveMedicalAppointmentByPatientAndDate;
 
     public ResponseEntity<Void> register(String mln, String ssn, DateTimeDTO dto) {
         Optional<MedicalAppointment> medicalAppointmentOptional = retrieveMedicalAppointmentByPatientAndDate.retrieve(ssn, dto);

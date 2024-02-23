@@ -18,11 +18,11 @@ public class AddNotesToMedicalAppointmentService {
 
     private final MedicalAppointmentRepository repository;
     private final RetrievePhysicianByMlnService retrievePhysicianByMln;
-    private final RetrieveMedicalAppointmentByPhysicianAndDateService retrieveMedicalAppointmentByPhysicianAndDate;
+    private final RetrieveMedicalAppointmentsByPhysicianAndDateService retrieveMedicalAppointmentsByPhysicianAndDate;
 
     public ResponseEntity<Void> add(String mln, DateTimeDTO dateTime, MedicalNotesDTO medicalNotes) {
 
-        Optional<MedicalAppointment> medicalAppointmentOptional = retrieveMedicalAppointmentByPhysicianAndDate.retrieve(mln, dateTime);
+        Optional<MedicalAppointment> medicalAppointmentOptional = retrieveMedicalAppointmentsByPhysicianAndDate.retrieve(mln, dateTime);
         if (medicalAppointmentOptional.isPresent() 
             && medicalAppointmentOptional.get().getMedicalNotes() != null) return ResponseEntity.badRequest().build();
 
