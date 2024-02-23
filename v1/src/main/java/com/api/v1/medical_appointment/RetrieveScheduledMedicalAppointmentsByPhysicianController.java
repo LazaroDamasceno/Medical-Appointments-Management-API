@@ -17,7 +17,7 @@ public class RetrieveScheduledMedicalAppointmentsByPhysicianController {
     
     private final RetrieveScheduledMedicalAppointmentsByPhysicianService service;
 
-    @GetMapping("by-physican/{mln}")
+    @GetMapping("by-physician/{mln}")
     public ResponseEntity<List<MedicalAppointment>> retrieve(@PathVariable String mln) {
         return service.retrieve(mln);
     }
