@@ -41,6 +41,8 @@ public class MedicalAppointment {
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
+    private String medicalNotes;
+
     MedicalAppointment(Physician physician, Patient patient, DateTimeDTO dto) {
         setAvailableDateTime(ConvertToDateTime.convert(dto.dateTime()));
         this.physician = physician;
