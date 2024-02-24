@@ -14,7 +14,7 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class RetrieveMedicalAppointmentsByPhysicianAndDateService {
+public class RetrieveMedicalAppointmentByPhysicianAndDateService {
 
     private final MedicalAppointmentRepository repository;
     private final PhysicianRepository physicianRepository;

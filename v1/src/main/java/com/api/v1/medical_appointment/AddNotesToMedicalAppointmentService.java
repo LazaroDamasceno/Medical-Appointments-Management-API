@@ -22,7 +22,7 @@ public class AddNotesToMedicalAppointmentService {
     private final MedicalAppointmentRepository repository;
     private final MedicalRecordRepository medicalRecordRepository;
     private final RetrievePhysicianByMlnService retrievePhysicianByMln;
-    private final RetrieveMedicalAppointmentsByPhysicianAndDateService retrieveMedicalAppointmentsByPhysicianAndDate;
+    private final RetrieveMedicalAppointmentByPhysicianAndDateService retrieveMedicalAppointmentsByPhysicianAndDate;
 
     public ResponseEntity<Void> add(String mln, DateTimeDTO dateTime, MedicalNotesDTO medicalNotes) {
 
