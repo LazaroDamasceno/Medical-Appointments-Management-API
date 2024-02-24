@@ -42,7 +42,7 @@ public class RegisterMedicalPrescriptionService {
         medicalPrescription.setMedicalAppointment(medicalAppointment);
         repository.save(medicalPrescription);
 
-        medicalAppointment.setMedicalPrescription(medicalPrescription);
+        medicalAppointment.getMedicalPrescriptios().add(medicalPrescription);
         medicalAppointmentRepository.save(medicalAppointment);
         
         return new ResponseEntity<>(HttpStatus.CREATED);

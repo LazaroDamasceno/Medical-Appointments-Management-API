@@ -1,6 +1,8 @@
 package com.api.v1.medical_appointment;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import com.api.v1.auxiliary.ConvertToDateTime;
@@ -48,7 +50,7 @@ public class MedicalAppointment {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "medical_prescription_id")
-    private MedicalPrescription medicalPrescription;
+    private List<MedicalPrescription> medicalPrescriptios = new ArrayList<>();
 
     private String medicalNotes;
 
