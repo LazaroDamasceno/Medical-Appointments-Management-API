@@ -1,5 +1,6 @@
 package com.api.v1.medical_appointment;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
@@ -37,6 +38,7 @@ public class AddNotesToMedicalAppointmentService {
 
         MedicalAppointment medicalAppointment = medicalAppointmentOptional.get();
         medicalAppointment.setMedicalNotes(medicalNotes.notes());
+        medicalAppointment.setFinishingDateTime(LocalDateTime.now());
         repository.save(medicalAppointment);
 
         Optional<MedicalRecord> medicalRecordOptional = medicalRecordRepository.findByPatient(medicalAppointment.getPatient());

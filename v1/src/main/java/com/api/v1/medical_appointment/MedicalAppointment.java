@@ -33,6 +33,9 @@ public class MedicalAppointment {
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime cancelationDateTime;
 
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    private LocalDateTime finishingDateTime;
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "physician_id")
     private Physician physician;
