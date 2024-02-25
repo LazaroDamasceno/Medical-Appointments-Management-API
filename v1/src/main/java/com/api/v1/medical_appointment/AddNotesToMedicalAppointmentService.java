@@ -8,8 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.api.v1.auxiliary.DateTimeDTO;
-import com.api.v1.medical_record.MedicalRecord;
-import com.api.v1.medical_record.MedicalRecordRepository;
+import com.api.v1.medical_record.AddMedicalAppointmentToMedicalRecordService;
 import com.api.v1.physician.Physician;
 import com.api.v1.physician.RetrievePhysicianByMlnService;
 
@@ -20,9 +19,9 @@ import lombok.AllArgsConstructor;
 public class AddNotesToMedicalAppointmentService {
 
     private final MedicalAppointmentRepository repository;
-    private final MedicalRecordRepository medicalRecordRepository;
     private final RetrievePhysicianByMlnService retrievePhysicianByMln;
     private final RetrieveMedicalAppointmentByPhysicianAndDateService retrieveMedicalAppointmentsByPhysicianAndDate;
+    private final AddMedicalAppointmentToMedicalRecordService adddMedicalAppointmentToMedicalRecord;
 
     public ResponseEntity<Void> add(String mln, DateTimeDTO dateTime, MedicalNotesDTO medicalNotes) {
 
@@ -41,11 +40,7 @@ public class AddNotesToMedicalAppointmentService {
         medicalAppointment.setFinishingDateTime(LocalDateTime.now());
         repository.save(medicalAppointment);
 
-        Optional<MedicalRecord> medicalRecordOptional = medicalRecordRepository.findByPatient(medicalAppointment.getPatient());
-        if (medicalRecordOptional.isEmpty()) return ResponseEntity.badRequest().build();
-        MedicalRecord medicalRecord = medicalRecordOptional.get();
-        medicalRecord.getMedicalAppointments().add(medicalAppointment);
-        medicalRecordRepository.save(medicalRecord);
+        adddMedicalAppointmentToMedicalRecord.add(medicalAppointment.getPatient(), medicalAppointment);
 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
