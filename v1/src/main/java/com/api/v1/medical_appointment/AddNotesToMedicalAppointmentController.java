@@ -18,7 +18,7 @@ public class AddNotesToMedicalAppointmentController {
 
     private final AddNotesToMedicalAppointmentService service;
 
-    @PostMapping("notes/{mln}")
+    @PostMapping("medical-notes/{mln}")
     public ResponseEntity<Void> add(@PathVariable String mln,
                                     @RequestBody DateTimeDTO dateTime, 
                                     @RequestBody MedicalNotesDTO medicalNotes) {

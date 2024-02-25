@@ -28,7 +28,7 @@ public class RetrieveMedicalAppointmentByPhysicianAndDateService {
                 .stream()
                 .filter(e -> e.getAvailableDateTime().equals(localDateTime) 
                     && e.getPhysician().equals(physician.get())
-                ).findFirst();
+                ).findAny();
     }
     
 }
