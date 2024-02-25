@@ -41,9 +41,15 @@ public class AddNotesToMedicalAppointmentService {
         medicalAppointment.setFinishingDateTime(LocalDateTime.now());
         repository.save(medicalAppointment);
 
+        MedicalRecord medicalRecord = null;
         Optional<MedicalRecord> medicalRecordOptional = medicalRecordRepository.findByPatient(medicalAppointment.getPatient());
-        if (medicalRecordOptional.isEmpty()) return ResponseEntity.badRequest().build();
-        MedicalRecord medicalRecord = medicalRecordOptional.get();
+        if (medicalRecordOptional.isEmpty()) {
+            medicalAppointment = medicalRecordOptional.get();
+            medicalRecord = medicalRecordOptional.get();
+            medicalRecord.getMedicalAppointments().add(medicalAppointment);
+            medicalRecordRepository.save(medicalRecord);
+        }
+        medicalRecord = medicalRecordOptional.get();
         medicalRecord.getMedicalAppointments().add(medicalAppointment);
         medicalRecordRepository.save(medicalRecord);
 
