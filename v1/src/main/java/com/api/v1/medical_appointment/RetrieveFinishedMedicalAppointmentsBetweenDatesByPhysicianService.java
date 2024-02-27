@@ -33,6 +33,7 @@ public class RetrieveFinishedMedicalAppointmentsBetweenDatesByPhysicianService {
                 .filter(e -> e.getPhysician().equals(physician.get())
                     && e.getAvailableDateTime().isAfter(firstDate)
                     && e.getAvailableDateTime().isBefore(lastDate)
+                    && e.getMedicalNotes() == null
                 ).toList()
         );
     }

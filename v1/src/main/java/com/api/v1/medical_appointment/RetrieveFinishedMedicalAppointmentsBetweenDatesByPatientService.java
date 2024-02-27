@@ -31,6 +31,7 @@ public class RetrieveFinishedMedicalAppointmentsBetweenDatesByPatientService {
                 .findAll()
                 .stream()
                 .filter(e -> e.getPatient().equals(patient.get())
+                    && e.getMedicalNotes() != null
                     && e.getAvailableDateTime().isAfter(firstDate)
                     && e.getAvailableDateTime().isBefore(lastDate)
                 )
