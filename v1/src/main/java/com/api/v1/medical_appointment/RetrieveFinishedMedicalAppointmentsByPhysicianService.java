@@ -26,7 +26,6 @@ public class RetrieveFinishedMedicalAppointmentsByPhysicianService {
                 .findAll()
                 .stream()
                 .filter(e -> e.getPhysician().equals(physician.get())
-                    && e.getMedicalNotes() != null
                 )
                 .toList());
     }

@@ -52,8 +52,6 @@ public class MedicalAppointment {
     @JoinColumn(name = "medical_prescription_id")
     private List<MedicalPrescription> medicalPrescriptios = new ArrayList<>();
 
-    private String medicalNotes;
-
     MedicalAppointment(Physician physician, Patient patient, DateTimeDTO dto) {
         setAvailableDateTime(ConvertToDateTime.convert(dto.dateTime()));
         this.physician = physician;

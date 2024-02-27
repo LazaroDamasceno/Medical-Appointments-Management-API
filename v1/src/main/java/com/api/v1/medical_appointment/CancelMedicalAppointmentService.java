@@ -25,9 +25,6 @@ class CancelMedicalAppointmentService {
     public ResponseEntity<Void> cancel(String ssn, DateTimeDTO dto) {
         Optional<MedicalAppointment> medicalAppointmentOptional = service.retrieve(ssn, dto);
 
-        if (medicalAppointmentOptional.isPresent() 
-            && medicalAppointmentOptional.get().getMedicalNotes() != null) return ResponseEntity.badRequest().build();
-
         if (medicalAppointmentOptional.isEmpty()) return ResponseEntity.badRequest().build();
         MedicalAppointment medicalAppointment = medicalAppointmentOptional.get();
         medicalAppointment.setCancelationDateTime(LocalDateTime.now());
