@@ -22,12 +22,12 @@ public class AddNotesToMedicalAppointmentService {
     private final RetrieveMedicalAppointmentByPhysicianAndDateService retrieveMedicalAppointmentsByPhysicianAndDate;
     private final AddMedicalAppointmentToMedicalRecordService adddMedicalAppointmentToMedicalRecord;
 
-    public ResponseEntity<Void> add(String mln, DateTimeDTO dateTime, MedicalNotesDTO medicalNotes) {
+    public ResponseEntity<Void> add(String mln, DateTimeDTO dateTimeDTO, MedicalNotesDTO medicalNotesDTO) {
         Optional<Physician> physician = retrievePhysicianByMln.retrieve(mln);
-        Optional<MedicalAppointment> medicalAppointmentOptional = retrieveMedicalAppointmentsByPhysicianAndDate.retrieve(mln, dateTime);
+        Optional<MedicalAppointment> medicalAppointmentOptional = retrieveMedicalAppointmentsByPhysicianAndDate.retrieve(mln, dateTimeDTO);
         if (medicalAppointmentOptional.isEmpty() || physician.isEmpty()) return ResponseEntity.badRequest().build();
         MedicalAppointment medicalAppointment = medicalAppointmentOptional.get();
-        medicalAppointment.setMedicalNotes(medicalNotes.notes());
+        medicalAppointment.setMedicalNotes(medicalNotesDTO.notes());
         repository.save(medicalAppointment);
         adddMedicalAppointmentToMedicalRecord.add(medicalAppointment.getPatient(), medicalAppointment);
         return new ResponseEntity<>(HttpStatus.CREATED);
