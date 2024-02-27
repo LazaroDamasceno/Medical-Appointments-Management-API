@@ -46,7 +46,7 @@ public class MedicalAppointment {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "medical_prescription_id")
-    private List<MedicalPrescription> medicalPrescriptios = new ArrayList<>();
+    private List<MedicalPrescription> medicalPrescriptions = new ArrayList<>();
 
     private String medicalNotes;
 
