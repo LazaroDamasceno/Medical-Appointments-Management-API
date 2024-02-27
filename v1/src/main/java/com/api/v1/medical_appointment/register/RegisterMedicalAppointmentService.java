@@ -1,7 +1,10 @@
-package com.api.v1.medical_appointment;
+package com.api.v1.medical_appointment.register;
 
 import java.util.Optional;
 
+import com.api.v1.medical_appointment.MedicalAppointment;
+import com.api.v1.medical_appointment.MedicalAppointmentRepository;
+import com.api.v1.medical_appointment.RetrieveMedicalAppointmentByPatientAndDateService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -31,7 +34,7 @@ public class RegisterMedicalAppointmentService {
     public ResponseEntity<Void> register(String mln, String ssn, DateTimeDTO dto) {
         Optional<MedicalAppointment> medicalAppointmentOptional = retrieveMedicalAppointmentByPatientAndDate.retrieve(ssn, dto);
         if (medicalAppointmentOptional.isPresent() 
-            && medicalAppointmentOptional.get().getCancelationDateTime() != null) return ResponseEntity.badRequest().build();
+            && medicalAppointmentOptional.get().getCancellationDateTime() != null) return ResponseEntity.badRequest().build();
 
         Optional<MedicalSlot> medicalSlotOptional = retrieveMedicalSlotByDateAndPhysician.retrieve(mln, dto);
         if (medicalSlotOptional.isEmpty()) return ResponseEntity.badRequest().build();

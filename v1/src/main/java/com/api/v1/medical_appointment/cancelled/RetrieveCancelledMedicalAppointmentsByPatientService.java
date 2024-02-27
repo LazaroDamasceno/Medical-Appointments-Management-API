@@ -1,8 +1,10 @@
-package com.api.v1.medical_appointment;
+package com.api.v1.medical_appointment.cancelled;
 
 import java.util.List;
 import java.util.Optional;
 
+import com.api.v1.medical_appointment.MedicalAppointment;
+import com.api.v1.medical_appointment.MedicalAppointmentRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -20,16 +22,15 @@ public class RetrieveCancelledMedicalAppointmentsByPatientService {
 
     public ResponseEntity<List<MedicalAppointment>> retrieve(String ssn) {
         Optional<Patient> patient = retrievePatientBySsn.retrieve(ssn);
-        if (patient.isEmpty()) return ResponseEntity.badRequest().build();
-        return ResponseEntity.ok(
-            repository
-                .findAll()
-                .stream()
-                .filter(e -> e.getPatient().equals(patient.get())
-                    && e.getCancelationDateTime() != null
-                )
-                .toList()
-        );
+        return patient.map(value -> ResponseEntity.ok(
+                repository
+                        .findAll()
+                        .stream()
+                        .filter(e -> e.getPatient().equals(value)
+                                && e.getCancellationDateTime() != null
+                        )
+                        .toList()
+        )).orElseGet(() -> ResponseEntity.badRequest().build());
     }
     
 }

@@ -1,8 +1,11 @@
-package com.api.v1.medical_appointment;
+package com.api.v1.medical_appointment.cancel;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+import com.api.v1.medical_appointment.MedicalAppointment;
+import com.api.v1.medical_appointment.MedicalAppointmentRepository;
+import com.api.v1.medical_appointment.RetrieveMedicalAppointmentByPatientAndDateService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +33,7 @@ class CancelMedicalAppointmentService {
 
         if (medicalAppointmentOptional.isEmpty()) return ResponseEntity.badRequest().build();
         MedicalAppointment medicalAppointment = medicalAppointmentOptional.get();
-        medicalAppointment.setCancelationDateTime(LocalDateTime.now());
+        medicalAppointment.setCancellationDateTime(LocalDateTime.now());
         repository.save(medicalAppointment);
 
         String mln = medicalAppointment.getPhysician().getMln();

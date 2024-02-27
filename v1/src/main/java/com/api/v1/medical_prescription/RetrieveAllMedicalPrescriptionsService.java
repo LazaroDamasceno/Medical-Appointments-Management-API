@@ -20,14 +20,13 @@ public class RetrieveAllMedicalPrescriptionsService {
 
     public ResponseEntity<List<MedicalPrescription>> retrieve(String mln) {
         Optional<Physician> physician = retrievePhysicianByMln.retrieve(mln);
-        if (physician.isEmpty()) return ResponseEntity.badRequest().build();
-        return ResponseEntity.ok(
-            repository
-                .findAll()
-                .stream()
-                .filter(e -> e.getPhysician().equals(physician.get()))
-                .toList()
-        );
+        return physician.map(value -> ResponseEntity.ok(
+                repository
+                        .findAll()
+                        .stream()
+                        .filter(e -> e.getPhysician().equals(value))
+                        .toList()
+        )).orElseGet(() -> ResponseEntity.badRequest().build());
     }
     
 }

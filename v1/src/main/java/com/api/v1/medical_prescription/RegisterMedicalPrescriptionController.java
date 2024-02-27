@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.v1.auxiliary.DateTimeDTO;
-
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -20,10 +18,9 @@ public class RegisterMedicalPrescriptionController {
 
     @PostMapping("mln/{mln}/ssn/{ssn}")
     public ResponseEntity<Void> register(@PathVariable String mln, 
-                                         @PathVariable String ssn, 
-                                         @RequestBody DateTimeDTO dateTime, 
+                                         @PathVariable String ssn,
                                          @RequestBody MedicalPrescriptionDTO prescription) {
-        return service.register(mln, ssn, dateTime, prescription);
+        return service.register(mln, ssn, prescription);
     }
     
 }

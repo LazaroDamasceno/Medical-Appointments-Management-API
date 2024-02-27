@@ -1,7 +1,10 @@
-package com.api.v1.medical_appointment;
+package com.api.v1.medical_appointment.add_notes;
 
 import java.util.Optional;
 
+import com.api.v1.medical_appointment.MedicalAppointment;
+import com.api.v1.medical_appointment.MedicalAppointmentRepository;
+import com.api.v1.medical_appointment.RetrieveMedicalAppointmentByPhysicianAndDateService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -20,16 +23,17 @@ public class AddNotesToMedicalAppointmentService {
     private final MedicalAppointmentRepository repository;
     private final RetrievePhysicianByMlnService retrievePhysicianByMln;
     private final RetrieveMedicalAppointmentByPhysicianAndDateService retrieveMedicalAppointmentsByPhysicianAndDate;
-    private final AddMedicalAppointmentToMedicalRecordService adddMedicalAppointmentToMedicalRecord;
+    private final AddMedicalAppointmentToMedicalRecordService addMedicalAppointmentToMedicalRecord;
 
-    public ResponseEntity<Void> add(String mln, DateTimeDTO dateTimeDTO, MedicalNotesDTO medicalNotesDTO) {
+    public ResponseEntity<Void> add(String mln, MedicalNotesDTO medicalNotesDTO) {
         Optional<Physician> physician = retrievePhysicianByMln.retrieve(mln);
-        Optional<MedicalAppointment> medicalAppointmentOptional = retrieveMedicalAppointmentsByPhysicianAndDate.retrieve(mln, dateTimeDTO);
+        Optional<MedicalAppointment> medicalAppointmentOptional = retrieveMedicalAppointmentsByPhysicianAndDate
+                .retrieve(mln, new DateTimeDTO(medicalNotesDTO.dateTime()));
         if (medicalAppointmentOptional.isEmpty() || physician.isEmpty()) return ResponseEntity.badRequest().build();
         MedicalAppointment medicalAppointment = medicalAppointmentOptional.get();
         medicalAppointment.setMedicalNotes(medicalNotesDTO.notes());
         repository.save(medicalAppointment);
-        adddMedicalAppointmentToMedicalRecord.add(medicalAppointment.getPatient(), medicalAppointment);
+        addMedicalAppointmentToMedicalRecord.add(medicalAppointment.getPatient(), medicalAppointment);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 

@@ -27,19 +27,19 @@ public class RegisterMedicalPrescriptionService {
     private final RetrievePatientBySsnService retrievePatientBySsn;
     private final RetrieveMedicalAppointmentByPatientAndDateService retrieveMedicalAppointmentByPatientAndDate;
 
-    public ResponseEntity<Void> register(String mln, String ssn, DateTimeDTO dateTime, MedicalPrescriptionDTO prescription) {
+    public ResponseEntity<Void> register(String mln, String ssn, MedicalPrescriptionDTO prescriptionDTO) {
         Optional<Physician> physician = retrievePhysicianByMln.retrieve(mln);
         if (physician.isEmpty()) return ResponseEntity.badRequest().build();
 
         Optional<Patient> patient = retrievePatientBySsn.retrieve(ssn);
         if (patient.isEmpty()) return ResponseEntity.badRequest().build();
 
-        Optional<MedicalAppointment> medicalAppointmentOptional = retrieveMedicalAppointmentByPatientAndDate.retrieve(ssn, dateTime);
+        Optional<MedicalAppointment> medicalAppointmentOptional = retrieveMedicalAppointmentByPatientAndDate
+                .retrieve(ssn, new DateTimeDTO(prescriptionDTO.dateTime()));
         if (medicalAppointmentOptional.isEmpty()) return ResponseEntity.badRequest().build();
         MedicalAppointment medicalAppointment = medicalAppointmentOptional.get();
 
-        MedicalPrescription medicalPrescription = new MedicalPrescription(physician.get(), patient.get(), medicalAppointment, prescription);
-        medicalPrescription.setMedicalAppointment(medicalAppointment);
+        MedicalPrescription medicalPrescription = new MedicalPrescription(physician.get(), patient.get(), medicalAppointment, prescriptionDTO);
         repository.save(medicalPrescription);
 
         medicalAppointment.getMedicalPrescriptions().add(medicalPrescription);

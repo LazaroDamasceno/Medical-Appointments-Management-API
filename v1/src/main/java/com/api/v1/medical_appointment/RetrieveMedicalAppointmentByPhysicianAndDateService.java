@@ -19,13 +19,12 @@ public class RetrieveMedicalAppointmentByPhysicianAndDateService {
 
     public Optional<MedicalAppointment> retrieve(String mln, DateTimeDTO dto) {
         Optional<Physician> physician = physicianRepository.findByMln(mln);
-        if (physician.isEmpty()) return Optional.empty();
-        return repository
+        return physician.flatMap(value -> repository
                 .findAll()
                 .stream()
-                .filter(e -> e.getAvailableDateTime().equals(dto.get()) 
-                    && e.getPhysician().equals(physician.get())
-                ).findAny();
+                .filter(e -> e.getAvailableDateTime().equals(dto.get())
+                        && e.getPhysician().equals(value)
+                ).findAny());
     }
     
 }

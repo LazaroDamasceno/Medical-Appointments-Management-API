@@ -1,4 +1,4 @@
-package com.api.v1.medical_appointment;
+package com.api.v1.medical_appointment.cancel;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PatchMapping;

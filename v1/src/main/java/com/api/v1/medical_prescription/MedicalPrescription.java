@@ -46,8 +46,10 @@ public class MedicalPrescription {
     @Column(nullable = false)
     private String prescription;
 
-    public MedicalPrescription(Physician physician, Patient patient, MedicalAppointment medicalAppointment,
-            MedicalPrescriptionDTO dto) {
+    public MedicalPrescription(Physician physician, 
+                               Patient patient, 
+                               MedicalAppointment medicalAppointment,
+                               MedicalPrescriptionDTO dto) {
         this.physician = physician;
         this.patient = patient;
         this.medicalAppointment = medicalAppointment;

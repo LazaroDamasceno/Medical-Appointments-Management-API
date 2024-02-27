@@ -1,4 +1,4 @@
-package com.api.v1.medical_appointment;
+package com.api.v1.medical_appointment.register;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,15 +14,16 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("api/v1/medical-appointment")
 @AllArgsConstructor
-public class AddNotesToMedicalAppointmentController {
+public class RegisterMedicalAppointmentController {
 
-    private final AddNotesToMedicalAppointmentService service;
+    private final RegisterMedicalAppointmentService service;
 
-    @PostMapping("medical-notes/{mln}")
-    public ResponseEntity<Void> add(@PathVariable String mln,
-                                    @RequestBody DateTimeDTO dateTimeDTO, 
-                                    @RequestBody MedicalNotesDTO medicalNotesDTO) {
-        return service.add(mln, dateTimeDTO, medicalNotesDTO);
+    @PostMapping("mln/{mln}/ssn/{ssn}")
+    public ResponseEntity<Void> register(@PathVariable String mln, 
+                                         @PathVariable String ssn, 
+                                         @RequestBody DateTimeDTO dto) 
+    {
+        return service.register(mln, ssn, dto);
     }
     
 }

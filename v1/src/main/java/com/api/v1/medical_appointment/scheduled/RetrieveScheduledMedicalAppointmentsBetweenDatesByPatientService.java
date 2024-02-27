@@ -1,8 +1,10 @@
-package com.api.v1.medical_appointment;
+package com.api.v1.medical_appointment.scheduled;
 
 import java.util.List;
 import java.util.Optional;
 
+import com.api.v1.medical_appointment.MedicalAppointment;
+import com.api.v1.medical_appointment.MedicalAppointmentRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +29,7 @@ public class RetrieveScheduledMedicalAppointmentsBetweenDatesByPatientService {
                 .findAll()
                 .stream()
                 .filter(e -> e.getPatient().equals(patient.get())
-                    && e.getCancelationDateTime() == null
+                    && e.getCancellationDateTime() == null
                     && e.getAvailableDateTime().isAfter(dto.getFirstDate())
                     && e.getAvailableDateTime().isBefore(dto.getLastDate())
                 )

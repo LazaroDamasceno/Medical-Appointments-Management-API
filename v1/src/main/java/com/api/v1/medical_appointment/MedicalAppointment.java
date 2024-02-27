@@ -34,7 +34,7 @@ public class MedicalAppointment {
     private LocalDateTime availableDateTime;
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
-    private LocalDateTime cancelationDateTime;
+    private LocalDateTime cancellationDateTime;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "physician_id")
@@ -50,7 +50,7 @@ public class MedicalAppointment {
 
     private String medicalNotes;
 
-    MedicalAppointment(Physician physician, Patient patient, DateTimeDTO dto) {
+    public MedicalAppointment(Physician physician, Patient patient, DateTimeDTO dto) {
         this.availableDateTime = dto.get();
         this.physician = physician;
         this.patient = patient;
