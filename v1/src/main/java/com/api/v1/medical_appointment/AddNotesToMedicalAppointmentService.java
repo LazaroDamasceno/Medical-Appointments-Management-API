@@ -1,6 +1,5 @@
 package com.api.v1.medical_appointment;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
@@ -28,13 +27,11 @@ public class AddNotesToMedicalAppointmentService {
         Optional<MedicalAppointment> medicalAppointmentOptional = retrieveMedicalAppointmentsByPhysicianAndDate.retrieve(mln, dateTime);
         if (medicalAppointmentOptional.isEmpty()) return ResponseEntity.badRequest().build();
 
-
         Optional<Physician> physician = retrievePhysicianByMln.retrieve(mln);
         if (physician.isEmpty()) return ResponseEntity.badRequest().build();
 
         MedicalAppointment medicalAppointment = medicalAppointmentOptional.get();
         medicalAppointment.setMedicalNotes(medicalNotes.notes());
-        medicalAppointment.setFinishingDateTime(LocalDateTime.now());
         repository.save(medicalAppointment);
 
         adddMedicalAppointmentToMedicalRecord.add(medicalAppointment.getPatient(), medicalAppointment);
