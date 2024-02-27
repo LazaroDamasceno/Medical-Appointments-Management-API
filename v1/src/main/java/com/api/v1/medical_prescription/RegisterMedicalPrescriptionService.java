@@ -29,10 +29,8 @@ public class RegisterMedicalPrescriptionService {
 
     public ResponseEntity<Void> register(String mln, String ssn, MedicalPrescriptionDTO prescriptionDTO) {
         Optional<Physician> physician = retrievePhysicianByMln.retrieve(mln);
-        if (physician.isEmpty()) return ResponseEntity.badRequest().build();
-
         Optional<Patient> patient = retrievePatientBySsn.retrieve(ssn);
-        if (patient.isEmpty()) return ResponseEntity.badRequest().build();
+        if (physician.isEmpty() || patient.isEmpty()) return ResponseEntity.badRequest().build();
 
         Optional<MedicalAppointment> medicalAppointmentOptional = retrieveMedicalAppointmentByPatientAndDate
                 .retrieve(ssn, new DateTimeDTO(prescriptionDTO.dateTime()));
