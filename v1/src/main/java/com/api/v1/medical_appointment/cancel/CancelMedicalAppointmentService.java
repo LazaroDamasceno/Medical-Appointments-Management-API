@@ -28,10 +28,13 @@ class CancelMedicalAppointmentService {
     public ResponseEntity<Void> cancel(String ssn, DateTimeDTO dto) {
         Optional<MedicalAppointment> medicalAppointmentOptional = service.retrieve(ssn, dto);
 
-        if (medicalAppointmentOptional.isPresent() 
-            && medicalAppointmentOptional.get().getMedicalNotes() != null) return ResponseEntity.badRequest().build();
+        boolean isMedicalAppointmentPresent = medicalAppointmentOptional.isPresent() 
+            && medicalAppointmentOptional.get().getMedicalNotes() != null;
 
-        if (medicalAppointmentOptional.isEmpty()) return ResponseEntity.badRequest().build();
+        boolean isMedicalApointmentEmpty = medicalAppointmentOptional.isEmpty();
+
+        if (isMedicalAppointmentPresent || isMedicalApointmentEmpty) return ResponseEntity.badRequest().build();
+
         MedicalAppointment medicalAppointment = medicalAppointmentOptional.get();
         medicalAppointment.setCancellationDate(LocalDate.now());
         repository.save(medicalAppointment);
