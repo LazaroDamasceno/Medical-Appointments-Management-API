@@ -29,7 +29,7 @@ public class RetrieveScheduledMedicalAppointmentsBetweenDatesByPatientService {
                 .findAll()
                 .stream()
                 .filter(e -> e.getPatient().equals(patient.get())
-                    && e.getCancellationDateTime() == null
+                    && e.getCancellationDate() == null
                     && e.getAvailableDateTime().isAfter(dto.getFirstDate())
                     && e.getAvailableDateTime().isBefore(dto.getLastDate())
                 )

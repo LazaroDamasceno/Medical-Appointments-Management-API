@@ -31,7 +31,7 @@ public class RetrieveSheduledMedicalAppointmentsBetweenDatesByPhysicianService {
                 .filter(e -> e.getPhysician().equals(physician.get())
                     && e.getAvailableDateTime().isAfter(dto.getFirstDate())
                     && e.getAvailableDateTime().isBefore(dto.getLastDate())
-                    && e.getCancellationDateTime() == null
+                    && e.getCancellationDate() == null
                 ).toList()
         );
     }

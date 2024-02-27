@@ -27,3 +27,10 @@ RegisterPhysician
   }
 }
 ```
+DateTime
+
+```
+{
+  "dateTime": "12/12/2024 12:30:00"
+}
+```

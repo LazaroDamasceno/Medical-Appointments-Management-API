@@ -1,6 +1,6 @@
 package com.api.v1.medical_appointment.cancel;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.Optional;
 
 import com.api.v1.medical_appointment.MedicalAppointment;
@@ -33,7 +33,7 @@ class CancelMedicalAppointmentService {
 
         if (medicalAppointmentOptional.isEmpty()) return ResponseEntity.badRequest().build();
         MedicalAppointment medicalAppointment = medicalAppointmentOptional.get();
-        medicalAppointment.setCancellationDateTime(LocalDateTime.now());
+        medicalAppointment.setCancellationDate(LocalDate.now());
         repository.save(medicalAppointment);
 
         String mln = medicalAppointment.getPhysician().getMln();

@@ -34,7 +34,7 @@ public class RegisterMedicalAppointmentService {
     public ResponseEntity<Void> register(String mln, String ssn, DateTimeDTO dto) {
         Optional<MedicalAppointment> medicalAppointmentOptional = retrieveMedicalAppointmentByPatientAndDate.retrieve(ssn, dto);
         if (medicalAppointmentOptional.isPresent() 
-            && medicalAppointmentOptional.get().getCancellationDateTime() != null) return ResponseEntity.badRequest().build();
+            && medicalAppointmentOptional.get().getCancellationDate() != null) return ResponseEntity.badRequest().build();
 
         Optional<MedicalSlot> medicalSlotOptional = retrieveMedicalSlotByDateAndPhysician.retrieve(mln, dto);
         if (medicalSlotOptional.isEmpty()) return ResponseEntity.badRequest().build();

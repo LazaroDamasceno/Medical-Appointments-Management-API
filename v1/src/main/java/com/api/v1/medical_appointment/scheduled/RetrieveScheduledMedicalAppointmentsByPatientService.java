@@ -27,7 +27,7 @@ public class RetrieveScheduledMedicalAppointmentsByPatientService {
                         .findAll()
                         .stream()
                         .filter(e -> e.getPatient().equals(value)
-                                && e.getCancellationDateTime() == null
+                                && e.getCancellationDate() == null
                         )
                         .toList()
         )).orElseGet(() -> ResponseEntity.badRequest().build());

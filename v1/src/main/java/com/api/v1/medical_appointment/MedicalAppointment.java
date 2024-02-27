@@ -1,5 +1,6 @@
 package com.api.v1.medical_appointment;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -30,7 +31,7 @@ public class MedicalAppointment {
     private LocalDateTime availableDateTime;
 
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
-    private LocalDateTime cancellationDateTime;
+    private LocalDate cancellationDate;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "physician_id")
