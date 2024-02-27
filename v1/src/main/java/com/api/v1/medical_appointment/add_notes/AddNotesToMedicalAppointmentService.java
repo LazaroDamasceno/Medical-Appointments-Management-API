@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.api.v1.auxiliary.DateTimeDTO;
 import com.api.v1.medical_record.AddMedicalAppointmentToMedicalRecordService;
 import com.api.v1.physician.Physician;
 import com.api.v1.physician.RetrievePhysicianByMlnService;
@@ -28,7 +27,7 @@ public class AddNotesToMedicalAppointmentService {
     public ResponseEntity<Void> add(String mln, MedicalNotesDTO medicalNotesDTO) {
         Optional<Physician> physician = retrievePhysicianByMln.retrieve(mln);
         Optional<MedicalAppointment> medicalAppointmentOptional = retrieveMedicalAppointmentsByPhysicianAndDate
-                .retrieve(mln, new DateTimeDTO(medicalNotesDTO.dateTime()));
+                .retrieve(mln, medicalNotesDTO.dateTimeDTO());
         if (medicalAppointmentOptional.isEmpty() || physician.isEmpty()) return ResponseEntity.badRequest().build();
         MedicalAppointment medicalAppointment = medicalAppointmentOptional.get();
         medicalAppointment.setMedicalNotes(medicalNotesDTO.notes());

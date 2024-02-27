@@ -6,7 +6,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.api.v1.auxiliary.DateTimeDTO;
 import com.api.v1.medical_appointment.MedicalAppointment;
 import com.api.v1.medical_appointment.MedicalAppointmentRepository;
 import com.api.v1.medical_appointment.RetrieveMedicalAppointmentByPatientAndDateService;
@@ -33,7 +32,7 @@ public class RegisterMedicalPrescriptionService {
         if (physician.isEmpty() || patient.isEmpty()) return ResponseEntity.badRequest().build();
 
         Optional<MedicalAppointment> medicalAppointmentOptional = retrieveMedicalAppointmentByPatientAndDate
-                .retrieve(ssn, new DateTimeDTO(prescriptionDTO.dateTime()));
+                .retrieve(ssn, prescriptionDTO.dateTimeDTO());
         if (medicalAppointmentOptional.isEmpty()) return ResponseEntity.badRequest().build();
         MedicalAppointment medicalAppointment = medicalAppointmentOptional.get();
 

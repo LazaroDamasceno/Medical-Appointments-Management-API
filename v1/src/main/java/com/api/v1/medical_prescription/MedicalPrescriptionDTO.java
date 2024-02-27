@@ -1,7 +1,10 @@
 package com.api.v1.medical_prescription;
 
-import jakarta.validation.constraints.NotBlank;
+import com.api.v1.auxiliary.DateTimeDTO;
 
-public record MedicalPrescriptionDTO(@NotBlank String dateTime, @NotBlank String prescription) {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+public record MedicalPrescriptionDTO(@NotNull DateTimeDTO dateTimeDTO, @NotBlank String prescription) {
     
 }

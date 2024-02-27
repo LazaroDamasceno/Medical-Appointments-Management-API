@@ -1,7 +1,10 @@
 package com.api.v1.medical_appointment.add_notes;
 
-import jakarta.validation.constraints.NotBlank;
+import com.api.v1.auxiliary.DateTimeDTO;
 
-public record MedicalNotesDTO(@NotBlank String dateTime, @NotBlank String notes) {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+public record MedicalNotesDTO(@NotNull DateTimeDTO dateTimeDTO, @NotBlank String notes) {
 
 }
