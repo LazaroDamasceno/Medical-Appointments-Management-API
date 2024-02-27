@@ -1,12 +1,9 @@
 package com.api.v1.medical_appointment;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 import com.api.v1.auxiliary.DateTimeDTO;
-import com.api.v1.medical_prescription.MedicalPrescription;
 import com.api.v1.patient.Patient;
 import com.api.v1.physician.Physician;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -17,7 +14,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -43,10 +39,6 @@ public class MedicalAppointment {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "patient_id")
     private Patient patient;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "medical_prescription_id")
-    private List<MedicalPrescription> medicalPrescriptions = new ArrayList<>();
 
     private String medicalNotes;
 
