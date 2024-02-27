@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import com.api.v1.auxiliary.ConvertToDateTime;
 import com.api.v1.auxiliary.DateTimeDTO;
 import com.api.v1.medical_prescription.MedicalPrescription;
 import com.api.v1.patient.Patient;
@@ -52,7 +51,7 @@ public class MedicalAppointment {
     private String medicalNotes;
 
     MedicalAppointment(Physician physician, Patient patient, DateTimeDTO dto) {
-        setAvailableDateTime(ConvertToDateTime.convert(dto.dateTime()));
+        this.availableDateTime = dto.get();
         this.physician = physician;
         this.patient = patient;
     }

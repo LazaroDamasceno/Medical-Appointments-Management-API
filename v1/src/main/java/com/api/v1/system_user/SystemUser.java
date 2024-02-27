@@ -1,6 +1,6 @@
 package com.api.v1.system_user;
 
-import com.api.v1.auxiliary.ConvertToDate;
+import com.api.v1.auxiliary.DateDTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -38,7 +38,7 @@ public class SystemUser {
     public SystemUser(RegisterSystemUserDTO dto) {
         this.fullName = dto.fullName();
         this.ssn = dto.ssn();
-        this.birthDay = ConvertToDate.convert(dto.birthDay());
+        this.birthDay = new DateDTO(dto.birthDay()).get();
         this.email = dto.email();
         this.phoneNumber = dto.phoneNumber();
     }
