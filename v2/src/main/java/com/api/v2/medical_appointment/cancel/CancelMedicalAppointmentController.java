@@ -5,9 +5,10 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import com.api.v2.auxiliary.DateTimeDTO;
+import com.api.v2.dtos.DateTimeDTO;
+
+import org.springframework.web.bind.annotation.RequestBody;
 
 import lombok.AllArgsConstructor;
 

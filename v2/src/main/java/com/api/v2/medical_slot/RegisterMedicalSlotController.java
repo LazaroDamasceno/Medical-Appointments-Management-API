@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.v2.auxiliary.DateTimeDTO;
+import com.api.v2.dtos.DateTimeDTO;
 
 @RestController
 @RequestMapping("api/v2/medical-slot")

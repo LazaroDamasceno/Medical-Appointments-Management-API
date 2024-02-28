@@ -1,11 +1,11 @@
 package com.api.v2.medical_appointment;
 
+import com.api.v2.dtos.DateTimeDTO;
 import com.api.v2.exceptions.MedicalAppointmentNotFound;
 import com.api.v2.physician.Physician;
 import com.api.v2.physician.RetrievePhysicianService;
 import org.springframework.stereotype.Service;
 
-import com.api.v2.auxiliary.DateTimeDTO;
 import com.api.v2.patient.Patient;
 import com.api.v2.patient.RetrievePatientService;
 

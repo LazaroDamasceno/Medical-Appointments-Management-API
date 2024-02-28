@@ -1,6 +1,6 @@
 package com.api.v2.medical_slot;
 
-import com.api.v2.auxiliary.BetweenDatesDTO;
+import com.api.v2.dtos.BetweenDatesDTO;
 import com.api.v2.physician.Physician;
 import com.api.v2.physician.PhysicianRepository;
 import lombok.AllArgsConstructor;

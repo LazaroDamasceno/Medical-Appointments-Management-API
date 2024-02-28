@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-import com.api.v2.auxiliary.DateTimeDTO;
+import com.api.v2.dtos.DateTimeDTO;
 import com.api.v2.patient.Patient;
 import com.api.v2.physician.Physician;
 import com.fasterxml.jackson.annotation.JsonFormat;

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.v2.auxiliary.BetweenDatesDTO;
+import com.api.v2.dtos.BetweenDatesDTO;
 
 import java.util.List;
 

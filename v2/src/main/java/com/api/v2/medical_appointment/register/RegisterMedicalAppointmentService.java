@@ -2,6 +2,7 @@ package com.api.v2.medical_appointment.register;
 
 import java.util.Optional;
 
+import com.api.v2.dtos.DateTimeDTO;
 import com.api.v2.exceptions.MedicalAppointmentAlreadyExist;
 import com.api.v2.medical_appointment.MedicalAppointment;
 import com.api.v2.medical_appointment.MedicalAppointmentRepository;
@@ -13,7 +14,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.api.v2.auxiliary.DateTimeDTO;
 import com.api.v2.medical_slot.MedicalSlot;
 import com.api.v2.medical_slot.RetrieveMedicalSlotService;
 import com.api.v2.patient.Patient;

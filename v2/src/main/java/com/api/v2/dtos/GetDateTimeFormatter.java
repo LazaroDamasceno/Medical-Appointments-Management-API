@@ -1,4 +1,4 @@
-package com.api.v2.auxiliary;
+package com.api.v2.dtos;
 
 import java.time.format.DateTimeFormatter;
 
