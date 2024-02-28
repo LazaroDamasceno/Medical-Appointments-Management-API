@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class RetrieveAllMedicalSlotBetweenDatesService {
+public class RetrieveAllMedicalSlotsBetweenDatesService {
 
     private final MedicalSlotRepository repository;
     private final PhysicianRepository physicianRepository;

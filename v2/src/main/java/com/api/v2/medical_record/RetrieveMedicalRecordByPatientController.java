@@ -13,7 +13,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class RetrieveMedicalRecordByPatientController {
 
-    private final RetrieveMedicalRecordByPatientService service;
+    private final RetrieveMedicalRecordService service;
 
     @GetMapping("mln/{mln}/ssn/{ssn}")
     public final ResponseEntity<MedicalRecord> retrieve(@PathVariable String mln, @PathVariable String ssn) {

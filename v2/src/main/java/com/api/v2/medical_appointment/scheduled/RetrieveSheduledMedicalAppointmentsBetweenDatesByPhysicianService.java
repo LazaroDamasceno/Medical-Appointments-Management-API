@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.api.v2.auxiliary.BetweenDatesDTO;
 import com.api.v2.physician.Physician;
-import com.api.v2.physician.RetrievePhysicianByMlnService;
+import com.api.v2.physician.RetrievePhysicianService;
 
 import lombok.AllArgsConstructor;
 
@@ -18,11 +18,13 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class RetrieveSheduledMedicalAppointmentsBetweenDatesByPhysicianService {
     
-    private final RetrievePhysicianByMlnService retrievePhysicianByMln;
+    private final RetrievePhysicianService retrievePhysician
+;
     private final MedicalAppointmentRepository repository;
 
     public ResponseEntity<List<MedicalAppointment>> retrieve(String mln, BetweenDatesDTO dto) {
-        Optional<Physician> physician = retrievePhysicianByMln.retrieve(mln);
+        Physician physician = retrievePhysician.retrieve(mln);
+
         if (physician.isEmpty()) return ResponseEntity.badRequest().build();
         return ResponseEntity.ok(
             repository

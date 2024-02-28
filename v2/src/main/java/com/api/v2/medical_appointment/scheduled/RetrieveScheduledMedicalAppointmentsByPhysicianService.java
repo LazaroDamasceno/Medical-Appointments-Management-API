@@ -1,7 +1,6 @@
 package com.api.v2.medical_appointment.scheduled;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.api.v2.medical_appointment.MedicalAppointment;
 import com.api.v2.medical_appointment.MedicalAppointmentRepository;
@@ -9,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.api.v2.physician.Physician;
-import com.api.v2.physician.RetrievePhysicianByMlnService;
+import com.api.v2.physician.RetrievePhysicianService;
 
 import lombok.AllArgsConstructor;
 
@@ -17,12 +16,12 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class RetrieveScheduledMedicalAppointmentsByPhysicianService {
 
-    private final RetrievePhysicianByMlnService retrievePhysicianByMln;
+    private final RetrievePhysicianService retrievePhysician;
     private final MedicalAppointmentRepository repository;
 
     public ResponseEntity<List<MedicalAppointment>> retrieve(String mln) {
-        Optional<Physician> physician = retrievePhysicianByMln.retrieve(mln);
-        return physician.map(value -> ResponseEntity.ok(
+        Physician physician = retrievePhysician.retrieve(mln);
+        return ResponseEntity.ok(
                 repository
                         .findAll()
                         .stream()
@@ -30,7 +29,7 @@ public class RetrieveScheduledMedicalAppointmentsByPhysicianService {
                                 && e.getCancellationDate() == null
                         )
                         .toList()
-        )).orElseGet(() -> ResponseEntity.badRequest().build());
+        );
     }
     
 }

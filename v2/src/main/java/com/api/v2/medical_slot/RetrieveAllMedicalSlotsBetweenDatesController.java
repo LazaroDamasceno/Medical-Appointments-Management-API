@@ -14,9 +14,9 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/v2/medical-slots")
-public class RetrieveAllMedicalSlotBetweenDatesController {
+public class RetrieveAllMedicalSlotsBetweenDatesController {
 
-    private final RetrieveAllMedicalSlotBetweenDatesService service;
+    private final RetrieveAllMedicalSlotsBetweenDatesService service;
 
     public ResponseEntity<List<MedicalSlot>> retrieveAll(@PathVariable String mln, @RequestBody BetweenDatesDTO dto) {
         return service.retrieveAll(mln, dto);

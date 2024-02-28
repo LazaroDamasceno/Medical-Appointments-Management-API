@@ -1,7 +1,6 @@
 package com.api.v2.medical_appointment.scheduled;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.api.v2.medical_appointment.MedicalAppointment;
 import com.api.v2.medical_appointment.MedicalAppointmentRepository;
@@ -10,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.api.v2.auxiliary.BetweenDatesDTO;
 import com.api.v2.patient.Patient;
-import com.api.v2.patient.RetrievePatientBySsnService;
+import com.api.v2.patient.RetrievePatientService;
 
 import lombok.AllArgsConstructor;
 
@@ -19,16 +18,15 @@ import lombok.AllArgsConstructor;
 public class RetrieveScheduledMedicalAppointmentsBetweenDatesByPatientService {
 
     private final MedicalAppointmentRepository repository;
-    private final RetrievePatientBySsnService retrievePatientBySsn;
+    private final RetrievePatientService retrievePatientBySsn;
 
     public ResponseEntity<List<MedicalAppointment>> retrieve(String ssn, BetweenDatesDTO dto) {
-        Optional<Patient> patient = retrievePatientBySsn.retrieve(ssn);
-        if (patient.isEmpty()) return ResponseEntity.badRequest().build();
+        Patient patient = retrievePatientBySsn.retrieve(ssn);
         return ResponseEntity.ok(
             repository
                 .findAll()
                 .stream()
-                .filter(e -> e.getPatient().equals(patient.get())
+                .filter(e -> e.getPatient().equals(patient)
                     && e.getCancellationDate() == null
                     && e.getAvailableDateTime().isAfter(dto.getFirstDate())
                     && e.getAvailableDateTime().isBefore(dto.getLastDate())

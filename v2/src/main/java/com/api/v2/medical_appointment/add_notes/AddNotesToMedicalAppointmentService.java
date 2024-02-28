@@ -1,17 +1,13 @@
 package com.api.v2.medical_appointment.add_notes;
 
-import java.util.Optional;
-
 import com.api.v2.medical_appointment.MedicalAppointment;
 import com.api.v2.medical_appointment.MedicalAppointmentRepository;
-import com.api.v2.medical_appointment.RetrieveMedicalAppointmentByPhysicianAndDateService;
+import com.api.v2.medical_appointment.RetrieveMedicalAppointmentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.api.v2.medical_record.AddMedicalAppointmentToMedicalRecordService;
-import com.api.v2.physician.Physician;
-import com.api.v2.physician.RetrievePhysicianByMlnService;
 
 import lombok.AllArgsConstructor;
 
@@ -20,16 +16,11 @@ import lombok.AllArgsConstructor;
 public class AddNotesToMedicalAppointmentService {
 
     private final MedicalAppointmentRepository repository;
-    private final RetrievePhysicianByMlnService retrievePhysicianByMln;
-    private final RetrieveMedicalAppointmentByPhysicianAndDateService retrieveMedicalAppointmentsByPhysicianAndDate;
+    private final RetrieveMedicalAppointmentService retrieveMedicalAppointment;
     private final AddMedicalAppointmentToMedicalRecordService addMedicalAppointmentToMedicalRecord;
 
     public ResponseEntity<Void> add(String mln, MedicalNotesDTO medicalNotesDTO) {
-        Optional<Physician> physician = retrievePhysicianByMln.retrieve(mln);
-        Optional<MedicalAppointment> medicalAppointmentOptional = retrieveMedicalAppointmentsByPhysicianAndDate
-                .retrieve(mln, medicalNotesDTO.dateTimeDTO());
-        if (medicalAppointmentOptional.isEmpty() || physician.isEmpty()) return ResponseEntity.badRequest().build();
-        MedicalAppointment medicalAppointment = medicalAppointmentOptional.get();
+        MedicalAppointment medicalAppointment = retrieveMedicalAppointment.retrieveByPhysician(mln, medicalNotesDTO.dateTimeDTO());
         medicalAppointment.setMedicalNotes(medicalNotesDTO.notes());
         repository.save(medicalAppointment);
         addMedicalAppointmentToMedicalRecord.add(medicalAppointment.getPatient(), medicalAppointment);

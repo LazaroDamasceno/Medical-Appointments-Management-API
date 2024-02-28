@@ -1,8 +1,10 @@
 package com.api.v2.medical_slot;
 
 import com.api.v2.auxiliary.DateTimeDTO;
+import com.api.v2.exceptions.MedicalSlotAlreadyExist;
 import com.api.v2.physician.Physician;
 import com.api.v2.physician.PhysicianRepository;
+import com.api.v2.physician.RetrievePhysicianService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,14 +17,19 @@ import java.util.Optional;
 public class RegisterMedicalSlotService {
 
     private final MedicalSlotRepository medicalSlotRepository;
-    private final PhysicianRepository physicianRepository;
-    private final RetrieveMedicalSlotByDateAndPhysicianService retrieveMedicalSlotByDateAndPhysician;
+    private final RetrievePhysicianService retrievePhysician;
 
     public ResponseEntity<Void> register(String mln, DateTimeDTO dateTimeDTO) {
-        Optional<MedicalSlot> medicalSlotOptional = retrieveMedicalSlotByDateAndPhysician.retrieve(mln, dateTimeDTO);
-        Optional<Physician> physician = physicianRepository.findByMln(mln);
-        if (medicalSlotOptional.isPresent() || physician.isEmpty()) return ResponseEntity.badRequest().build();
-        medicalSlotRepository.save(new MedicalSlot(physician.get(), dateTimeDTO));
+        Physician physician = retrievePhysician.retrieve(mln);
+        Optional<MedicalSlot> medicalSlotOptional = medicalSlotRepository
+                .findAll()
+                .stream()
+                .filter(e -> e.getPhysician().equals(physician)
+                    && e.getAvailableDateTime().equals(dateTimeDTO.get())
+                ).findAny();
+        if (medicalSlotOptional.isPresent()) throw new MedicalSlotAlreadyExist();
+        MedicalSlot medicalSlot = new MedicalSlot(physician, dateTimeDTO);
+        medicalSlotRepository.save(medicalSlot);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

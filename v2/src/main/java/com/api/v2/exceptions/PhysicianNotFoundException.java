@@ -2,8 +2,8 @@ package com.api.v2.exceptions;
 
 public class PhysicianNotFoundException extends RuntimeException {
 
-    public PhysicianNotFoundException(String message) {
-        super(message);
+    public PhysicianNotFoundException() {
+        super("The searched patient does not exist.");
     }
 
 }

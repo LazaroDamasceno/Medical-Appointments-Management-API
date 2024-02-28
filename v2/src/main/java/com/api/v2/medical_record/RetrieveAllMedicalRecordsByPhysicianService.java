@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.api.v2.physician.Physician;
-import com.api.v2.physician.RetrievePhysicianByMlnService;
+import com.api.v2.physician.RetrievePhysicianService;
 
 import lombok.AllArgsConstructor;
 
@@ -16,10 +16,12 @@ import lombok.AllArgsConstructor;
 public class RetrieveAllMedicalRecordsByPhysicianService {    
 
     private final MedicalRecordRepository repository;
-    private final RetrievePhysicianByMlnService retrievePhysicianByMln;
+    private final RetrievePhysicianService retrievePhysician
+;
     
     public ResponseEntity<List<MedicalRecord>> retrieve(String mln) {
-        Optional<Physician> physician = retrievePhysicianByMln.retrieve(mln);
+        Physician physician = retrievePhysician.retrieve(mln);
+
         return physician.map(value -> ResponseEntity.ok(
                 repository
                         .findAll()
