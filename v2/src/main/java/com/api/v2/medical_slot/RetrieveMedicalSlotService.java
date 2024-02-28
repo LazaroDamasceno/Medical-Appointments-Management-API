@@ -14,8 +14,7 @@ import java.util.Optional;
 public class RetrieveMedicalSlotService {
 
     private final MedicalSlotRepository medicalSlotRepository;
-    private final RetrievePhysicianService retrievePhysician
-;
+    private final RetrievePhysicianService retrievePhysician;
 
     public MedicalSlot retrieve(String mln, DateTimeDTO dto) {
         Physician physician = retrievePhysician

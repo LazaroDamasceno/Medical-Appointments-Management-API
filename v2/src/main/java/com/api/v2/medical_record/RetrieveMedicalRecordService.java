@@ -23,8 +23,7 @@ public class RetrieveMedicalRecordService {
     private final RetrievePatientService retrievePatientBySsn;
 
     public final ResponseEntity<MedicalRecord> retrieve(String mln, String ssn) {
-        Physician physician = retrievePhysician
-.retrieve(mln);
+        Physician physician = retrievePhysician.retrieve(mln);
         Patient patient = retrievePatientBySsn.retrieve(ssn);
         Optional<MedicalRecord> medicalRecord = repository.findByPatient(patient);
         if (medicalRecord.isEmpty() || !medicalRecord.get().getPhysician().equals(physician)) {

@@ -19,8 +19,7 @@ public class RetrieveMedicalAppointmentService {
 
     private final MedicalAppointmentRepository repository;
     private final RetrievePatientService retrievePatientBySsn;
-    private final RetrievePhysicianService retrievePhysician
-;
+    private final RetrievePhysicianService retrievePhysician;
 
     public MedicalAppointment retrieveByPatient(String ssn, DateTimeDTO dto) {
         Patient patient = retrievePatientBySsn.retrieve(ssn);
