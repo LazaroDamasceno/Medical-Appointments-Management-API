@@ -10,7 +10,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class RetrieveAllMedicalSlotsByPhysicianService {
+public class RetrieveAllMedicalSlotsService {
 
     private final MedicalSlotRepository repository;
     private final RetrievePhysicianService retrievePhysician;
