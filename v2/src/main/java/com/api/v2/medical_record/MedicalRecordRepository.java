@@ -5,7 +5,7 @@ import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
-import com.api.v1.patient.Patient;
+import com.api.v2.patient.Patient;
 
 
 public interface MedicalRecordRepository extends JpaRepository<MedicalRecord, UUID> {

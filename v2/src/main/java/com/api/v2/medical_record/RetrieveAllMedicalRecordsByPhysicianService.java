@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.api.v1.physician.Physician;
-import com.api.v1.physician.RetrievePhysicianByMlnService;
+import com.api.v2.physician.Physician;
+import com.api.v2.physician.RetrievePhysicianByMlnService;
 
 import lombok.AllArgsConstructor;
 

@@ -2,21 +2,21 @@ package com.api.v2.medical_appointment.register;
 
 import java.util.Optional;
 
-import com.api.v1.medical_appointment.MedicalAppointment;
-import com.api.v1.medical_appointment.MedicalAppointmentRepository;
-import com.api.v1.medical_appointment.RetrieveMedicalAppointmentByPatientAndDateService;
+import com.api.v2.medical_appointment.MedicalAppointment;
+import com.api.v2.medical_appointment.MedicalAppointmentRepository;
+import com.api.v2.medical_appointment.RetrieveMedicalAppointmentByPatientAndDateService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.api.v1.auxiliary.DateTimeDTO;
-import com.api.v1.medical_slot.MedicalSlot;
-import com.api.v1.medical_slot.MedicalSlotRepository;
-import com.api.v1.medical_slot.RetrieveMedicalSlotByDateAndPhysicianService;
-import com.api.v1.patient.Patient;
-import com.api.v1.patient.RetrievePatientBySsnService;
-import com.api.v1.physician.Physician;
-import com.api.v1.physician.PhysicianRepository;
+import com.api.v2.auxiliary.DateTimeDTO;
+import com.api.v2.medical_slot.MedicalSlot;
+import com.api.v2.medical_slot.MedicalSlotRepository;
+import com.api.v2.medical_slot.RetrieveMedicalSlotByDateAndPhysicianService;
+import com.api.v2.patient.Patient;
+import com.api.v2.patient.RetrievePatientBySsnService;
+import com.api.v2.physician.Physician;
+import com.api.v2.physician.PhysicianRepository;
 
 import lombok.AllArgsConstructor;
 

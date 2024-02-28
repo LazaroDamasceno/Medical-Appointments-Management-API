@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import com.api.v1.medical_appointment.MedicalAppointment;
-import com.api.v1.patient.Patient;
-import com.api.v1.physician.Physician;
+import com.api.v2.medical_appointment.MedicalAppointment;
+import com.api.v2.patient.Patient;
+import com.api.v2.physician.Physician;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;

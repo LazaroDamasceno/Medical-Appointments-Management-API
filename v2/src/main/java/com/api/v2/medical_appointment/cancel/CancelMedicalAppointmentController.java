@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.api.v1.auxiliary.DateTimeDTO;
+import com.api.v2.auxiliary.DateTimeDTO;
 
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping("api/v1/medical-appointment")
+@RequestMapping("api/v2/medical-appointment")
 @AllArgsConstructor
 public class CancelMedicalAppointmentController {
     

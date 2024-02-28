@@ -3,13 +3,13 @@ package com.api.v2.medical_appointment.scheduled;
 import java.util.List;
 import java.util.Optional;
 
-import com.api.v1.medical_appointment.MedicalAppointment;
-import com.api.v1.medical_appointment.MedicalAppointmentRepository;
+import com.api.v2.medical_appointment.MedicalAppointment;
+import com.api.v2.medical_appointment.MedicalAppointmentRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.api.v1.physician.Physician;
-import com.api.v1.physician.RetrievePhysicianByMlnService;
+import com.api.v2.physician.Physician;
+import com.api.v2.physician.RetrievePhysicianByMlnService;
 
 import lombok.AllArgsConstructor;
 

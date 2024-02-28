@@ -8,7 +8,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("api/v1/medical-slots")
+@RequestMapping("api/v2/medical-slots")
 public class RetrieveAllMedicalSlotsByPhysicianController {
 
     private final RetrieveAllMedicalSlotsByPhysicianService service;

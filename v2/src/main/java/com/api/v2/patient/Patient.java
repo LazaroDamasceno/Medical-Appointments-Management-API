@@ -1,6 +1,6 @@
 package com.api.v2.patient;
 
-import com.api.v1.system_user.SystemUser;
+import com.api.v2.system_user.SystemUser;
 import jakarta.persistence.*;
 import lombok.Data;
 

@@ -4,9 +4,9 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.api.v1.auxiliary.DateTimeDTO;
-import com.api.v1.patient.Patient;
-import com.api.v1.patient.RetrievePatientBySsnService;
+import com.api.v2.auxiliary.DateTimeDTO;
+import com.api.v2.patient.Patient;
+import com.api.v2.patient.RetrievePatientBySsnService;
 
 import lombok.AllArgsConstructor;
 

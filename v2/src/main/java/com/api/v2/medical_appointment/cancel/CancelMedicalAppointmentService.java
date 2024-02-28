@@ -3,16 +3,16 @@ package com.api.v2.medical_appointment.cancel;
 import java.time.LocalDate;
 import java.util.Optional;
 
-import com.api.v1.medical_appointment.MedicalAppointment;
-import com.api.v1.medical_appointment.MedicalAppointmentRepository;
-import com.api.v1.medical_appointment.RetrieveMedicalAppointmentByPatientAndDateService;
+import com.api.v2.medical_appointment.MedicalAppointment;
+import com.api.v2.medical_appointment.MedicalAppointmentRepository;
+import com.api.v2.medical_appointment.RetrieveMedicalAppointmentByPatientAndDateService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.api.v1.auxiliary.DateTimeDTO;
-import com.api.v1.medical_slot.MedicalSlot;
-import com.api.v1.medical_slot.MedicalSlotRepository;
-import com.api.v1.medical_slot.RetrieveMedicalSlotByDateAndPhysicianService;
+import com.api.v2.auxiliary.DateTimeDTO;
+import com.api.v2.medical_slot.MedicalSlot;
+import com.api.v2.medical_slot.MedicalSlotRepository;
+import com.api.v2.medical_slot.RetrieveMedicalSlotByDateAndPhysicianService;
 
 import lombok.AllArgsConstructor;
 

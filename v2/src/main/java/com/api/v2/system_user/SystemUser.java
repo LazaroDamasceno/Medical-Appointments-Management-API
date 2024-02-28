@@ -1,6 +1,6 @@
 package com.api.v2.system_user;
 
-import com.api.v1.auxiliary.DateDTO;
+import com.api.v2.auxiliary.DateDTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

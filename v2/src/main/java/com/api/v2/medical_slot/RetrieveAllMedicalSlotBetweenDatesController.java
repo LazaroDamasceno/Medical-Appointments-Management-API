@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.v1.auxiliary.BetweenDatesDTO;
+import com.api.v2.auxiliary.BetweenDatesDTO;
 
 import java.util.List;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("api/v1/medical-slots")
+@RequestMapping("api/v2/medical-slots")
 public class RetrieveAllMedicalSlotBetweenDatesController {
 
     private final RetrieveAllMedicalSlotBetweenDatesService service;

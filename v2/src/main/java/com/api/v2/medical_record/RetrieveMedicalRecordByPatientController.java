@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping("api/v1/medical-record")
+@RequestMapping("api/v2/medical-record")
 @AllArgsConstructor
 public class RetrieveMedicalRecordByPatientController {
 

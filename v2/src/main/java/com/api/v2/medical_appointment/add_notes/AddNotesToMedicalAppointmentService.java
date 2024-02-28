@@ -2,16 +2,16 @@ package com.api.v2.medical_appointment.add_notes;
 
 import java.util.Optional;
 
-import com.api.v1.medical_appointment.MedicalAppointment;
-import com.api.v1.medical_appointment.MedicalAppointmentRepository;
-import com.api.v1.medical_appointment.RetrieveMedicalAppointmentByPhysicianAndDateService;
+import com.api.v2.medical_appointment.MedicalAppointment;
+import com.api.v2.medical_appointment.MedicalAppointmentRepository;
+import com.api.v2.medical_appointment.RetrieveMedicalAppointmentByPhysicianAndDateService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.api.v1.medical_record.AddMedicalAppointmentToMedicalRecordService;
-import com.api.v1.physician.Physician;
-import com.api.v1.physician.RetrievePhysicianByMlnService;
+import com.api.v2.medical_record.AddMedicalAppointmentToMedicalRecordService;
+import com.api.v2.physician.Physician;
+import com.api.v2.physician.RetrievePhysicianByMlnService;
 
 import lombok.AllArgsConstructor;
 

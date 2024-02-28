@@ -1,6 +1,6 @@
 package com.api.v2.patient;
 
-import com.api.v1.system_user.RegisterSystemUserDTO;
+import com.api.v2.system_user.RegisterSystemUserDTO;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 

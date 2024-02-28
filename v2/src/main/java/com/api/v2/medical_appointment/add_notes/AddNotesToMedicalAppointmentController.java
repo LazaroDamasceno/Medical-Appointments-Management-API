@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping("api/v1/medical-appointment")
+@RequestMapping("api/v2/medical-appointment")
 @AllArgsConstructor
 public class AddNotesToMedicalAppointmentController {
 

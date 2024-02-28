@@ -1,6 +1,6 @@
 package com.api.v2.physician;
 
-import com.api.v1.system_user.SystemUser;
+import com.api.v2.system_user.SystemUser;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
