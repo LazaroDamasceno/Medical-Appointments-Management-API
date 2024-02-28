@@ -3,7 +3,6 @@ package com.api.v2.medical_slot;
 import com.api.v2.auxiliary.DateTimeDTO;
 import com.api.v2.exceptions.MedicalSlotAlreadyExist;
 import com.api.v2.physician.Physician;
-import com.api.v2.physician.PhysicianRepository;
 import com.api.v2.physician.RetrievePhysicianService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;

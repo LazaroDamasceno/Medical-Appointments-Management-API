@@ -3,7 +3,6 @@ package com.api.v2.medical_appointment.register;
 import java.util.Optional;
 
 import com.api.v2.exceptions.MedicalAppointmentAlreadyExist;
-import com.api.v2.exceptions.MedicalSlotNotFound;
 import com.api.v2.medical_appointment.MedicalAppointment;
 import com.api.v2.medical_appointment.MedicalAppointmentRepository;
 import com.api.v2.medical_appointment.RetrieveMedicalAppointmentService;

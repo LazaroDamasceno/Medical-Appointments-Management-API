@@ -25,7 +25,7 @@ public class RetrieveScheduledMedicalAppointmentsByPhysicianService {
                 repository
                         .findAll()
                         .stream()
-                        .filter(e -> e.getPhysician().equals(value)
+                        .filter(e -> e.getPhysician().equals(physician)
                                 && e.getCancellationDate() == null
                         )
                         .toList()

@@ -1,7 +1,6 @@
 package com.api.v2.medical_appointment.scheduled;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.api.v2.medical_appointment.MedicalAppointment;
 import com.api.v2.medical_appointment.MedicalAppointmentRepository;
@@ -24,13 +23,11 @@ public class RetrieveSheduledMedicalAppointmentsBetweenDatesByPhysicianService {
 
     public ResponseEntity<List<MedicalAppointment>> retrieve(String mln, BetweenDatesDTO dto) {
         Physician physician = retrievePhysician.retrieve(mln);
-
-        if (physician.isEmpty()) return ResponseEntity.badRequest().build();
         return ResponseEntity.ok(
             repository
                 .findAll()
                 .stream()
-                .filter(e -> e.getPhysician().equals(physician.get())
+                .filter(e -> e.getPhysician().equals(physician)
                     && e.getAvailableDateTime().isAfter(dto.getFirstDate())
                     && e.getAvailableDateTime().isBefore(dto.getLastDate())
                     && e.getCancellationDate() == null

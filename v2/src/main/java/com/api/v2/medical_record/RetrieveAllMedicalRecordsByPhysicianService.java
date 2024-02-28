@@ -1,6 +1,5 @@
 package com.api.v2.medical_record;
 
-import java.util.Optional;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
@@ -15,20 +14,19 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class RetrieveAllMedicalRecordsByPhysicianService {    
 
+    private final RetrievePhysicianService retrievePhysician;
     private final MedicalRecordRepository repository;
-    private final RetrievePhysicianService retrievePhysician
-;
     
     public ResponseEntity<List<MedicalRecord>> retrieve(String mln) {
         Physician physician = retrievePhysician.retrieve(mln);
 
-        return physician.map(value -> ResponseEntity.ok(
+        return ResponseEntity.ok(
                 repository
                         .findAll()
                         .stream()
-                        .filter(e -> e.getPhysician().equals(value))
+                        .filter(e -> e.getPhysician().equals(physician))
                         .toList()
-        )).orElseGet(() -> ResponseEntity.badRequest().build());
+        );
     }
 
 }
