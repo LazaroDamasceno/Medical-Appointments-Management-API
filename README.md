@@ -1,4 +1,6 @@
-# Health-Appointments-Manager-API
+# Health-Appointments-Management-API
+
+## Examples
 
 Register Patient
 ```
