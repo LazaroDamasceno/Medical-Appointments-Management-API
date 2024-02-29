@@ -2,6 +2,7 @@ package com.api.v2.medical_record;
 
 import java.util.Optional;
 
+import com.api.v2.exceptions.DeniedAccessException;
 import com.api.v2.exceptions.MedicalSlotNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -25,9 +26,8 @@ public class RetrieveMedicalRecordService {
         Physician physician = retrievePhysician.retrieve(mln);
         Patient patient = retrievePatientBySsn.retrieve(ssn);
         Optional<MedicalRecord> medicalRecord = repository.findByPatient(patient);
-        if (medicalRecord.isEmpty() || medicalRecord.get().getPhysician().equals(physician)) {
-            throw new MedicalSlotNotFoundException();
-        }
+        if (medicalRecord.isEmpty()) throw new MedicalSlotNotFoundException();
+        if (!medicalRecord.get().getPhysician().equals(physician)) throw new DeniedAccessException();
         return ResponseEntity.ok(medicalRecord.get());
     }
     
