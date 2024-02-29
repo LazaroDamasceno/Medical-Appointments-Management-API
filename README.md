@@ -1,5 +1,15 @@
 # Health-Appointments-Management-API
 
+## Versions
+
+|Version|Description|
+|:-:|:-:|
+|1|First version|
+|2|Error handling was added|
+|3|Serialable, Regular expression and some new methods were add|
+|4|?UI?|
+
+
 ## Examples
 
 Register Patient
