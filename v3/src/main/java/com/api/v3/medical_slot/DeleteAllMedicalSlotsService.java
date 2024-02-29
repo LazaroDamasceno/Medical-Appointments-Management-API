@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.api.v3.exceptions.ObjectIsNullException;
 import com.api.v3.physician.Physician;
 import com.api.v3.physician.RetrievePhysicianService;
 
@@ -27,7 +26,6 @@ public class DeleteAllMedicalSlotsService {
                 && e.getPhysician().equals(physician)    
             )
             .toList();
-        if (medicalSlots == null) throw new ObjectIsNullException();
         repository.deleteAll(medicalSlots);
         return ResponseEntity.noContent().build();
     }    
