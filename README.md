@@ -6,7 +6,7 @@
 |:-:|:-:|
 |1|First version|
 |2|Error handling was added|
-|3|Serialable, Regular expression and some new methods were add|
+|3|Serializable and regular expression (regex) were added|
 |4|?UI?|
 
 
@@ -20,13 +20,13 @@ Register Patient
       "fullName": "G Madina",
       "ssn": "123456789",
       "birthDay": "12/12/2000",
-      "email": "madina@mdina.net",
+      "email": "madina@madina.net",
       "phoneNumber": "12345678900"
   }
 }
 ```
 
-RegisterPhysician
+Register Physician
 ```
 {
   "mln": "1234567",
