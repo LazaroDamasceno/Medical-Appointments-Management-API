@@ -4,6 +4,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.api.v3.dtos.DateTimeDTO;
+import com.api.v3.exceptions.ObjectIsNullException;
 
 import lombok.AllArgsConstructor;
 
@@ -16,6 +17,7 @@ public class DeleteMedicalRecordService {
 
     public ResponseEntity<Void> delete(String mln, DateTimeDTO dto) {
         MedicalSlot medicalSlot = retrieveMedicalSlot.retrieve(mln, dto);
+        if (medicalSlot == null) throw new ObjectIsNullException();
         repository.delete(medicalSlot);
         return ResponseEntity.noContent().build();
     }
