@@ -1,7 +1,7 @@
 package com.api.v2.medical_appointment;
 
 import com.api.v2.dtos.DateTimeDTO;
-import com.api.v2.exceptions.MedicalAppointmentNotFound;
+import com.api.v2.exceptions.MedicalAppointmentNotFoundException;
 import com.api.v2.physician.Physician;
 import com.api.v2.physician.RetrievePhysicianService;
 import org.springframework.stereotype.Service;
@@ -29,7 +29,7 @@ public class RetrieveMedicalAppointmentService {
                 .filter(e -> e.getAvailableDateTime().equals(dto.get())
                         && e.getPatient().equals(patient)
                 ).findAny();
-        if (medicalAppointment.isEmpty()) throw new MedicalAppointmentNotFound();
+        if (medicalAppointment.isEmpty()) throw new MedicalAppointmentNotFoundException();
         return medicalAppointment.get();
     }
 
@@ -42,7 +42,7 @@ public class RetrieveMedicalAppointmentService {
                 .filter(e -> e.getAvailableDateTime().equals(dto.get())
                         && e.getPhysician().equals(physician)
                 ).findAny();
-        if (medicalAppointment.isEmpty()) throw new MedicalAppointmentNotFound();
+        if (medicalAppointment.isEmpty()) throw new MedicalAppointmentNotFoundException();
         return medicalAppointment.get();
     }
     

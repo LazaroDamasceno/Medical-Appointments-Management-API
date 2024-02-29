@@ -1,7 +1,7 @@
 package com.api.v2.medical_slot;
 
 import com.api.v2.dtos.DateTimeDTO;
-import com.api.v2.exceptions.MedicalSlotAlreadyExist;
+import com.api.v2.exceptions.MedicalSlotAlreadyExistException;
 import com.api.v2.physician.Physician;
 import com.api.v2.physician.RetrievePhysicianService;
 import lombok.AllArgsConstructor;
@@ -26,7 +26,7 @@ public class RegisterMedicalSlotService {
                 .filter(e -> e.getPhysician().equals(physician)
                     && e.getAvailableDateTime().equals(dateTimeDTO.get())
                 ).findAny();
-        if (medicalSlotOptional.isPresent()) throw new MedicalSlotAlreadyExist();
+        if (medicalSlotOptional.isPresent()) throw new MedicalSlotAlreadyExistException();
         MedicalSlot medicalSlot = new MedicalSlot(physician, dateTimeDTO);
         medicalSlotRepository.save(medicalSlot);
         return new ResponseEntity<>(HttpStatus.CREATED);

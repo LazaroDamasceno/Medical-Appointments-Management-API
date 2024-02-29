@@ -13,9 +13,9 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("api/v2/medical-records")
 @AllArgsConstructor
-public class RetrieveAllMedicalRecordsByPhysicianController {
+public class RetrieveAllMedicalRecordsController {
 
-    private final RetrieveAllMedicalRecordsByPhysicianService service;
+    private final RetrieveAllMedicalRecordsService service;
 
     @GetMapping("{mln}")
     public ResponseEntity<List<MedicalRecord>> retrieve(@PathVariable String mln) {

@@ -1,12 +1,8 @@
 package com.api.v2.medical_appointment.register;
 
-import java.util.Optional;
-
 import com.api.v2.dtos.DateTimeDTO;
-import com.api.v2.exceptions.MedicalAppointmentAlreadyExist;
 import com.api.v2.medical_appointment.MedicalAppointment;
 import com.api.v2.medical_appointment.MedicalAppointmentRepository;
-import com.api.v2.medical_appointment.RetrieveMedicalAppointmentService;
 import com.api.v2.medical_slot.MedicalSlotRepository;
 import com.api.v2.patient.RetrievePatientService;
 import com.api.v2.physician.RetrievePhysicianService;
@@ -25,7 +21,6 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class RegisterMedicalAppointmentService {
 
-    private final RetrieveMedicalAppointmentService retrieveMedicalAppointment;
     private final RetrieveMedicalSlotService retrieveMedicalSlot;
     private final RetrievePhysicianService retrievePhysician;
     private final RetrievePatientService retrievePatient;
@@ -37,10 +32,6 @@ public class RegisterMedicalAppointmentService {
         Physician physician = retrievePhysician.retrieve(mln);
         Patient patient = retrievePatient.retrieve(ssn);
 
-        if (isMedicalAppointmentAlreadyExist(retrieveMedicalAppointment.retrieveByPatient(ssn, dto))) {
-            throw new MedicalAppointmentAlreadyExist();
-        }
-
         MedicalAppointment medicalAppointment = new MedicalAppointment(physician, patient, dto);
         medicalAppointmentRepository.save(medicalAppointment);
 
@@ -49,10 +40,6 @@ public class RegisterMedicalAppointmentService {
         medicalSlotRepository.save(medicalSlot);
         
         return new ResponseEntity<>(HttpStatus.CREATED);
-    }
-
-    private boolean isMedicalAppointmentAlreadyExist(MedicalAppointment medicalAppointment) {
-        return Optional.ofNullable(medicalAppointment).isPresent();
     }
     
 }

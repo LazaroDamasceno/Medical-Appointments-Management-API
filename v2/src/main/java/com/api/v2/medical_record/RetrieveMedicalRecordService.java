@@ -2,7 +2,7 @@ package com.api.v2.medical_record;
 
 import java.util.Optional;
 
-import com.api.v2.exceptions.MedicalSlotNotFound;
+import com.api.v2.exceptions.MedicalSlotNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +26,7 @@ public class RetrieveMedicalRecordService {
         Patient patient = retrievePatientBySsn.retrieve(ssn);
         Optional<MedicalRecord> medicalRecord = repository.findByPatient(patient);
         if (medicalRecord.isEmpty() || medicalRecord.get().getPhysician().equals(physician)) {
-            throw new MedicalSlotNotFound();
+            throw new MedicalSlotNotFoundException();
         }
         return ResponseEntity.ok(medicalRecord.get());
     }

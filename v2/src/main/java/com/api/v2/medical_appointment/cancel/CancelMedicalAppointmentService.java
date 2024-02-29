@@ -3,7 +3,7 @@ package com.api.v2.medical_appointment.cancel;
 import java.time.LocalDate;
 
 import com.api.v2.dtos.DateTimeDTO;
-import com.api.v2.exceptions.MedicalNotesNotNull;
+import com.api.v2.exceptions.MedicalNotesNotNullException;
 import com.api.v2.medical_appointment.MedicalAppointment;
 import com.api.v2.medical_appointment.MedicalAppointmentRepository;
 import com.api.v2.medical_appointment.RetrieveMedicalAppointmentService;
@@ -27,7 +27,7 @@ class CancelMedicalAppointmentService {
 
     public ResponseEntity<Void> cancel(String ssn, DateTimeDTO dto) {
         MedicalAppointment medicalAppointment = retrieveMedicalAppointment.retrieveByPatient(ssn, dto);
-        if (medicalAppointment.getMedicalNotes() != null) throw new MedicalNotesNotNull();
+        if (medicalAppointment.getMedicalNotes() != null) throw new MedicalNotesNotNullException();
         medicalAppointment.setCancellationDate(LocalDate.now());
         repository.save(medicalAppointment);
 
