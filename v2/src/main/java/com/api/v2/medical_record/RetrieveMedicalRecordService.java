@@ -18,15 +18,14 @@ import lombok.AllArgsConstructor;
 public class RetrieveMedicalRecordService {
 
     private final MedicalRecordRepository repository;
-    private final RetrievePhysicianService retrievePhysician
-;
+    private final RetrievePhysicianService retrievePhysician;
     private final RetrievePatientService retrievePatientBySsn;
 
     public final ResponseEntity<MedicalRecord> retrieve(String mln, String ssn) {
         Physician physician = retrievePhysician.retrieve(mln);
         Patient patient = retrievePatientBySsn.retrieve(ssn);
         Optional<MedicalRecord> medicalRecord = repository.findByPatient(patient);
-        if (medicalRecord.isEmpty() || !medicalRecord.get().getPhysician().equals(physician)) {
+        if (medicalRecord.isEmpty() || medicalRecord.get().getPhysician().equals(physician)) {
             throw new MedicalSlotNotFound();
         }
         return ResponseEntity.ok(medicalRecord.get());

@@ -37,8 +37,9 @@ public class RegisterMedicalAppointmentService {
         Physician physician = retrievePhysician.retrieve(mln);
         Patient patient = retrievePatient.retrieve(ssn);
 
-        Optional<MedicalAppointment> medicalAppointmentOptional = Optional.ofNullable(retrieveMedicalAppointment.retrieveByPatient(ssn, dto));
-        if (medicalAppointmentOptional.isPresent()) throw new MedicalAppointmentAlreadyExist();
+        if (isMedicalAppointmentAlreadyExist(retrieveMedicalAppointment.retrieveByPatient(ssn, dto))) {
+            throw new MedicalAppointmentAlreadyExist();
+        }
 
         MedicalAppointment medicalAppointment = new MedicalAppointment(physician, patient, dto);
         medicalAppointmentRepository.save(medicalAppointment);
@@ -48,6 +49,10 @@ public class RegisterMedicalAppointmentService {
         medicalSlotRepository.save(medicalSlot);
         
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    private boolean isMedicalAppointmentAlreadyExist(MedicalAppointment medicalAppointment) {
+        return Optional.ofNullable(medicalAppointment).isPresent();
     }
     
 }
