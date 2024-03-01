@@ -1,4 +1,4 @@
-package com.api.v3.exceptions;
+package com.api.v3.auxiliaries.exceptions;
 
 public class MedicalAppointmentNotFoundException extends RuntimeException {
 

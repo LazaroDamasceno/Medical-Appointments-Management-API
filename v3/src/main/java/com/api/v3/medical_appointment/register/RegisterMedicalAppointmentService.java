@@ -1,12 +1,12 @@
 package com.api.v3.medical_appointment.register;
 
-import com.api.v3.dtos.DateTimeDTO;
-import com.api.v3.exceptions.MedicalAppointmentAlreadyExistException;
 import com.api.v3.medical_appointment.MedicalAppointment;
 import com.api.v3.medical_appointment.MedicalAppointmentRepository;
 import com.api.v3.medical_slot.MedicalSlotRepository;
 import com.api.v3.patient.RetrievePatientService;
 import com.api.v3.physician.RetrievePhysicianService;
+import com.api.v3.auxiliaries.dtos.DateTimeDTO;
+import com.api.v3.auxiliaries.exceptions.MedicalAppointmentAlreadyExistException;
 
 import java.util.Optional;
 

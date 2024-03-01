@@ -2,8 +2,9 @@ package com.api.v3.medical_appointment.scheduled;
 
 import java.util.List;
 
-import com.api.v3.dtos.BetweenDatesDTO;
 import com.api.v3.medical_appointment.MedicalAppointment;
+import com.api.v3.auxiliaries.dtos.BetweenDatesDTO;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

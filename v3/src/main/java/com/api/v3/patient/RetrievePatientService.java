@@ -1,8 +1,9 @@
 package com.api.v3.patient;
 
-import com.api.v3.exceptions.PatientNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import com.api.v3.auxiliaries.exceptions.PatientNotFoundException;
 
 import java.util.Optional;
 

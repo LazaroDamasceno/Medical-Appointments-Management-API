@@ -1,8 +1,9 @@
 package com.api.v3.medical_slot;
 
-import com.api.v3.dtos.BetweenDatesDTO;
 import com.api.v3.physician.Physician;
 import com.api.v3.physician.PhysicianRepository;
+import com.api.v3.auxiliaries.dtos.BetweenDatesDTO;
+
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

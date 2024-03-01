@@ -1,8 +1,9 @@
 package com.api.v3.physician;
 
-import com.api.v3.exceptions.PhysicianNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import com.api.v3.auxiliaries.exceptions.PhysicianNotFoundException;
 
 import java.util.Optional;
 

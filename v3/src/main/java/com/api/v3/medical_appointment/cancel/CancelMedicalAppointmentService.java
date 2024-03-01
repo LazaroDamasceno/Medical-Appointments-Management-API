@@ -2,8 +2,8 @@ package com.api.v3.medical_appointment.cancel;
 
 import java.time.LocalDate;
 
-import com.api.v3.dtos.DateTimeDTO;
-import com.api.v3.exceptions.MedicalNotesNotNullException;
+import com.api.v3.auxiliaries.dtos.DateTimeDTO;
+import com.api.v3.auxiliaries.exceptions.MedicalNotesNotNullException;
 import com.api.v3.medical_appointment.MedicalAppointment;
 import com.api.v3.medical_appointment.MedicalAppointmentRepository;
 import com.api.v3.medical_appointment.RetrieveMedicalAppointmentService;

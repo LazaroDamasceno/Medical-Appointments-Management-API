@@ -2,7 +2,6 @@ package com.api.v3.medical_appointment.scheduled;
 
 import java.util.List;
 
-import com.api.v3.dtos.BetweenDatesDTO;
 import com.api.v3.medical_appointment.MedicalAppointment;
 import com.api.v3.medical_appointment.MedicalAppointmentRepository;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.api.v3.patient.Patient;
 import com.api.v3.patient.RetrievePatientService;
+import com.api.v3.auxiliaries.dtos.BetweenDatesDTO;
 
 import lombok.AllArgsConstructor;
 

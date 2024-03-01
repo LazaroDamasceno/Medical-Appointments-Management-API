@@ -1,8 +1,8 @@
 package com.api.v3.medical_slot;
 
-import com.api.v3.dtos.DateTimeDTO;
 import com.api.v3.medical_appointment.MedicalAppointment;
 import com.api.v3.physician.Physician;
+import com.api.v3.auxiliaries.dtos.DateTimeDTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;

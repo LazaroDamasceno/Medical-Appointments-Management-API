@@ -1,9 +1,10 @@
 package com.api.v3.medical_slot;
 
-import com.api.v3.dtos.DateTimeDTO;
-import com.api.v3.exceptions.MedicalSlotAlreadyExistException;
 import com.api.v3.physician.Physician;
 import com.api.v3.physician.RetrievePhysicianService;
+import com.api.v3.auxiliaries.dtos.DateTimeDTO;
+import com.api.v3.auxiliaries.exceptions.MedicalSlotAlreadyExistException;
+
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

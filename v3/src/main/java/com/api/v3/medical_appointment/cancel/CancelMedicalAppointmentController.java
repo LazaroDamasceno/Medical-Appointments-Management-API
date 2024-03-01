@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.v3.dtos.DateTimeDTO;
+import com.api.v3.auxiliaries.dtos.DateTimeDTO;
 
 import org.springframework.web.bind.annotation.RequestBody;
 
