@@ -24,7 +24,7 @@ public class AddNotesToMedicalAppointmentService {
         medicalAppointment.setMedicalNotes(medicalNotesDTO.notes());
         repository.save(medicalAppointment);
         addMedicalAppointmentToMedicalRecord.add(medicalAppointment.getPatient(), medicalAppointment);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 }

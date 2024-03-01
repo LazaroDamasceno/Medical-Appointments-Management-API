@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.api.v3.exceptions.ObjectIsNullException;
+import com.api.v3.exceptions.ForbiddenOperationException;
 import com.api.v3.physician.Physician;
 import com.api.v3.physician.RetrievePhysicianService;
 
@@ -23,11 +23,11 @@ public class DeleteAllMedicalSlotsService {
         List<MedicalSlot> medicalSlots = repository
             .findAll()
             .stream()
-            .filter(e -> e.getMedicalAppointment() != null 
+            .filter(e -> e.getMedicalAppointment() == null 
                 && e.getPhysician().equals(physician)    
             )
             .toList();
-        if (medicalSlots == null) throw new ObjectIsNullException();
+        if (medicalSlots == null) throw new ForbiddenOperationException();
         repository.deleteAll(medicalSlots);
         return ResponseEntity.noContent().build();
     }    
