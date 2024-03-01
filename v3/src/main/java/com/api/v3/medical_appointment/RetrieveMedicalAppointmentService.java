@@ -34,8 +34,7 @@ public class RetrieveMedicalAppointmentService {
     }
 
     public MedicalAppointment retrieveByPhysician(String mln, DateTimeDTO dto) {
-        Physician physician = retrievePhysician
-.retrieve(mln);
+        Physician physician = retrievePhysician.retrieve(mln);
         Optional<MedicalAppointment> medicalAppointment = repository
                 .findAll()
                 .stream()
