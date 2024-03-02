@@ -9,7 +9,7 @@ public record RegisterSystemUserDTO(
         @NotBlank
         @Pattern(regexp = "[0-9]{9}") String ssn,
         @NotBlank
-        @Pattern(regexp = "[1-3][0-9][0-9][0-2]/20[0-9][0-9]")
+        @Pattern(regexp = "[1-3][0-9]/[0-9][0-2]/20[0-9][0-9]")
         String birthDay,
         @NotBlank
         String email,
