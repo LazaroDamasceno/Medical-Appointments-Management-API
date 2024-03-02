@@ -6,6 +6,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -23,7 +24,8 @@ public class SystemUser {
     private String fullName;
 
     @Column(nullable = false, unique = true)
-    private @Pattern(regexp = "[0-9]{9}") String ssn;
+    @Pattern(regexp = "[//d]{9}")
+    private String ssn;
 
     @Column(nullable = false)
     @JsonFormat(pattern = "dd/MM/yyyy")

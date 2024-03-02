@@ -10,6 +10,8 @@ import com.api.v3.physician.RetrievePhysicianService;
 
 import lombok.AllArgsConstructor;
 
+import jakarta.validation.constraints.Pattern;
+
 @Service
 @AllArgsConstructor
 public class RetrieveAllMedicalRecordsService {    
@@ -17,7 +19,7 @@ public class RetrieveAllMedicalRecordsService {
     private final RetrievePhysicianService retrievePhysician;
     private final MedicalRecordRepository repository;
     
-    public ResponseEntity<List<MedicalRecord>> retrieve(@Pattern(regexp = "[0-9]{7}") String mln) {
+    public ResponseEntity<List<MedicalRecord>> retrieve(@Pattern(regexp = "[//d]{7}") String mln) {
         Physician physician = retrievePhysician.retrieve(mln);
 
         return ResponseEntity.ok(

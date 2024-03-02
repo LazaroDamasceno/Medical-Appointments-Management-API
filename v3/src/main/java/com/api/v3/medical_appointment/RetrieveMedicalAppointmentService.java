@@ -12,6 +12,8 @@ import com.api.v3.patient.RetrievePatientService;
 
 import lombok.AllArgsConstructor;
 
+import jakarta.validation.constraints.Pattern;
+
 import java.util.Optional;
 
 @Service
@@ -22,7 +24,7 @@ public class RetrieveMedicalAppointmentService {
     private final RetrievePatientService retrievePatientBySsn;
     private final RetrievePhysicianService retrievePhysician;
 
-    public MedicalAppointment retrieveByPatient(@Pattern(regexp = "[0-9]{9}") String ssn, DateTimeDTO dto) {
+    public MedicalAppointment retrieveByPatient(@Pattern(regexp = "[//d]{9}") String ssn, DateTimeDTO dto) {
         Patient patient = retrievePatientBySsn.retrieve(ssn);
         Optional<MedicalAppointment> medicalAppointment = repository
                 .findAll()
@@ -34,7 +36,7 @@ public class RetrieveMedicalAppointmentService {
         return medicalAppointment.get();
     }
 
-    public MedicalAppointment retrieveByPhysician(@Pattern(regexp = "[0-9]{7}") String mln, DateTimeDTO dto) {
+    public MedicalAppointment retrieveByPhysician(@Pattern(regexp = "[//d]{7}") String mln, DateTimeDTO dto) {
         Physician physician = retrievePhysician.retrieve(mln);
         Optional<MedicalAppointment> medicalAppointment = repository
                 .findAll()

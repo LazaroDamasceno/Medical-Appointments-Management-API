@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import jakarta.validation.constraints.Pattern;
+
 @Service
 @AllArgsConstructor
 public class RetrieveAllMedicalSlotsService {
@@ -15,7 +17,7 @@ public class RetrieveAllMedicalSlotsService {
     private final MedicalSlotRepository repository;
     private final RetrievePhysicianService retrievePhysician;
 
-    public ResponseEntity<List<MedicalSlot>> retrieveAll(@Pattern(regexp = "[0-9]{7}") String mln) {
+    public ResponseEntity<List<MedicalSlot>> retrieveAll(@Pattern(regexp = "[//d]{7}") String mln) {
         Physician physician = retrievePhysician.retrieve(mln);
         return ResponseEntity.ok(
                 repository

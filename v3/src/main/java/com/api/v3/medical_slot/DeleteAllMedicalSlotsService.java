@@ -9,6 +9,8 @@ import com.api.v3.physician.Physician;
 import com.api.v3.physician.RetrievePhysicianService;
 import com.api.v3.auxiliaries.ForbiddenOperationException;
 
+import jakarta.validation.constraints.Pattern;
+
 import lombok.AllArgsConstructor;
 
 @Service
@@ -18,7 +20,7 @@ public class DeleteAllMedicalSlotsService {
     private final MedicalSlotRepository repository;
     private final RetrievePhysicianService retrievePhysician;
 
-    public ResponseEntity<Void> delete(@Pattern(regexp = "[0-9]{7}") String mln) {
+    public ResponseEntity<Void> delete(@Pattern(regexp = "[//d]{7}") String mln) {
         Physician physician = retrievePhysician.retrieve(mln);
         List<MedicalSlot> medicalSlots = repository
             .findAll()

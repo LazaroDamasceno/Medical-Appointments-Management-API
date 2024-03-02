@@ -18,7 +18,7 @@ public class AddNotesToMedicalAppointmentController {
     private final AddNotesToMedicalAppointmentService service;
 
     @PostMapping("medical-notes/{mln}")
-    public ResponseEntity<Void> add(@PathVariable @Pattern(regexp = "[0-9]{7}") String mln, @RequestBody MedicalNotesDTO medicalNotesDTO) {
+    public ResponseEntity<Void> add(@PathVariable @Pattern(regexp = "[//d]{7}") String mln, @RequestBody MedicalNotesDTO medicalNotesDTO) {
         return service.add(mln, medicalNotesDTO);
     }
     

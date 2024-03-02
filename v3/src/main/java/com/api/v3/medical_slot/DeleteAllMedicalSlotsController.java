@@ -4,6 +4,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import jakarta.validation.constraints.Pattern;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 
 import lombok.AllArgsConstructor;
@@ -16,7 +19,7 @@ public class DeleteAllMedicalSlotsController {
     private final DeleteAllMedicalSlotsService service;
 
     @DeleteMapping("{mln}")
-    public ResponseEntity<Void> delete(@PathVariable @Pattern(regexp = "[0-9]{7}") String mln) {
+    public ResponseEntity<Void> delete(@PathVariable @Pattern(regexp = "[//d]{7}") String mln) {
         return service.delete(mln);
     }
     

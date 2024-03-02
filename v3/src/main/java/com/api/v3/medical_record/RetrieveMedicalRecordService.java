@@ -12,6 +12,8 @@ import com.api.v3.physician.RetrievePhysicianService;
 import com.api.v3.auxiliaries.ForbiddenOperationException;
 import com.api.v3.auxiliaries.MedicalSlotNotFoundException;
 
+import jakarta.validation.constraints.Pattern;
+
 import lombok.AllArgsConstructor;
 
 @Service
@@ -22,7 +24,7 @@ public class RetrieveMedicalRecordService {
     private final RetrievePhysicianService retrievePhysician;
     private final RetrievePatientService retrievePatientBySsn;
 
-    public final ResponseEntity<MedicalRecord> retrieve(@Pattern(regexp = "[0-9]{7}") String mln, @Pattern(regexp = "[0-9]{9}") String ssn) {
+    public final ResponseEntity<MedicalRecord> retrieve(@Pattern(regexp = "[//d]{7}") String mln, @Pattern(regexp = "[//d]{9}") String ssn) {
         Physician physician = retrievePhysician.retrieve(mln);
         Patient patient = retrievePatientBySsn.retrieve(ssn);
         Optional<MedicalRecord> medicalRecord = repository.findByPatient(patient);

@@ -12,6 +12,8 @@ import com.api.v3.patient.RetrievePatientService;
 
 import lombok.AllArgsConstructor;
 
+import jakarta.validation.constraints.Pattern;
+
 @Service
 @AllArgsConstructor
 public class RetrieveScheduledMedicalAppointmentsByPatientService {
@@ -19,7 +21,7 @@ public class RetrieveScheduledMedicalAppointmentsByPatientService {
     private final MedicalAppointmentRepository repository;
     private final RetrievePatientService retrievePatientBySsn;
 
-    public ResponseEntity<List<MedicalAppointment>> retrieve(@Pattern(regexp = "[0-9]{9}") String ssn) {
+    public ResponseEntity<List<MedicalAppointment>> retrieve(@Pattern(regexp = "[\\d]{9}") String ssn) {
         Patient patient = retrievePatientBySsn.retrieve(ssn);
         return ResponseEntity.ok(
                 repository

@@ -26,7 +26,7 @@ class CancelMedicalAppointmentService {
     private final RetrieveMedicalSlotService retrieveMedicalSlot;
     private final MedicalSlotRepository medicalSlotRepository;
 
-    public ResponseEntity<Void> cancel(@Pattern(regexp = "[0-9]{9}") String ssn, DateTimeDTO dto) {
+    public ResponseEntity<Void> cancel(@Pattern(regexp = "[//d]{9}") String ssn, DateTimeDTO dto) {
         MedicalAppointment medicalAppointment = retrieveMedicalAppointment.retrieveByPatient(ssn, dto);
         if (medicalAppointment.getMedicalNotes() != null) throw new MedicalNotesNotNullException();
         medicalAppointment.setCancellationDate(LocalDate.now());

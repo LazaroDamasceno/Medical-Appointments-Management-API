@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
 public record DateDTO(
-        @Pattern(regexp = "[1-3][0-9][0-9][0-2]/20[0-9][0-9]")
+        @Pattern(regexp = "[1-3][//d][//d][0-2]/20[//d][//d]")
         @NotBlank
         String date
 ) {

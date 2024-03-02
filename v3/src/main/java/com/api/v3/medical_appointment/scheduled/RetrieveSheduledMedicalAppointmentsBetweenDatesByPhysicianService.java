@@ -13,6 +13,8 @@ import com.api.v3.auxiliaries.BetweenDatesDTO;
 
 import lombok.AllArgsConstructor;
 
+import jakarta.validation.constraints.Pattern;
+
 @Service
 @AllArgsConstructor
 public class RetrieveSheduledMedicalAppointmentsBetweenDatesByPhysicianService {
@@ -21,7 +23,7 @@ public class RetrieveSheduledMedicalAppointmentsBetweenDatesByPhysicianService {
 ;
     private final MedicalAppointmentRepository repository;
 
-    public ResponseEntity<List<MedicalAppointment>> retrieve(@Pattern(regexp = "[0-9]{7}") String mln, BetweenDatesDTO dto) {
+    public ResponseEntity<List<MedicalAppointment>> retrieve(@Pattern(regexp = "[//d]{7}") String mln, BetweenDatesDTO dto) {
         Physician physician = retrievePhysician.retrieve(mln);
         return ResponseEntity.ok(
             repository
