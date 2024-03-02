@@ -13,7 +13,7 @@ The Swagger UI allows its user to use the API online. By using the Swagger UI, t
 |1|First version|
 |2|Error handling was added|
 |3|Serializable and regular expression (regex) were added|
-|4|?UI?|
+|4|Set environment for unit and mockito testing|
 
 
 ## Examples
