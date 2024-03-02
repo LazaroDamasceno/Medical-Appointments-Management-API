@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.api.v3.physician.Physician;
 import com.api.v3.physician.RetrievePhysicianService;
 
+import jakarta.validation.constraints.Pattern;
+
 import lombok.AllArgsConstructor;
 
 @Service

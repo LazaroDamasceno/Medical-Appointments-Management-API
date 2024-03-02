@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
 
+import jakarta.validation.constraints.Pattern;
+
 @RestController
 @RequestMapping("api/v1/medical-slots")
 @AllArgsConstructor

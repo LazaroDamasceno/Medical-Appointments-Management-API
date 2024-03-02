@@ -7,6 +7,8 @@ import com.api.v3.medical_appointment.MedicalAppointmentRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import jakarta.validation.constraints.Pattern;
+
 import com.api.v3.physician.Physician;
 import com.api.v3.physician.RetrievePhysicianService;
 

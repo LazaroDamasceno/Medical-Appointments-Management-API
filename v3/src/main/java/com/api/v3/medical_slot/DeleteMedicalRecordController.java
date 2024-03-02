@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 
 import com.api.v3.auxiliaries.DateTimeDTO;
 
+import jakarta.validation.constraints.Pattern;
+
 import lombok.AllArgsConstructor;
 
 @RestController

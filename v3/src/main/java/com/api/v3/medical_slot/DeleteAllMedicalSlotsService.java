@@ -11,6 +11,8 @@ import com.api.v3.auxiliaries.ForbiddenOperationException;
 
 import lombok.AllArgsConstructor;
 
+import jakarta.validation.constraints.Pattern;
+
 @Service
 @AllArgsConstructor
 public class DeleteAllMedicalSlotsService {

@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+import jakarta.validation.constraints.Pattern;
+
 @Service
 @AllArgsConstructor
 public class RetrieveAllMedicalSlotsBetweenDatesService {

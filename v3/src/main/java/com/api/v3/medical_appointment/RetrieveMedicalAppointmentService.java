@@ -5,6 +5,7 @@ import com.api.v3.physician.RetrievePhysicianService;
 import com.api.v3.auxiliaries.DateTimeDTO;
 import com.api.v3.auxiliaries.MedicalAppointmentNotFoundException;
 
+import jakarta.validation.constraints.Pattern;
 import org.springframework.stereotype.Service;
 
 import com.api.v3.patient.Patient;

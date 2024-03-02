@@ -11,6 +11,8 @@ import com.api.v3.patient.Patient;
 import com.api.v3.patient.RetrievePatientService;
 import com.api.v3.auxiliaries.BetweenDatesDTO;
 
+import jakarta.validation.constraints.Pattern;
+
 import lombok.AllArgsConstructor;
 
 @Service

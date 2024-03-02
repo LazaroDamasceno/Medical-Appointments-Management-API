@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.Optional;
 
+import jakarta.validation.constraints.Pattern;
+
 @Service
 @AllArgsConstructor
 public class TerminatePhysicianService {

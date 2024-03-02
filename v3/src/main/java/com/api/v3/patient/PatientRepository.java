@@ -6,6 +6,8 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.UUID;
 
+import jakarta.validation.constraints.Pattern;
+
 public interface PatientRepository extends JpaRepository<Patient, UUID> {
 
     @Query("""

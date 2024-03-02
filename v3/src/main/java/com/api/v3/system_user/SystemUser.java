@@ -11,6 +11,8 @@ import lombok.Data;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import jakarta.validation.constraints.Pattern;
+
 @Entity
 @Table(name = "v3_system_user")
 @Data

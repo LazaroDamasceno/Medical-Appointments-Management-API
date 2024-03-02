@@ -12,6 +12,8 @@ import com.api.v3.auxiliaries.BetweenDatesDTO;
 
 import java.util.List;
 
+import jakarta.validation.constraints.Pattern;
+
 @RestController
 @AllArgsConstructor
 @RequestMapping("api/v3/medical-slots")

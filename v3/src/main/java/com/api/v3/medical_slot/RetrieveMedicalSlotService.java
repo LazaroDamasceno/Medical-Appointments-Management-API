@@ -8,6 +8,8 @@ import com.api.v3.auxiliaries.MedicalSlotNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import jakarta.validation.constraints.Pattern;
+
 import java.util.Optional;
 
 @Service

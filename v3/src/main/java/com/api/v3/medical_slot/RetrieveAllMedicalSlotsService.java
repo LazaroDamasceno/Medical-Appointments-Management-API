@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import jakarta.validation.constraints.Pattern;
+
 @Service
 @AllArgsConstructor
 public class RetrieveAllMedicalSlotsService {

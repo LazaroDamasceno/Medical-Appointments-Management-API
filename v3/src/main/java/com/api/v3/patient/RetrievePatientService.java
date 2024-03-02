@@ -7,6 +7,8 @@ import com.api.v3.auxiliaries.PatientNotFoundException;
 
 import java.util.Optional;
 
+import jakarta.validation.constraints.Pattern;
+
 @Service
 @AllArgsConstructor
 public class RetrievePatientService {

@@ -12,6 +12,8 @@ import com.api.v3.physician.RetrievePhysicianService;
 import com.api.v3.auxiliaries.ForbiddenOperationException;
 import com.api.v3.auxiliaries.MedicalSlotNotFoundException;
 
+import jakarta.validation.constraints.Pattern;
+
 import lombok.AllArgsConstructor;
 
 @Service

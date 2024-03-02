@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import com.api.v3.patient.Patient;
 import com.api.v3.patient.RetrievePatientService;
 
+import jakarta.validation.constraints.Pattern;
+
 import lombok.AllArgsConstructor;
 
 @Service

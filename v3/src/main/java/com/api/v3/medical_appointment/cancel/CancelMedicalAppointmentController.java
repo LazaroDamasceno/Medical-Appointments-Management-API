@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.constraints.Pattern;
 
 import com.api.v3.auxiliaries.DateTimeDTO;
 

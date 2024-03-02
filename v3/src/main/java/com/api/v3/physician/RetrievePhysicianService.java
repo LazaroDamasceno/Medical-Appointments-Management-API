@@ -7,6 +7,8 @@ import com.api.v3.auxiliaries.PhysicianNotFoundException;
 
 import java.util.Optional;
 
+import jakarta.validation.constraints.Pattern;
+
 @Service
 @AllArgsConstructor
 public class RetrievePhysicianService {

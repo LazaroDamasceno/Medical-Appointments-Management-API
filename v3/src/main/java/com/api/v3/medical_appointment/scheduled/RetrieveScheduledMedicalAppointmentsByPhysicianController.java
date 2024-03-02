@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
 
+import jakarta.validation.constraints.Pattern;
+
 @RestController
 @RequestMapping("api/v3/medical-appointments/scheduled")
 @AllArgsConstructor
