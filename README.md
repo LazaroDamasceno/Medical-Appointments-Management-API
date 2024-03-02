@@ -6,6 +6,10 @@ To tun the API, it's necessary to access the Swagger UI through `localhost:8080/
 
 The Swagger UI allows its user to use the API online. By using the Swagger UI, there's no need to install softwares like Postman.
 
+## API running
+
+To watch the ai, click [here](https://youtu.be/4x3ZTdAaoGc).
+
 ## Versions
 
 |Version|Description|
