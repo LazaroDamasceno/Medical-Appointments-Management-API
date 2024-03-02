@@ -13,11 +13,12 @@ import jakarta.validation.constraints.Pattern;
 @Entity
 @Table(name = "v3_physician")
 @Data
-public class Physician {
+public class Physician  implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     private final UUID id = UUID.randomUUID();
-
     @Column(nullable = false, unique = true)
     private @Pattern(regexp = "[0-9]{7}") String mln;
 

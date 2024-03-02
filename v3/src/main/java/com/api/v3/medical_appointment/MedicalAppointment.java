@@ -21,15 +21,14 @@ import lombok.Data;
 @Entity
 @Table(name = "v3_medical_appointment")
 @Data
-public class MedicalAppointment {
+public class MedicalAppointment implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     @Id
     private final UUID id = UUID.randomUUID();
-
     @Column(nullable = false)
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime availableDateTime;
-
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDate cancellationDate;
 

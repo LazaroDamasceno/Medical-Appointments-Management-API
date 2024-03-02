@@ -9,11 +9,12 @@ import java.util.UUID;
 @Entity
 @Table(name = "v3_patient")
 @Data
-public class Patient {
+public class Patient  implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     private final UUID id = UUID.randomUUID();
-
     @Column(nullable = false)
     private String fullAddress;
 

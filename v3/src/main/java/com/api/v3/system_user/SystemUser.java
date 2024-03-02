@@ -16,11 +16,12 @@ import jakarta.validation.constraints.Pattern;
 @Entity
 @Table(name = "v3_system_user")
 @Data
-public class SystemUser {
+public class SystemUser implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     private final UUID id = UUID.randomUUID();
-
     @Column(nullable = false)
     private String fullName;
 

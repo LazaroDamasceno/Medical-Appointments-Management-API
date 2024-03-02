@@ -20,11 +20,12 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "v3_medical_record")
-public class MedicalRecord {
+public class MedicalRecord implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     private final UUID id = UUID.randomUUID();
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "physician_id")
     private Physician physician;
