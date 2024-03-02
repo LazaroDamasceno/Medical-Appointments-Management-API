@@ -15,7 +15,7 @@ public class RetrieveAllMedicalSlotsService {
     private final MedicalSlotRepository repository;
     private final RetrievePhysicianService retrievePhysician;
 
-    public ResponseEntity<List<MedicalSlot>> retrieveAll(String mln) {
+    public ResponseEntity<List<MedicalSlot>> retrieveAll(@Pattern(regexp = "[0-9]{7}") String mln) {
         Physician physician = retrievePhysician.retrieve(mln);
         return ResponseEntity.ok(
                 repository

@@ -16,7 +16,7 @@ public class RetrieveMedicalRecordController {
     private final RetrieveMedicalRecordService service;
 
     @GetMapping("mln/{mln}/ssn/{ssn}")
-    public final ResponseEntity<MedicalRecord> retrieve(@PathVariable String mln, @PathVariable String ssn) {
+    public final ResponseEntity<MedicalRecord> retrieve(@PathVariable @Pattern(regexp = "[0-9]{7}") String mln, @PathVariable @Pattern(regexp = "[0-9]{9}") String ssn) {
         return service.retrieve(mln, ssn);
     }
     

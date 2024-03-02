@@ -19,7 +19,7 @@ public class RetrieveScheduledMedicalAppointmentsByPatientService {
     private final MedicalAppointmentRepository repository;
     private final RetrievePatientService retrievePatientBySsn;
 
-    public ResponseEntity<List<MedicalAppointment>> retrieve(String ssn) {
+    public ResponseEntity<List<MedicalAppointment>> retrieve(@Pattern(regexp = "[0-9]{9}") String ssn) {
         Patient patient = retrievePatientBySsn.retrieve(ssn);
         return ResponseEntity.ok(
                 repository

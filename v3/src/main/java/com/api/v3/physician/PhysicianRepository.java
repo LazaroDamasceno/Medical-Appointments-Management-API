@@ -7,6 +7,6 @@ import java.util.UUID;
 
 public interface PhysicianRepository extends JpaRepository<Physician, UUID> {
 
-    Optional<Physician> findByMln(String mln);
+    Optional<Physician> findByMln(@Pattern(regexp = "[0-9]{7}") String mln);
 
 }

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.v3.auxiliaries.dtos.BetweenDatesDTO;
+import com.api.v3.auxiliaries.BetweenDatesDTO;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class RetrieveAllMedicalSlotsBetweenDatesController {
     private final RetrieveAllMedicalSlotsBetweenDatesService service;
 
     @GetMapping("between-dates/{mln}")
-    public ResponseEntity<List<MedicalSlot>> retrieveAll(@PathVariable String mln, @RequestBody BetweenDatesDTO dto) {
+    public ResponseEntity<List<MedicalSlot>> retrieveAll(@PathVariable @Pattern(regexp = "[0-9]{7}") String mln, @RequestBody BetweenDatesDTO dto) {
         return service.retrieveAll(mln, dto);
     }
     

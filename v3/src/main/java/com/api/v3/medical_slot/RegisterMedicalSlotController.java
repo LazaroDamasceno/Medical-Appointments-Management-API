@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.v3.auxiliaries.dtos.DateTimeDTO;
+import com.api.v3.auxiliaries.DateTimeDTO;
 
 @RestController
 @RequestMapping("api/v3/medical-slot")
@@ -18,7 +18,7 @@ public class RegisterMedicalSlotController {
     private final RegisterMedicalSlotService service;
 
     @PostMapping("{mln}")
-    public ResponseEntity<Void> register(@PathVariable String mln, @RequestBody DateTimeDTO dateTimeDTO) {
+    public ResponseEntity<Void> register(@PathVariable @Pattern(regexp = "[0-9]{7}") String mln, @RequestBody DateTimeDTO dateTimeDTO) {
         return service.register(mln, dateTimeDTO);
     }
 }

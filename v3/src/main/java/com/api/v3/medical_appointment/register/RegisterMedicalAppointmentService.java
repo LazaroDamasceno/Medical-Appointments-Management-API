@@ -5,11 +5,12 @@ import com.api.v3.medical_appointment.MedicalAppointmentRepository;
 import com.api.v3.medical_slot.MedicalSlotRepository;
 import com.api.v3.patient.RetrievePatientService;
 import com.api.v3.physician.RetrievePhysicianService;
-import com.api.v3.auxiliaries.dtos.DateTimeDTO;
-import com.api.v3.auxiliaries.exceptions.MedicalAppointmentAlreadyExistException;
+import com.api.v3.auxiliaries.DateTimeDTO;
+import com.api.v3.auxiliaries.MedicalAppointmentAlreadyExistException;
 
 import java.util.Optional;
 
+import jakarta.validation.constraints.Pattern;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,7 @@ public class RegisterMedicalAppointmentService {
     private final MedicalAppointmentRepository medicalAppointmentRepository;
     private final MedicalSlotRepository medicalSlotRepository;
 
-    public ResponseEntity<Void> register(String mln, String ssn, DateTimeDTO dto) {
+    public ResponseEntity<Void> register(@Pattern(regexp = "[0-9]{7}") String mln, @Pattern(regexp = "[0-9]{9}") String ssn, DateTimeDTO dto) {
 
         Physician physician = retrievePhysician.retrieve(mln);
         Patient patient = retrievePatient.retrieve(ssn);

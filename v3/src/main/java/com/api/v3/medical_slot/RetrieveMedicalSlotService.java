@@ -2,8 +2,8 @@ package com.api.v3.medical_slot;
 
 import com.api.v3.physician.Physician;
 import com.api.v3.physician.RetrievePhysicianService;
-import com.api.v3.auxiliaries.dtos.DateTimeDTO;
-import com.api.v3.auxiliaries.exceptions.MedicalSlotNotFoundException;
+import com.api.v3.auxiliaries.DateTimeDTO;
+import com.api.v3.auxiliaries.MedicalSlotNotFoundException;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ public class RetrieveMedicalSlotService {
     private final MedicalSlotRepository medicalSlotRepository;
     private final RetrievePhysicianService retrievePhysician;
 
-    public MedicalSlot retrieve(String mln, DateTimeDTO dto) {
+    public MedicalSlot retrieve(@Pattern(regexp = "[0-9]{7}") String mln, DateTimeDTO dto) {
         Physician physician = retrievePhysician
 .retrieve(mln);
         Optional<MedicalSlot> medicalSlot = medicalSlotRepository

@@ -19,7 +19,7 @@ public class RetrieveCancelledMedicalAppointmentsByPatientController {
     private final RetrieveCancelledMedicalAppointmentsByPatientService service;
 
     @GetMapping("cancelled/by-patient/{ssn}")
-    public ResponseEntity<List<MedicalAppointment>> retrieve(@PathVariable String ssn) {
+    public ResponseEntity<List<MedicalAppointment>> retrieve(@PathVariable @Pattern(regexp = "[0-9]{9}") String ssn) {
         return service.retrieve(ssn);
     }                   
     

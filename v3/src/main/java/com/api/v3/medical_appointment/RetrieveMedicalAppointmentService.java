@@ -2,8 +2,8 @@ package com.api.v3.medical_appointment;
 
 import com.api.v3.physician.Physician;
 import com.api.v3.physician.RetrievePhysicianService;
-import com.api.v3.auxiliaries.dtos.DateTimeDTO;
-import com.api.v3.auxiliaries.exceptions.MedicalAppointmentNotFoundException;
+import com.api.v3.auxiliaries.DateTimeDTO;
+import com.api.v3.auxiliaries.MedicalAppointmentNotFoundException;
 
 import org.springframework.stereotype.Service;
 
@@ -22,7 +22,7 @@ public class RetrieveMedicalAppointmentService {
     private final RetrievePatientService retrievePatientBySsn;
     private final RetrievePhysicianService retrievePhysician;
 
-    public MedicalAppointment retrieveByPatient(String ssn, DateTimeDTO dto) {
+    public MedicalAppointment retrieveByPatient(@Pattern(regexp = "[0-9]{9}") String ssn, DateTimeDTO dto) {
         Patient patient = retrievePatientBySsn.retrieve(ssn);
         Optional<MedicalAppointment> medicalAppointment = repository
                 .findAll()
@@ -34,7 +34,7 @@ public class RetrieveMedicalAppointmentService {
         return medicalAppointment.get();
     }
 
-    public MedicalAppointment retrieveByPhysician(String mln, DateTimeDTO dto) {
+    public MedicalAppointment retrieveByPhysician(@Pattern(regexp = "[0-9]{7}") String mln, DateTimeDTO dto) {
         Physician physician = retrievePhysician.retrieve(mln);
         Optional<MedicalAppointment> medicalAppointment = repository
                 .findAll()

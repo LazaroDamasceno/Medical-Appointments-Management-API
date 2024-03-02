@@ -18,7 +18,7 @@ public class RetrieveAllMedicalSlotsController {
     private final RetrieveAllMedicalSlotsService service;
 
     @GetMapping("{mln}")
-    public ResponseEntity<List<MedicalSlot>> retrieveAll(@PathVariable String mln) {
+    public ResponseEntity<List<MedicalSlot>> retrieveAll(@PathVariable @Pattern(regexp = "[0-9]{7}") String mln) {
         return service.retrieveAll(mln);
     }
     

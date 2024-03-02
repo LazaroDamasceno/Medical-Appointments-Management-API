@@ -16,7 +16,7 @@ public class DeleteAllMedicalSlotsController {
     private final DeleteAllMedicalSlotsService service;
 
     @DeleteMapping("{mln}")
-    public ResponseEntity<Void> delete(@PathVariable String mln) {
+    public ResponseEntity<Void> delete(@PathVariable @Pattern(regexp = "[0-9]{7}") String mln) {
         return service.delete(mln);
     }
     

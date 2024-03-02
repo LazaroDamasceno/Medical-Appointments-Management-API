@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.api.v3.patient.Patient;
 import com.api.v3.patient.RetrievePatientService;
-import com.api.v3.auxiliaries.dtos.BetweenDatesDTO;
+import com.api.v3.auxiliaries.BetweenDatesDTO;
 
 import lombok.AllArgsConstructor;
 
@@ -20,7 +20,7 @@ public class RetrieveScheduledMedicalAppointmentsBetweenDatesByPatientService {
     private final MedicalAppointmentRepository repository;
     private final RetrievePatientService retrievePatientBySsn;
 
-    public ResponseEntity<List<MedicalAppointment>> retrieve(String ssn, BetweenDatesDTO dto) {
+    public ResponseEntity<List<MedicalAppointment>> retrieve(@Pattern(regexp = "[0-9]{9}") String ssn, BetweenDatesDTO dto) {
         Patient patient = retrievePatientBySsn.retrieve(ssn);
         return ResponseEntity.ok(
             repository

@@ -3,7 +3,7 @@ package com.api.v3.medical_appointment.scheduled;
 import java.util.List;
 
 import com.api.v3.medical_appointment.MedicalAppointment;
-import com.api.v3.auxiliaries.dtos.BetweenDatesDTO;
+import com.api.v3.auxiliaries.BetweenDatesDTO;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +22,7 @@ public class RetrieveScheduledMedicalAppointmentsBetweenDatesByPhysicianControll
     private final RetrieveSheduledMedicalAppointmentsBetweenDatesByPhysicianService service;
 
     @GetMapping("between-dates/by-physician/{mln}")
-    public ResponseEntity<List<MedicalAppointment>> retrieve(@PathVariable String mln, @RequestBody BetweenDatesDTO dto) {
+    public ResponseEntity<List<MedicalAppointment>> retrieve(@PathVariable @Pattern(regexp = "[0-9]{7}") String mln, @RequestBody BetweenDatesDTO dto) {
         return service.retrieve(mln, dto);
     }
 

@@ -1,4 +1,4 @@
-package com.api.v3.auxiliaries.exceptions;
+package com.api.v3.auxiliaries;
 
 public class MedicalRecordNotFoundException extends RuntimeException {
 

@@ -15,7 +15,7 @@ public class TerminatePhysicianController {
     private final TerminatePhysicianService service;
 
     @PatchMapping("{mln}")
-    public ResponseEntity<Void> terminate(@PathVariable String mln) {
+    public ResponseEntity<Void> terminate(@PathVariable @Pattern(regexp = "[0-9]{7}") String mln) {
         return service.terminate(mln);
     }
 }

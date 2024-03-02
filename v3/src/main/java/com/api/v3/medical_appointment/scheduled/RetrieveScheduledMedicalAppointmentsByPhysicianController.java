@@ -19,7 +19,7 @@ public class RetrieveScheduledMedicalAppointmentsByPhysicianController {
     private final RetrieveScheduledMedicalAppointmentsByPhysicianService service;
 
     @GetMapping("by-physician/{mln}")
-    public ResponseEntity<List<MedicalAppointment>> retrieve(@PathVariable String mln) {
+    public ResponseEntity<List<MedicalAppointment>> retrieve(@PathVariable @Pattern(regexp = "[0-9]{7}") String mln) {
         return service.retrieve(mln);
     }
 

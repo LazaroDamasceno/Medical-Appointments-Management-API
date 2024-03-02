@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.v3.auxiliaries.dtos.DateTimeDTO;
+import com.api.v3.auxiliaries.DateTimeDTO;
 
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -20,7 +20,7 @@ public class CancelMedicalAppointmentController {
     private final CancelMedicalAppointmentService service;
 
     @PatchMapping("{ssn}")
-    public ResponseEntity<Void> cancel(@PathVariable String ssn, @RequestBody DateTimeDTO dto) {
+    public ResponseEntity<Void> cancel(@PathVariable @Pattern(regexp = "[0-9]{9}") String ssn, @RequestBody DateTimeDTO dto) {
         return service.cancel(ssn, dto);
     }
 

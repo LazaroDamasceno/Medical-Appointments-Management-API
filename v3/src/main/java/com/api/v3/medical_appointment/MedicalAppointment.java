@@ -6,7 +6,7 @@ import java.util.UUID;
 
 import com.api.v3.patient.Patient;
 import com.api.v3.physician.Physician;
-import com.api.v3.auxiliaries.dtos.DateTimeDTO;
+import com.api.v3.auxiliaries.DateTimeDTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.persistence.CascadeType;

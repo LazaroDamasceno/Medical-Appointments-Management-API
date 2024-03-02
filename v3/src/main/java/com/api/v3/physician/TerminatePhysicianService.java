@@ -13,7 +13,7 @@ public class TerminatePhysicianService {
 
     private final PhysicianRepository repository;
 
-    public ResponseEntity<Void> terminate(String mln) {
+    public ResponseEntity<Void> terminate(@Pattern(regexp = "[0-9]{7}") String mln) {
         Optional<Physician> optional = repository.findByMln(mln);
         if (optional.isEmpty()) return ResponseEntity.badRequest().build();
         Physician physician = optional.get();

@@ -18,7 +18,7 @@ public class Physician {
     private final UUID id = UUID.randomUUID();
 
     @Column(nullable = false, unique = true)
-    private String mln;
+    private @Pattern(regexp = "[0-9]{7}") String mln;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
     private final LocalDate inductionDate = LocalDate.now();

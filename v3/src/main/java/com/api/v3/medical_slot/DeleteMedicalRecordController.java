@@ -3,7 +3,7 @@ package com.api.v3.medical_slot;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.api.v3.auxiliaries.dtos.DateTimeDTO;
+import com.api.v3.auxiliaries.DateTimeDTO;
 
 import lombok.AllArgsConstructor;
 
@@ -15,7 +15,7 @@ public class DeleteMedicalRecordController {
     private final DeleteMedicalRecordService service;
 
     @DeleteMapping("{mln}")
-    public ResponseEntity<Void> delete(@PathVariable String mln, @RequestBody DateTimeDTO dto) {
+    public ResponseEntity<Void> delete(@PathVariable @Pattern(regexp = "[0-9]{7}") String mln, @RequestBody DateTimeDTO dto) {
         return service.delete(mln, dto);
     }
     

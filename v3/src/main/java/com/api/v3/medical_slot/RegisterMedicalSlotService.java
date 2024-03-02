@@ -2,8 +2,8 @@ package com.api.v3.medical_slot;
 
 import com.api.v3.physician.Physician;
 import com.api.v3.physician.RetrievePhysicianService;
-import com.api.v3.auxiliaries.dtos.DateTimeDTO;
-import com.api.v3.auxiliaries.exceptions.MedicalSlotAlreadyExistException;
+import com.api.v3.auxiliaries.DateTimeDTO;
+import com.api.v3.auxiliaries.MedicalSlotAlreadyExistException;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,7 +19,7 @@ public class RegisterMedicalSlotService {
     private final MedicalSlotRepository medicalSlotRepository;
     private final RetrievePhysicianService retrievePhysician;
 
-    public ResponseEntity<Void> register(String mln, DateTimeDTO dateTimeDTO) {
+    public ResponseEntity<Void> register(@Pattern(regexp = "[0-9]{7}") String mln, DateTimeDTO dateTimeDTO) {
         Physician physician = retrievePhysician.retrieve(mln);
         Optional<MedicalSlot> medicalSlotOptional = medicalSlotRepository
                 .findAll()

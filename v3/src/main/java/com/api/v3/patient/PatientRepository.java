@@ -12,6 +12,6 @@ public interface PatientRepository extends JpaRepository<Patient, UUID> {
         select p from Patient p
         where p.systemUser.ssn = :ssn
     """)
-    Patient retrieve(@Param("ssn") String ssn);
+    Patient retrieve(@Param("ssn") @Pattern(regexp = "[0-9]{9}") String ssn);
 
 }

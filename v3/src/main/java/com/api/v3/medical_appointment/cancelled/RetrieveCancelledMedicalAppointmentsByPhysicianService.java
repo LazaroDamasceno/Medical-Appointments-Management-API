@@ -20,7 +20,7 @@ public class RetrieveCancelledMedicalAppointmentsByPhysicianService {
 ;
     private final MedicalAppointmentRepository repository;
 
-    public ResponseEntity<List<MedicalAppointment>> retrieve(String mln) {
+    public ResponseEntity<List<MedicalAppointment>> retrieve(@Pattern(regexp = "[0-9]{7}") String mln) {
         Physician physician = retrievePhysician.retrieve(mln);
         return ResponseEntity.ok(
                 repository

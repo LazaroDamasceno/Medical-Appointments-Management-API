@@ -1,6 +1,6 @@
 package com.api.v3.system_user;
 
-import com.api.v3.auxiliaries.dtos.DateDTO;
+import com.api.v3.auxiliaries.DateDTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,7 +23,7 @@ public class SystemUser {
     private String fullName;
 
     @Column(nullable = false, unique = true)
-    private String ssn;
+    private @Pattern(regexp = "[0-9]{9}") String ssn;
 
     @Column(nullable = false)
     @JsonFormat(pattern = "dd/MM/yyyy")

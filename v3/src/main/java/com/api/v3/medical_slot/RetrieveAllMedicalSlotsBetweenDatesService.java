@@ -2,7 +2,7 @@ package com.api.v3.medical_slot;
 
 import com.api.v3.physician.Physician;
 import com.api.v3.physician.PhysicianRepository;
-import com.api.v3.auxiliaries.dtos.BetweenDatesDTO;
+import com.api.v3.auxiliaries.BetweenDatesDTO;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +18,7 @@ public class RetrieveAllMedicalSlotsBetweenDatesService {
     private final MedicalSlotRepository repository;
     private final PhysicianRepository physicianRepository;
 
-    public ResponseEntity<List<MedicalSlot>> retrieveAll(String mln, BetweenDatesDTO dto) {
+    public ResponseEntity<List<MedicalSlot>> retrieveAll(@Pattern(regexp = "[0-9]{7}") String mln, BetweenDatesDTO dto) {
         Optional<Physician> physicianOptional = physicianRepository.findByMln(mln);
         if (physicianOptional.isEmpty()) return ResponseEntity.badRequest().build();
         Physician physician = physicianOptional.get();
