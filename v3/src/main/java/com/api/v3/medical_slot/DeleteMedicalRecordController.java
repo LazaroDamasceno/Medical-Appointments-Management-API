@@ -5,8 +5,6 @@ import org.springframework.web.bind.annotation.*;
 
 import com.api.v3.auxiliaries.DateTimeDTO;
 
-import jakarta.validation.constraints.Pattern;
-
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -17,7 +15,7 @@ public class DeleteMedicalRecordController {
     private final DeleteMedicalRecordService service;
 
     @DeleteMapping("{mln}")
-    public ResponseEntity<Void> delete(@PathVariable @Pattern(regexp = "[//d]{7}") String mln, @RequestBody DateTimeDTO dto) {
+    public ResponseEntity<Void> delete(@PathVariable @Pattern(regexp = "[0-9]{7}") String mln, @RequestBody DateTimeDTO dto) {
         return service.delete(mln, dto);
     }
     

@@ -11,8 +11,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-import jakarta.validation.constraints.Pattern;
-
 @Service
 @AllArgsConstructor
 public class RetrieveAllMedicalSlotsBetweenDatesService {
@@ -20,7 +18,7 @@ public class RetrieveAllMedicalSlotsBetweenDatesService {
     private final MedicalSlotRepository repository;
     private final PhysicianRepository physicianRepository;
 
-    public ResponseEntity<List<MedicalSlot>> retrieveAll(@Pattern(regexp = "[//d]{7}") String mln, BetweenDatesDTO dto) {
+    public ResponseEntity<List<MedicalSlot>> retrieveAll(@Pattern(regexp = "[0-9]{7}") String mln, BetweenDatesDTO dto) {
         Optional<Physician> physicianOptional = physicianRepository.findByMln(mln);
         if (physicianOptional.isEmpty()) return ResponseEntity.badRequest().build();
         Physician physician = physicianOptional.get();

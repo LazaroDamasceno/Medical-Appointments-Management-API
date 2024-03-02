@@ -1,6 +1,5 @@
 package com.api.v3.physician;
 
-import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -14,7 +13,7 @@ public class TerminatePhysicianService {
 
     private final PhysicianRepository repository;
 
-    public ResponseEntity<Void> terminate(@Pattern(regexp = "[//d]{7}") String mln) {
+    public ResponseEntity<Void> terminate(@Pattern(regexp = "[0-9]{7}") String mln) {
         Optional<Physician> optional = repository.findByMln(mln);
         if (optional.isEmpty()) return ResponseEntity.badRequest().build();
         Physician physician = optional.get();

@@ -12,8 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-import jakarta.validation.constraints.Pattern;
-
 @Service
 @AllArgsConstructor
 public class RegisterMedicalSlotService {
@@ -21,7 +19,7 @@ public class RegisterMedicalSlotService {
     private final MedicalSlotRepository medicalSlotRepository;
     private final RetrievePhysicianService retrievePhysician;
 
-    public ResponseEntity<Void> register(@Pattern(regexp = "[//d]{7}") String mln, DateTimeDTO dateTimeDTO) {
+    public ResponseEntity<Void> register(@Pattern(regexp = "[0-9]{7}") String mln, DateTimeDTO dateTimeDTO) {
         Physician physician = retrievePhysician.retrieve(mln);
         Optional<MedicalSlot> medicalSlotOptional = medicalSlotRepository
                 .findAll()

@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
 
-import jakarta.validation.constraints.Pattern;
-
 @RestController
 @RequestMapping("api/v3/medical-appointments")
 @AllArgsConstructor
@@ -24,7 +22,7 @@ public class RetrieveScheduledMedicalAppointmentsBetweenDatesByPhysicianControll
     private final RetrieveSheduledMedicalAppointmentsBetweenDatesByPhysicianService service;
 
     @GetMapping("between-dates/by-physician/{mln}")
-    public ResponseEntity<List<MedicalAppointment>> retrieve(@PathVariable @Pattern(regexp = "[//d]{7}") String mln, @RequestBody BetweenDatesDTO dto) {
+    public ResponseEntity<List<MedicalAppointment>> retrieve(@PathVariable @Pattern(regexp = "[0-9]{7}") String mln, @RequestBody BetweenDatesDTO dto) {
         return service.retrieve(mln, dto);
     }
 

@@ -7,8 +7,8 @@ import jakarta.validation.constraints.Pattern;
 
 public record RegisterPhysicianDTO(
         @NotBlank
-        @Pattern(regexp = "[//d]{7}")
-        @Pattern(regexp = "[//d]{7}") String mln,
+        @Pattern(regexp = "[0-9]{7}")
+        @Pattern(regexp = "[0-9]{7}") String mln,
         @NotNull
         RegisterSystemUserDTO systemUserDTO
 ) {

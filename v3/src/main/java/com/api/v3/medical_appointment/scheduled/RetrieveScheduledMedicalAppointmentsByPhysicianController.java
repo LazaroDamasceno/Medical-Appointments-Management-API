@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
 
-import jakarta.validation.constraints.Pattern;
-
 @RestController
 @RequestMapping("api/v3/medical-appointments/scheduled")
 @AllArgsConstructor
@@ -21,7 +19,7 @@ public class RetrieveScheduledMedicalAppointmentsByPhysicianController {
     private final RetrieveScheduledMedicalAppointmentsByPhysicianService service;
 
     @GetMapping("by-physician/{mln}")
-    public ResponseEntity<List<MedicalAppointment>> retrieve(@PathVariable @Pattern(regexp = "[//d]{7}") String mln) {
+    public ResponseEntity<List<MedicalAppointment>> retrieve(@PathVariable @Pattern(regexp = "[0-9]{7}") String mln) {
         return service.retrieve(mln);
     }
 
