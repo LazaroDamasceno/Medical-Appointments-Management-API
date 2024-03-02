@@ -1,5 +1,6 @@
 package com.api.v4.medical_record;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -20,11 +21,13 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "v4_medical_record")
-public class MedicalRecord {
+public class MedicalRecord implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     private final UUID id = UUID.randomUUID();
-
+    
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "physician_id")
     private Physician physician;

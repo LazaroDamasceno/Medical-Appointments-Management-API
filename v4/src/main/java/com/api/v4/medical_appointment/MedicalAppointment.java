@@ -1,5 +1,6 @@
 package com.api.v4.medical_appointment;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -21,12 +22,14 @@ import lombok.Data;
 @Entity
 @Table(name = "v4_medical_appointment")
 @Data
-public class MedicalAppointment {
+public class MedicalAppointment implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     @Id
+    
     private final UUID id = UUID.randomUUID();
-
     @Column(nullable = false)
+
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime availableDateTime;
 
