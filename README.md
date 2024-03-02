@@ -8,7 +8,7 @@ The Swagger UI allows its user to use the API online. By using the Swagger UI, t
 
 ## API running
 
-To watch the ai, click [here](https://youtu.be/4x3ZTdAaoGc).
+To watch the api running, click [here](https://youtu.be/4x3ZTdAaoGc).
 
 ## Versions
 
