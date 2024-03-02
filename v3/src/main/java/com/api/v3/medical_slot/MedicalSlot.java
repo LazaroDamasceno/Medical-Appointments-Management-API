@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -16,6 +17,7 @@ import java.util.UUID;
 public class MedicalSlot  implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     private final UUID id = UUID.randomUUID();
 

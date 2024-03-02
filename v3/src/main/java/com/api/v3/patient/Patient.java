@@ -4,6 +4,7 @@ import com.api.v3.system_user.SystemUser;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
@@ -15,6 +16,7 @@ public class Patient  implements Serializable {
 
     @Id
     private final UUID id = UUID.randomUUID();
+    
     @Column(nullable = false)
     private String fullAddress;
 

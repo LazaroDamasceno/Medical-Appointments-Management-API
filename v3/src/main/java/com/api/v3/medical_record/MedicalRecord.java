@@ -1,5 +1,6 @@
 package com.api.v3.medical_record;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -26,6 +27,7 @@ public class MedicalRecord implements Serializable {
 
     @Id
     private final UUID id = UUID.randomUUID();
+    
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "physician_id")
     private Physician physician;

@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -22,6 +23,7 @@ public class SystemUser implements Serializable {
 
     @Id
     private final UUID id = UUID.randomUUID();
+    
     @Column(nullable = false)
     private String fullName;
 

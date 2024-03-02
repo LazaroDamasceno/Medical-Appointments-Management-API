@@ -1,5 +1,6 @@
 package com.api.v3.medical_appointment;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -25,10 +26,13 @@ public class MedicalAppointment implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    
     private final UUID id = UUID.randomUUID();
     @Column(nullable = false)
+
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime availableDateTime;
+
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDate cancellationDate;
 

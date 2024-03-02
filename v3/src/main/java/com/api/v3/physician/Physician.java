@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -19,6 +20,7 @@ public class Physician  implements Serializable {
 
     @Id
     private final UUID id = UUID.randomUUID();
+    
     @Column(nullable = false, unique = true)
     private @Pattern(regexp = "[0-9]{7}") String mln;
 
