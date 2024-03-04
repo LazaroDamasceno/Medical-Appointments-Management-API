@@ -17,6 +17,7 @@ To watch the api running, click [here](https://youtu.be/4x3ZTdAaoGc).
 |1|First version|
 |2|Error handling was added|
 |3|Serializable and regular expression (regex) were added|
+|4|Updated the entities SystemUser and Physcian and some of their related files|
 
 ## Examples
 
