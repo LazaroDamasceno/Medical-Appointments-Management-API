@@ -12,7 +12,7 @@ To watch the api running, click [here](https://youtu.be/4x3ZTdAaoGc).
 
 ## Versions
 
-|Version|Description|
+|Version|Main changes|
 |:-:|:-:|
 |1|First version|
 |2|Error handling was added|
