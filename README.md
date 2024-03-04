@@ -2,7 +2,7 @@
 
 ## How to run the API
 
-To tun the API, it's necessary to access the Swagger UI through. The Swagger UI can accessed clicking [here](localhost:8080/swagger-ui/index.html).
+To tun the API, it's necessary to access the Swagger UI through. Place `localhost:8080/swagger-ui/index.html` on the seach bar of the browser.
 
 The Swagger UI allows its user to use the API online. By using the Swagger UI, there's no need to install softwares like Postman.
 
