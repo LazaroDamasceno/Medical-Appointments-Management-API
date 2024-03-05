@@ -2,7 +2,7 @@
 
 ## How to run the API
 
-To tun the API, it's necessary to access the Swagger UI through. Place `localhost:8080/swagger-ui/index.html` on the seach bar of the browser.
+To run the API, it's necessary to access the Swagger UI through. Place `localhost:8080/swagger-ui/index.html` on the seach bar of the browser.
 
 The Swagger UI allows its user to use the API online. By using the Swagger UI, there's no need to install softwares like Postman.
 
@@ -14,7 +14,7 @@ To watch the api running, click [here](https://youtu.be/4x3ZTdAaoGc).
 
 |Version|Main changes|
 |:-:|:-:|
-|1|First version|
+|1|-|
 |2|Error handling was added|
 |3|Serializable and regular expression (regex) were added|
 |4|Updated the entities SystemUser, Patient and Physcian and some of their related files|
