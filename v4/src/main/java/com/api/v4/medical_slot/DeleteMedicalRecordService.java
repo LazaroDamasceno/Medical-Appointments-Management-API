@@ -12,7 +12,7 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class DeleteMedicalRecordService {
+class DeleteMedicalRecordService {
 
     private final RetrieveMedicalSlotService retrieveMedicalSlot;
     private final MedicalSlotRepository repository;

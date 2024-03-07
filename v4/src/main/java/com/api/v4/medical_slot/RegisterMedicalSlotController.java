@@ -15,7 +15,7 @@ import com.api.v4.auxiliaries.DateTimeDTO;
 @RestController
 @RequestMapping("api/v4/medical-slot")
 @AllArgsConstructor
-public class RegisterMedicalSlotController {
+class RegisterMedicalSlotController {
 
     private final RegisterMedicalSlotService service;
 

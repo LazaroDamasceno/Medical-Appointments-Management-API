@@ -8,7 +8,7 @@ import java.util.UUID;
 
 import jakarta.validation.constraints.Pattern;
 
-public interface PatientRepository extends JpaRepository<Patient, UUID> {
+interface PatientRepository extends JpaRepository<Patient, UUID> {
 
     @Query("""
         select p from Patient p

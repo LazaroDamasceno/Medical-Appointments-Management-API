@@ -15,7 +15,7 @@ import jakarta.validation.constraints.Pattern;
 
 @Service
 @AllArgsConstructor
-public class DeleteAllMedicalSlotsService {
+class DeleteAllMedicalSlotsService {
 
     private final MedicalSlotRepository repository;
     private final RetrievePhysicianService retrievePhysician;

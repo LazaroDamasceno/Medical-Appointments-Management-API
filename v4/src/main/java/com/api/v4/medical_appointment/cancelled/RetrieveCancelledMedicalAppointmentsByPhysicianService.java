@@ -16,10 +16,9 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class RetrieveCancelledMedicalAppointmentsByPhysicianService {
+class RetrieveCancelledMedicalAppointmentsByPhysicianService {
 
-    private final RetrievePhysicianService retrievePhysician
-;
+    private final RetrievePhysicianService retrievePhysician;
     private final MedicalAppointmentRepository repository;
 
     public ResponseEntity<List<MedicalAppointment>> retrieve(@Pattern(regexp = "[0-9]{7}") String mln) {

@@ -13,7 +13,7 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("api/v1/medical-slots")
 @AllArgsConstructor
-public class DeleteAllMedicalSlotsController {
+class DeleteAllMedicalSlotsController {
 
     private final DeleteAllMedicalSlotsService service;
 

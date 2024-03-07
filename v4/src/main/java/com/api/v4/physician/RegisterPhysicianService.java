@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class RegisterPhysicianService {
 
-    private final PhysicianRepository repository;
+    final PhysicianRepository repository;
 
     public ResponseEntity<Void> register(RegisterPhysicianDTO dto) {
         Physician physician = new Physician(dto);

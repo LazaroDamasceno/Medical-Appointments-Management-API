@@ -18,7 +18,7 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class RetrieveMedicalRecordService {
+class RetrieveMedicalRecordService {
 
     private final MedicalRecordRepository repository;
     private final RetrievePhysicianService retrievePhysician;

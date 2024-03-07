@@ -24,7 +24,7 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class RegisterMedicalAppointmentService {
+class RegisterMedicalAppointmentService {
 
     private final RetrieveMedicalSlotService retrieveMedicalSlot;
     private final RetrievePhysicianService retrievePhysician;

@@ -16,7 +16,7 @@ import jakarta.validation.constraints.Pattern;
 @RestController
 @RequestMapping("api/v4/medical-appointments/scheduled")
 @AllArgsConstructor
-public class RetrieveScheduledMedicalAppointmentsByPhysicianController {
+class RetrieveScheduledMedicalAppointmentsByPhysicianController {
     
     private final RetrieveScheduledMedicalAppointmentsByPhysicianService service;
 

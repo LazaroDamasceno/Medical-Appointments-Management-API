@@ -13,7 +13,7 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("api/v4/medical-record")
 @AllArgsConstructor
-public class RetrieveMedicalRecordController {
+class RetrieveMedicalRecordController {
 
     private final RetrieveMedicalRecordService service;
 

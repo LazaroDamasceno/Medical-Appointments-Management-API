@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class RegisterMedicalSlotService {
+class RegisterMedicalSlotService {
 
     private final MedicalSlotRepository medicalSlotRepository;
     private final RetrievePhysicianService retrievePhysician;

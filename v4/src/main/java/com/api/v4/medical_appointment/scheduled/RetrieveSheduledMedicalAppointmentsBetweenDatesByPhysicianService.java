@@ -17,10 +17,9 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class RetrieveSheduledMedicalAppointmentsBetweenDatesByPhysicianService {
+class RetrieveSheduledMedicalAppointmentsBetweenDatesByPhysicianService {
     
-    private final RetrievePhysicianService retrievePhysician
-;
+    private final RetrievePhysicianService retrievePhysician;
     private final MedicalAppointmentRepository repository;
 
     public ResponseEntity<List<MedicalAppointment>> retrieve(@Pattern(regexp = "[0-9]{7}") String mln, BetweenDatesDTO dto) {

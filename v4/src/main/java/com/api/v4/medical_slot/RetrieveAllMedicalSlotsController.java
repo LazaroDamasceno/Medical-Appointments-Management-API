@@ -15,7 +15,7 @@ import jakarta.validation.constraints.Pattern;
 @RestController
 @RequestMapping("api/v1/medical-slots")
 @AllArgsConstructor
-public class RetrieveAllMedicalSlotsController {
+class RetrieveAllMedicalSlotsController {
 
     private final RetrieveAllMedicalSlotsService service;
 

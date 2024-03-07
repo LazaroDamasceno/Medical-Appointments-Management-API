@@ -12,7 +12,7 @@ import jakarta.validation.constraints.Pattern;
 @RestController
 @RequestMapping("api/v4/physician")
 @AllArgsConstructor
-public class TerminatePhysicianController {
+class TerminatePhysicianController {
 
     private final TerminatePhysicianService service;
 

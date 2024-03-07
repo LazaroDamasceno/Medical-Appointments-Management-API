@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("api/v4/patient")
 @AllArgsConstructor
-public class RegisterPatientController {
+class RegisterPatientController {
 
     private final RegisterPatientService service;
 

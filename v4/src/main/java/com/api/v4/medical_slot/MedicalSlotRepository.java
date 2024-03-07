@@ -4,5 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;
 
-public interface MedicalSlotRepository extends JpaRepository<MedicalSlot, UUID> {
+interface MedicalSlotRepository extends JpaRepository<MedicalSlot, UUID> {
 }

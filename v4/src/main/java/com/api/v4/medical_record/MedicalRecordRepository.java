@@ -8,7 +8,7 @@ import java.util.Optional;
 import com.api.v4.patient.Patient;
 
 
-public interface MedicalRecordRepository extends JpaRepository<MedicalRecord, UUID> {
+interface MedicalRecordRepository extends JpaRepository<MedicalRecord, UUID> {
 
     Optional<MedicalRecord> findByPatient(Patient patient);
 

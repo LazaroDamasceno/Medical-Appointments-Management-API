@@ -19,7 +19,7 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("api/v4/medical-appointments")
 @AllArgsConstructor
-public class RetrieveScheduledMedicalAppointmentsBetweenDatesByPhysicianController {
+class RetrieveScheduledMedicalAppointmentsBetweenDatesByPhysicianController {
     
     private final RetrieveSheduledMedicalAppointmentsBetweenDatesByPhysicianService service;
 

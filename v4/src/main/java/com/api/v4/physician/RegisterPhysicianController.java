@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("api/v4/physician")
 @AllArgsConstructor
-public class RegisterPhysicianController {
+class RegisterPhysicianController {
 
     private final RegisterPhysicianService service;
 

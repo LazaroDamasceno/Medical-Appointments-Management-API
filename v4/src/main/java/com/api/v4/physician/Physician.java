@@ -13,7 +13,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "v4_physician")
 @Data
-public class Physician  implements Serializable {
+class Physician  implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

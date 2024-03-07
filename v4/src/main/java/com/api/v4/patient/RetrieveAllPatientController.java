@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v4/patients")
 @AllArgsConstructor
-public class RetrieveAllPatientController {
+class RetrieveAllPatientController {
 
     private final RetrieveAllPatientsService service;
 

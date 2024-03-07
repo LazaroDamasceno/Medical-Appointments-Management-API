@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class RegisterPatientService {
+class RegisterPatientService {
 
     private final PatientRepository repository;
 

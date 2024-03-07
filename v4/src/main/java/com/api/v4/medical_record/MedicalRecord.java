@@ -21,7 +21,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "v4_medical_record")
-public class MedicalRecord implements Serializable {
+class MedicalRecord implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

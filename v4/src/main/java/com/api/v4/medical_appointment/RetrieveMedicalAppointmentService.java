@@ -17,7 +17,7 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-public class RetrieveMedicalAppointmentService {
+class RetrieveMedicalAppointmentService {
 
     private final MedicalAppointmentRepository repository;
     private final RetrievePatientService retrievePatientBySsn;

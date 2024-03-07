@@ -10,7 +10,7 @@ import jakarta.validation.constraints.Pattern;
 
 @Service
 @AllArgsConstructor
-public class TerminatePhysicianService {
+class TerminatePhysicianService {
 
     private final PhysicianRepository repository;
     private final RetrievePhysicianService service;

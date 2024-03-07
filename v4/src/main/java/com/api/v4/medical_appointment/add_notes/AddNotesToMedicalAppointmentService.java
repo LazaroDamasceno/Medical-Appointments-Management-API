@@ -14,7 +14,7 @@ import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
-public class AddNotesToMedicalAppointmentService {
+class AddNotesToMedicalAppointmentService {
 
     private final MedicalAppointmentRepository repository;
     private final RetrieveMedicalAppointmentService retrieveMedicalAppointment;

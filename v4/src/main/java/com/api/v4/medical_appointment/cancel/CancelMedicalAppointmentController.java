@@ -16,7 +16,7 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("api/v4/medical-appointment")
 @AllArgsConstructor
-public class CancelMedicalAppointmentController {
+class CancelMedicalAppointmentController {
     
     private final CancelMedicalAppointmentService service;
 

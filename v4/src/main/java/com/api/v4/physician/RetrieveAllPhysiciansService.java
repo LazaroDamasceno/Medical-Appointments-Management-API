@@ -8,7 +8,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class RetrieveAllPhysiciansService {
+class RetrieveAllPhysiciansService {
 
     private final PhysicianRepository repository;
 
