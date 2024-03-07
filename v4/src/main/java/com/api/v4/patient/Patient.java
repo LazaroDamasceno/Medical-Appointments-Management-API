@@ -10,7 +10,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "v4_patient")
 @Data
-class Patient  implements Serializable {
+public class Patient  implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

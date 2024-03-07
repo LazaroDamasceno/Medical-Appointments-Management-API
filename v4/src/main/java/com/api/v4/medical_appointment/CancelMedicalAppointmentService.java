@@ -1,12 +1,10 @@
-package com.api.v4.medical_appointment.cancel;
+package com.api.v4.medical_appointment;
 
 import java.time.LocalDate;
 
 import com.api.v4.auxiliaries.DateTimeDTO;
 import com.api.v4.auxiliaries.MedicalNotesNotNullException;
-import com.api.v4.medical_appointment.MedicalAppointment;
-import com.api.v4.medical_appointment.MedicalAppointmentRepository;
-import com.api.v4.medical_appointment.RetrieveMedicalAppointmentService;
+
 import jakarta.validation.constraints.Pattern;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,5 @@
-package com.api.v4.medical_appointment.register;
+package com.api.v4.medical_appointment;
 
-import com.api.v4.medical_appointment.MedicalAppointment;
-import com.api.v4.medical_appointment.MedicalAppointmentRepository;
 import com.api.v4.medical_slot.MedicalSlotRepository;
 import com.api.v4.patient.RetrievePatientService;
 import com.api.v4.physician.RetrievePhysicianService;

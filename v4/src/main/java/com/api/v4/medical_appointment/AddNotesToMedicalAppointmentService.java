@@ -1,8 +1,5 @@
-package com.api.v4.medical_appointment.add_notes;
+package com.api.v4.medical_appointment;
 
-import com.api.v4.medical_appointment.MedicalAppointment;
-import com.api.v4.medical_appointment.MedicalAppointmentRepository;
-import com.api.v4.medical_appointment.RetrieveMedicalAppointmentService;
 import jakarta.validation.constraints.Pattern;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

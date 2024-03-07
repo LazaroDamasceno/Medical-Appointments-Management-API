@@ -1,4 +1,4 @@
-package com.api.v4.medical_appointment.add_notes;
+package com.api.v4.medical_appointment;
 
 import com.api.v4.auxiliaries.DateTimeDTO;
 

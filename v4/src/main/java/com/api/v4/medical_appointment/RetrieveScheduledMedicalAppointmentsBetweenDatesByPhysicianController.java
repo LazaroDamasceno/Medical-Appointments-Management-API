@@ -1,8 +1,7 @@
-package com.api.v4.medical_appointment.scheduled;
+package com.api.v4.medical_appointment;
 
 import java.util.List;
 
-import com.api.v4.medical_appointment.MedicalAppointment;
 import com.api.v4.auxiliaries.BetweenDatesDTO;
 
 import org.springframework.http.ResponseEntity;

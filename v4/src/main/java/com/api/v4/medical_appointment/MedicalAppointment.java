@@ -22,7 +22,7 @@ import lombok.Data;
 @Entity
 @Table(name = "v4_medical_appointment")
 @Data
-class MedicalAppointment implements Serializable {
+public class MedicalAppointment implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id

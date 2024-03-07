@@ -1,9 +1,7 @@
-package com.api.v4.medical_appointment.cancelled;
+package com.api.v4.medical_appointment;
 
 import java.util.List;
 
-import com.api.v4.medical_appointment.MedicalAppointment;
-import com.api.v4.medical_appointment.MedicalAppointmentRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 

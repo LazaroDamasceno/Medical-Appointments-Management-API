@@ -1,4 +1,4 @@
-package com.api.v4.medical_appointment.add_notes;
+package com.api.v4.medical_appointment;
 
 import jakarta.validation.constraints.Pattern;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +13,7 @@ import lombok.AllArgsConstructor;
 @RestController
 @RequestMapping("api/v4/medical-appointment")
 @AllArgsConstructor
-class AddNotesToMedicalAppointmentController {
+public class AddNotesToMedicalAppointmentController {
 
     private final AddNotesToMedicalAppointmentService service;
 
