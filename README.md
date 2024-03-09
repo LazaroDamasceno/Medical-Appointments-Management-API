@@ -4,7 +4,7 @@
 
 The version of Java used the 17. 
 
-Java 17 can be download in this [site](https://aws.amazon.com/pt/corretto/?filtered-posts.sort-by=item.additionalFields.createdDate&filtered-posts.sort-order=desc).
+Java 17 can be downloaded in this [site](https://aws.amazon.com/pt/corretto/?filtered-posts.sort-by=item.additionalFields.createdDate&filtered-posts.sort-order=desc).
 
 ## How to run the API
 
